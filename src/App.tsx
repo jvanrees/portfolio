@@ -1,12 +1,23 @@
+import { RouterProvider, createRouter } from '@tanstack/react-router';
 import './App.css';
 
-const App = () => {
-  return (
-    <div className="content">
-      <h1>Rsbuild with React</h1>
-      <p>Start building amazing things with Rsbuild.</p>
-    </div>
-  );
-};
+import { routeTree } from './routeTree.gen';
 
-export default App;
+// Set up a Router instance
+const router = createRouter({
+  routeTree,
+  defaultPreload: 'intent',
+  scrollRestoration: true,
+})
+
+// Register things for typesafety
+declare module '@tanstack/react-router' {
+  interface Register {
+    router: typeof router
+  }
+}
+const App = () => {
+  return <RouterProvider router={router} />
+}
+
+export default App
