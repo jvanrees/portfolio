@@ -1,33 +1,27 @@
-import { Link, Outlet, createRootRoute } from '@tanstack/react-router'
-import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
-
+import { Outlet, createRootRoute } from '@tanstack/react-router';
+import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
+import { ViewState } from 'react-map-gl/maplibre';
+import HomeGrid from '../components/HomeGrid';
+import MapBackground from '../components/MapBackground';
 export const Route = createRootRoute({
     component: RootComponent,
 })
+const viewport: ViewState = {
+    longitude: 0,
+    latitude: 0,
+    zoom: 0,
+    pitch: 0,
+    bearing: 0,
+    padding: { top: 0, bottom: 0, left: 0, right: 0 }
+}
 
 function RootComponent() {
     return (
         <>
-            <div className="p-2 flex gap-2 text-lg">
-                <Link
-                    to="/"
-                    activeProps={{
-                        className: 'font-bold',
-                    }}
-                    activeOptions={{ exact: true }}
-                >
-                    Home
-                </Link>{' '}
-                <Link
-                    to="/about"
-                    activeProps={{
-                        className: 'font-bold',
-                    }}
-                >
-                    About
-                </Link>
+            <div className={"base-container"}>
+                <MapBackground viewport={viewport} />
+                <HomeGrid />
             </div>
-            <hr />
             <Outlet />
             <TanStackRouterDevtools position="bottom-right" />
         </>

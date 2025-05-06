@@ -1,0 +1,59 @@
+body {
+  margin: 0;
+  color: #fff;
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  background-image: linear-gradient(to bottom, #020917, #101725);
+}
+
+.content {
+  display: flex;
+  min-height: 100vh;
+  line-height: 1.1;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.content h1 {
+  font-size: 3.6rem;
+  font-weight: 700;
+}
+
+.content p {
+  font-size: 1.2rem;
+  font-weight: 400;
+  opacity: 0.5;
+}
+
+.grid-container {
+  vertical-align: middle;
+  display: grid;
+  position: absolute;
+  grid-gap: 1rem;
+  grid-auto-flow: dense;
+  grid-auto-rows: minmax(9.375rem, auto);
+  grid-template-columns: repeat(auto-fit, minmax(9.375rem, 1fr));
+  margin: 1rem;
+  z-index: 3;
+}
+
+.map {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+
+.map-overlay {
+  background-color: #f1f9ef;
+  background-image: url("../img/map-background-noise-light.png");
+  opacity: 0.7;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  backdrop-filter: blur(3px);
+  transition: all 3s ease-in-out;
+}
