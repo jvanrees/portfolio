@@ -1,7 +1,6 @@
 import { Outlet, createRootRoute } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
 import { ViewState } from 'react-map-gl/maplibre';
-import HomeGrid from '../components/HomeGrid';
 import MapBackground from '../components/MapBackground';
 export const Route = createRootRoute({
     component: RootComponent,
@@ -20,7 +19,6 @@ function RootComponent() {
         <>
             <div className={"base-container"}>
                 <MapBackground viewport={viewport} />
-                <HomeGrid />
             </div>
             <Outlet />
             <TanStackRouterDevtools position="bottom-right" />
