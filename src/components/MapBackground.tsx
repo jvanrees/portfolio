@@ -11,7 +11,7 @@ const MapBackground = ({
 }) => {
     // ...map style logic (move from App.js here)...
     return (
-        <div className='map'>
+        <div id='BackgroundMap'>
             <Map
                 {...viewport}
 

@@ -1,13 +1,16 @@
 import { createFileRoute } from '@tanstack/react-router'
-
+import DescriptionCard from '../components/DescriptionCard'
 export const Route = createFileRoute('/google-maps-api')({
     component: GoogleMapsComponent,
 })
 
+const pageConfig = {
+    title: "GoogleMaps",
+    content: "GoogleMaps Placeholder"
+}
+
 function GoogleMapsComponent() {
     return (
-        <div className="p-2">
-            <h3>GoogleMaps Placeholder</h3>
-        </div>
+        <DescriptionCard {...pageConfig} ></DescriptionCard>
     )
 }

@@ -1,13 +1,16 @@
 import { createFileRoute } from '@tanstack/react-router'
+import DescriptionCard from '../components/DescriptionCard'
 
 export const Route = createFileRoute('/rma-visitor-postgis')({
     component: RmaVisitorComponent,
 })
+const pageConfig = {
+    title: "RMA Visitor",
+    content: "RMA Visitor Placeholder"
+}
 
 function RmaVisitorComponent() {
     return (
-        <div className="p-2">
-            <h3>RMA Visitor Placeholder</h3>
-        </div>
+        <DescriptionCard {...pageConfig} ></DescriptionCard>
     )
 }

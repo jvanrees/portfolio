@@ -16,7 +16,7 @@ const gridItems = [
       <Card radius="lg">
         <h1>About Me Placeholder</h1>
         <Link
-          to="/about"
+          to='/about'
           activeProps={{
             className: 'font-bold',
           }}
@@ -33,7 +33,7 @@ const gridItems = [
     title: "Arsenal Android App",
     content: (
       <Link
-        to="/about"
+        to="/rma-android"
         activeProps={{
           className: 'font-bold',
         }}
@@ -59,7 +59,7 @@ const gridItems = [
         }}
       >
         <Card radius="lg">
-          <h1>RMA Android Placeholder</h1>
+          <h1>Google Maps Placeholder</h1>
 
 
         </Card>
@@ -73,13 +73,13 @@ const gridItems = [
     title: "PostGIS WebApp",
     content: (
       <Link
-        to="/about"
+        to="/rma-visitor-postgis"
         activeProps={{
           className: 'font-bold',
         }}
       >
         <Card radius="lg">
-          <h1>RMA Android Placeholder</h1>
+          <h1>RMA Visitor Placeholder</h1>
 
 
         </Card>
@@ -93,15 +93,13 @@ const gridItems = [
     title: "Qing Dynasty",
     content: (
       <Link
-        to="/about"
+        to="/qing-dynasty-map"
         activeProps={{
           className: 'font-bold',
         }}
       >
         <Card radius="lg">
-          <h1>RMA Android Placeholder</h1>
-
-
+          <h1>Qing Dynasty Placeholder</h1>
         </Card>
       </Link>
     ),
@@ -113,13 +111,13 @@ const gridItems = [
     title: "MapQuest Night Mode",
     content: (
       <Link
-        to="/about"
+        to="/nightmode"
         activeProps={{
           className: 'font-bold',
         }}
       >
         <Card radius="lg">
-          <h1>RMA Android Placeholder</h1>
+          <h1>Nightmode Placeholder</h1>
 
 
         </Card>
@@ -133,15 +131,13 @@ const gridItems = [
     title: "Shaded Relief",
     content: (
       <Link
-        to="/about"
+        to="/shaded-relief"
         activeProps={{
           className: 'font-bold',
         }}
       >
         <Card radius="lg">
-          <h1>RMA Android Placeholder</h1>
-
-
+          <h1>Shaded Relief Placeholder</h1>
         </Card>
       </Link>
     ),
@@ -153,15 +149,13 @@ const gridItems = [
     title: "More...",
     content: (
       <Link
-        to="/about"
+        to="/even-more-maps"
         activeProps={{
           className: 'font-bold',
         }}
       >
         <Card radius="lg">
-          <h1>RMA Android Placeholder</h1>
-
-
+          <h1>Even More Maps Placeholder</h1>
         </Card>
       </Link>
     ),

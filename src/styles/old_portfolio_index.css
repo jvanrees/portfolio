@@ -1,0 +1,941 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900');
+@import url('https://fonts.googleapis.com/css?family=Material+Icons');
+
+
+html,
+body,
+#root,
+.App {
+    min-height: 100% !important;
+    font-size: 16px;
+    font-family: "Lato", "Arial", sans-serif;
+    font-variant-ligatures: no-common-ligatures;
+}
+
+.BackgroundMap {
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+}
+
+.map-overlay {
+    background-color: #f1f9ef;
+    background-image: url("./img/concrete-wall-3.png");
+    opacity: 0.7;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    backdrop-filter: blur(3px);
+    transition: all 3s ease-in-out;
+}
+
+.overlay-night-navigation {
+    background-color: hsla(218, 15%, 05%, 0.56);
+    opacity: 0.4;
+    backdrop-filter: blur(4px);
+}
+
+.overlay-rma-android {
+    background-color: hsla(0, 0%, 100%, 0.49);
+    background-image: url("./img/concrete-wall-3.png");
+    opacity: 0.7;
+    backdrop-filter: blur(1px);
+    transition: background-image 4s ease-in-out;
+}
+
+.overlay-carto-css {
+    background-color: hsla(0, 0%, 24%, 0.6);
+    opacity: 0.4;
+    backdrop-filter: blur(2px);
+}
+
+.map-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.content-box {
+    max-width: 1170px;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    justify-content: center;
+    min-height: 100%;
+}
+
+.grid-container {
+    vertical-align: middle;
+    display: grid;
+    grid-gap: 1rem;
+    grid-auto-flow: dense;
+    grid-auto-rows: minmax(9.375rem, auto);
+    grid-template-columns: repeat(auto-fit, minmax(9.375rem, 1fr));
+    margin: 1rem;
+    z-index: 3;
+}
+
+.aboutMe-grid-cont {
+    grid-auto-rows: auto;
+}
+
+.sub-grid-container {
+    vertical-align: middle;
+    display: grid;
+    grid-auto-flow: row;
+    grid-auto-rows: minmax(9.375rem, auto);
+    z-index: 3;
+
+}
+
+.full-grid-overlay {
+    font-size: 14px;
+    border-radius: 4px;
+    min-width: 9.375rem;
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+    grid-row-end: span 4;
+    position: relative;
+}
+
+.grid-child {
+    font-size: 14px;
+    border-radius: 4px;
+    color: #000000;
+    min-width: 9.375rem;
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+    overflow: hidden;
+    position: relative;
+}
+
+.sub-grid-child {
+    font-size: 14px;
+    color: #000000;
+
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+}
+
+.span-square-large {
+    grid-column-end: span 2;
+    grid-row-end: span 2;
+}
+
+.grid-child:hover {
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2), 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12);
+}
+
+.titleBox {
+    background-color: #61dafb;
+    background: linear-gradient(to bottom, #61dafb 0%, #61dafb 50%, #61dafb 50%, white 50%, white 100%);
+    overflow: hidden;
+    position: relative;
+}
+
+aboutMe-titleBox {
+    background: #dddddd;
+    padding: 1rem;
+}
+
+.nightModeBox {
+    background-color: #535d74;
+    background-image: url("./img/new_night_mode.png");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    height: 100%;
+    width: 100%;
+}
+
+.rmaHistoryBox {
+    background-color: hsla(40, 2%, 50%, 0.8);
+    background-image: url("./img/android_app/rma_history_android.png");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+}
+
+.rmaHistoryBoxOverdrive {
+    background-color: hsla(40, 2%, 50%, 0.8);
+    background-image: url("./img/android_app/rma_history_android.png");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    height: 100%;
+    width: 100%;
+}
+
+.googleMapsApiBox {
+    background-color: #e0d49a;
+    background-image: url("./img/google_maps_android.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    height: 100%;
+    width: 100%;
+}
+
+.rmaVisitorBox {
+    background-color: #8b7c4c;
+    background-image: url("./img/rma_node_express.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 100%;
+    width: 100%;
+}
+
+.leafletBox {
+    background-color: #e8ca45;
+    background-image: url("./img/leaflet_map.jpg");
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+}
+
+.qingMapBox {
+    background-color: #384639;
+    background-image: url("./img/ming_cartocss.png");
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+}
+
+.shadedReliefBox {
+    background-color: #c0e58f;
+    background-image: url("./img/shaded_relief.jpg");
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    grid-column-end: span 1;
+    grid-row-end: span 2;
+    height: 100%;
+    width: 100%;
+
+}
+
+.span-square-large {
+    grid-column-end: span 2;
+    grid-row-end: span 2;
+}
+
+
+.span-square-small {
+    grid-column-end: span 1;
+    grid-row-end: span 1;
+}
+
+.span-rect-vertical {
+    grid-column-end: span 1;
+    grid-row-end: span 2;
+}
+
+.span-rect-horizontal {
+    grid-column-end: span 2;
+    grid-row-end: span 1;
+}
+
+.span-centerpiece {
+    grid-column-end: span 2;
+    grid-row-end: span 4;
+}
+
+.mapboxgl-ctrl-logo {
+    display: none !important;
+}
+
+.titleBox-title {
+    height: 40%;
+    background-color: transparent;
+    width: 100%;
+
+}
+
+.nameLogo {
+    font-size: 1.5rem;
+    width: 67%;
+    vertical-align: middle;
+    flex-direction: column;
+    flex: 1 1 67%;
+    padding: 1rem;
+    text-align: right;
+
+}
+
+.linkIcons {
+    display: flex;
+    flex: 1 1 2rem;
+    height: 100%;
+    padding: 1rem;
+    align-items: center;
+    vertical-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.titleIcons {
+    display: flex;
+    right: 0px;
+    padding: 0.5rem;
+    vertical-align: center;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    width: 2rem;
+}
+
+.icon-container {
+    vertical-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.row {
+    display: inline-flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.jvrMapLogo {
+    height: 6rem;
+    vertical-align: middle;
+}
+
+.jvrMapLogoRow {
+    max-height: 3rem;
+    max-width: 100%;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.map-logo-row {
+    background-color: #61dafb;
+    overflow: hidden;
+    position: relative;
+    padding: 1rem;
+    grid-area: map-logo-row;
+}
+
+.component-container {
+    width: 100%;
+    height: 100%;
+}
+
+.titleBox-about-me {
+    height: 67%;
+    background-color: white;
+
+}
+
+.titleBox-about-me-content {
+    padding: 1rem;
+    color: #000;
+
+}
+
+.button-container-bottom {
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    text-decoration: none;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.button-desktop-back {
+    border-top-right-radius: 0px !important;
+    border-top-left-radius: 0px !important;
+}
+
+.subheading {
+    padding: 0;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.supporting-text {
+    padding: 1rem 0 0 0;
+    font-size: 0.875rem;
+    font-weight: 400;
+}
+
+.message-enter {
+    opacity: 0.01;
+    transform: scale(0.9) translateY(50%);
+}
+
+.message-enter-active {
+    opacity: 1;
+    transform: scale(1) translateY(0%);
+    transition: all 300ms ease-out;
+}
+
+.message-exit {
+    opacity: 1;
+    transform: scale(1) translateY(0%);
+}
+
+.message-exit-active {
+    opacity: 0.01;
+    transform: scale(0.9) translateY(50%);
+    transition: all 300ms ease-out;
+}
+
+.white {
+    background-color: white;
+}
+
+a {
+    text-decoration: none;
+}
+
+.aboutMeOpen {
+    background-color: #ffffff;
+    white-space: pre-line;
+    overflow: hidden;
+}
+
+.aboutMeOpenContent {
+    background-color: #ffffff;
+    white-space: pre-line;
+    font-size: 0.8rem;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.aboutMeText {
+    padding: 1rem;
+}
+
+
+.aboutMeResume {
+    background-color: #a8e0f0;
+    font-size: 1rem;
+    flex-grow: 1;
+    display: flex;
+}
+
+.button-container-shadow {
+    box-shadow: 0 -0.2px 1px 1px rgba(0, 0, 0, .1), 0 -0.5px 0px 0 rgba(0, 0, 0, .05), 0 -1px 1px 0 rgba(0, 0, 0, .01);
+}
+
+.no-shadow {
+    box-shadow: none;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.no-shadow:hover {
+    box-shadow: none;
+}
+
+.headshot {
+    border-radius: 50%;
+    max-width: 15rem;
+    max-height: 15rem;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+}
+
+.headshot-cnt {
+    float: right;
+    padding: 1rem;
+    text-align: right;
+    vertical-align: middle;
+    display: flex;
+}
+
+.contact-table {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.contact-table-cell-links {
+    margin: 0.5rem;
+}
+
+.aboutMeSubTitles {
+    margin-block-start: 0;
+    margin-block-end: 1rem;
+}
+
+.aboutMeStatsRow {
+    display: grid;
+    grid-gap: 1rem;
+    width: calc(100%);
+    margin: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(9.375rem, 1fr));
+
+}
+
+.aboutMeSubTitlesConnect {
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+.aboutMeStatsContent {
+    background-color: white;
+    border-radius: 4px;
+    padding: 1rem;
+    max-width: 18.8rem;
+}
+
+.image-grid {
+    white-space: pre-line;
+    overflow: hidden;
+    grid-area: image-grid;
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    box-shadow: none;
+    background-color: transparent;
+}
+
+.description-grid {
+    background-color: #fff;
+    grid-area: description-grid;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+}
+
+.description-grid-text {
+    padding: 0 1rem 0 1rem;
+    font-size: 0.8rem;
+    line-height: 1.44rem;
+    font-weight: normal;
+}
+
+.description-grid-text>p {
+    margin-top: 0;
+}
+
+.bottom-nav {
+    grid-area: bottom-nav;
+    background-color: white;
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    z-index: 999;
+}
+
+
+.grid-container-project {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(9.375rem, 1fr));
+    z-index: 3;
+    grid-template-areas: "map-logo-row image-grid" "description-grid image-grid" "bottom-nav image-grid";
+    grid-template-columns: 37.5% 62.5%;
+    grid-template-rows: auto 1fr auto;
+}
+
+.grid-container-project-mobile {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    z-index: 3;
+    grid-template-areas: "image-grid" "description-grid" "bufferButton" "bottom-nav";
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr auto auto;
+}
+
+bufferButton {
+    grid-area: bufferButton;
+}
+
+.leaflet-container {
+    height: 100%
+}
+
+.img-android-original {
+    width: auto;
+    height: calc(100% - 2rem);
+    border-radius: 12px;
+    position: absolute;
+    margin-top: 1rem;
+    opacity: 0.7;
+    background-color: white;
+    filter: grayscale(0.5) blur(1px);
+}
+
+.img-android-container {
+    text-align: center;
+    display: flex !important;
+    vertical-align: middle;
+    justify-content: center;
+}
+
+.image-carousel-container {
+    margin: auto;
+    height: 100%;
+    width: 100%;
+}
+
+.slick-prev {
+    left: 1rem !important;
+    z-index: 300 !important;
+}
+
+.slick-next {
+    right: 1rem !important;
+    z-index: 300 !important;
+}
+
+.slick-list,
+.slick-track,
+.slick-slider {
+    height: 100%;
+}
+
+.slick-slide.slick-center img {
+    transform: scale(1.04);
+    transition: all .4s ease-in-out;
+    z-index: 299;
+    opacity: 1;
+    border: solid hsl(50, 3%, 36%) 1px;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+    filter: none;
+
+}
+
+
+@media only screen and (max-width: 530px) {
+    .shadedReliefBox {
+        rotation: 90deg;
+        grid-column-end: span 2;
+        grid-row-end: span 1;
+        background-size: 100% auto;
+    }
+
+    .map-logo-row {
+        text-align: center;
+    }
+
+    .aboutMeResume {
+        overflow: hidden;
+        border-bottom-right-radius: 4px;
+        border-bottom-left-radius: 4px;
+
+    }
+
+    .footer {
+        position: fixed;
+        bottom: 0;
+        width: calc(100% - 3.5rem);
+        background-color: #fff;
+        padding: 0.5rem 0.5rem 0.5rem 1rem;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+    }
+
+    .grid-container-project {
+        grid-template-areas: "map-logo-row" "image-grid" "description-grid";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr 1fr auto;
+    }
+
+    .image-grid {
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+    }
+
+    .description-grid {
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+    }
+
+    .img-android-original {
+        height: calc(100% - 2rem);
+        margin-top: 1rem;
+    }
+
+    .headshot {
+        max-width: 40vw;
+        max-height: 40vw;
+    }
+
+
+}
+
+@media only screen and (min-width: 531px) and (max-width: 690px) {
+    .rotate-cell {
+        grid-column-end: span 1;
+        grid-row-end: span 2;
+    }
+
+    .googleMapsApiBox {
+        background-size: auto 100%;
+    }
+}
+
+@media only screen and (min-width: 846px) and (max-width: 1011px) {
+    .expandable-cell {
+        grid-column-end: span 2;
+        grid-row-end: span 1;
+    }
+
+    .leafletBox {
+        background-size: 100% auto;
+    }
+}
+
+@media only screen and (min-width: 764px) {
+    .content-box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 100%;
+        margin: auto;
+    }
+}
+
+@media only screen and (min-width: 1250px) {
+
+    html,
+    body,
+    #root,
+    .App {
+        font-size: 19.5px;
+    }
+
+    .content-box {
+        max-width: 1300px;
+    }
+
+    .full-grid-overlay {
+        max-width: 1300px;
+    }
+}
+
+
+@media only screen and (min-width: 1600px) {
+
+    html,
+    body,
+    #root,
+    .App {
+        font-size: 21.5px;
+    }
+
+    .content-box {
+        max-width: 1500px;
+    }
+
+    .full-grid-overlay {
+        max-width: 1500px;
+    }
+
+}
+
+.overdrive-div {
+    height: 100%;
+    width: 100%;
+}
+
+
+.overdrive-div-project {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+
+.home-grid-project-image {
+    transition: all .4s ease-in-out;
+    text-align: center;
+    display: table;
+    overflow: hidden;
+    height: 101%;
+    width: 101%;
+}
+
+.home-grid-project-image:hover {
+    transform: scale(1.05);
+
+}
+
+.overdrive-div {
+    height: 100%;
+    width: 100%;
+}
+
+
+.grid-title {
+    width: 100%;
+    height: 100%;
+    font-weight: 500;
+    font-size: 2rem;
+    color: white;
+    opacity: 0;
+    transition: all .2s ease-in-out;
+    display: table-cell;
+    vertical-align: middle;
+    text-shadow: 0px 3px 3px rgb(11, 17, 23);
+    text-align: center;
+    letter-spacing: 0.2em;
+}
+
+.grid-child:hover .grid-title {
+
+    background-color: rgba(0, 0, 0, 0.40);
+    opacity: 1;
+
+}
+
+.grid-title-text {
+    margin: auto;
+    width: calc(100% - 4rem);
+
+}
+
+.w1 {
+    font-size: 1.5rem;
+    width: calc(100% - 2rem);
+}
+
+.CartoCSSDesc {}
+
+.RmaAndroidDesc {}
+
+.GoogleMapsDesc {}
+
+.RmaVisitorDesc {}
+
+.NightModeDesc {
+    background-color: hsl(222, 16%, 20%);
+    /*background-color: rgb(26, 29, 36);*/
+    color: hsl(228, 6%, 90%);
+
+}
+
+.NightModeButton {
+    color: hsl(40, 51%, 48%) !important;
+}
+
+.ShadedReliefDesc {}
+
+.LeafletMapDesc {}
+
+.rma-db-iframe {
+    background-color: rgba(216, 216, 216, 0.5);
+    background-image: url("./img/tail-spin.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.rc-collapse {
+    border: none !important;
+    background-color: white !important;
+}
+
+.rc-collapse-header {
+    outline: none !important;
+    color: #000000 !important;
+}
+
+.rc-collapse-content {
+    color: #000001 !important;
+}
+
+.rc-collapse-content-box {
+    margin-top: 0 !important;
+}
+
+.new-text {
+    display: none;
+    font-size: 1rem;
+    vertical-align: middle;
+
+}
+
+.grid-child:hover .new-text {
+    display: inline-flex;
+
+}
+
+
+.new_go_here {
+    position: relative;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: red;
+    opacity: 1;
+    transition: all .2s ease-in-out;
+    vertical-align: middle;
+    letter-spacing: 0.01em;
+    display: inline-flex;
+    border-radius: 4px;
+
+
+}
+
+.new_wrapper_absolute {
+    position: absolute;
+    background-color: white;
+    right: 0.5rem;
+    bottom: 0.5rem;
+    border-radius: 50%;
+    padding: 0.2rem;
+    /*transition: all .8s ease-in-out;*/
+    animation-name: bounce;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+
+}
+
+
+@keyframes bounce {
+    0% {
+        bottom: 0.76rem;
+    }
+
+    25%,
+    75% {
+        bottom: 1rem;
+    }
+
+    50% {
+        bottom: 1.25rem;
+    }
+
+    100% {
+        bottom: 0.75rem;
+    }
+}
+
+.grid-child:hover .new_wrapper_absolute {
+    background-color: rgba(0, 0, 0, 0.0);
+    /*opacity: 0;*/
+    transform: scale(1.05);
+
+}
+
+
+.grid-child:hover .new_go_here {
+    color: rgba(0, 0, 0, 0.0);
+    transform: scale(0.0);
+
+}
+
+.more-categories {
+    padding-left: 1rem;
+    font-size: 1.1rem;
+    letter-spacing: 0.05rem;
+    margin-bottom: 0.25rem;
+}
+
+.more-divider {
+    border-bottom: 1px solid #949494;
+    margin: 0.25rem 0.75rem 0.25rem 0.75rem;
+}
