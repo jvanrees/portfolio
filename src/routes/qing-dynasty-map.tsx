@@ -1,17 +1,19 @@
 import { createFileRoute } from '@tanstack/react-router'
 import DescriptionCard from '../components/DescriptionCard'
 
-export const Route = createFileRoute('/about')({
-    component: AboutComponent,
+export const Route = createFileRoute('/qing-dynasty-map')({
+    component: QingDynastyComponent,
 })
 
 const pageConfig = {
-    title: "About Me",
-    content: "About Me Placeholder"
+    title: "Qing Dynasty",
+    content: "Qing Dynasty Placeholder"
 }
 
-function AboutComponent() {
+
+function QingDynastyComponent() {
     return (
         <DescriptionCard {...pageConfig} ></DescriptionCard>
+
     )
 }

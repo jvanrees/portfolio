@@ -1,16 +1,15 @@
 import { createFileRoute } from '@tanstack/react-router'
 import DescriptionCard from '../components/DescriptionCard'
 
-export const Route = createFileRoute('/about')({
-    component: AboutComponent,
+export const Route = createFileRoute('/shaded-relief')({
+    component: ShadedReliefComponent,
 })
-
 const pageConfig = {
-    title: "About Me",
-    content: "About Me Placeholder"
+    title: "Shaded Relief",
+    content: "Shaded Relief Placeholder"
 }
 
-function AboutComponent() {
+function ShadedReliefComponent() {
     return (
         <DescriptionCard {...pageConfig} ></DescriptionCard>
     )

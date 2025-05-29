@@ -1,16 +1,17 @@
 import { createFileRoute } from '@tanstack/react-router'
 import DescriptionCard from '../components/DescriptionCard'
 
-export const Route = createFileRoute('/about')({
-    component: AboutComponent,
+export const Route = createFileRoute('/even-more-maps')({
+    component: EvenMoreComponent,
 })
 
 const pageConfig = {
-    title: "About Me",
-    content: "About Me Placeholder"
+    title: "Even More Maps",
+    content: "Even More Maps Placeholder"
 }
 
-function AboutComponent() {
+
+function EvenMoreComponent() {
     return (
         <DescriptionCard {...pageConfig} ></DescriptionCard>
     )

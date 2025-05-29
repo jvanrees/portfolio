@@ -1,16 +1,15 @@
 import { createFileRoute } from '@tanstack/react-router'
 import DescriptionCard from '../components/DescriptionCard'
 
-export const Route = createFileRoute('/about')({
-    component: AboutComponent,
+export const Route = createFileRoute('/rma-visitor-postgis')({
+    component: RmaVisitorComponent,
 })
-
 const pageConfig = {
-    title: "About Me",
-    content: "About Me Placeholder"
+    title: "RMA Visitor",
+    content: "RMA Visitor Placeholder"
 }
 
-function AboutComponent() {
+function RmaVisitorComponent() {
     return (
         <DescriptionCard {...pageConfig} ></DescriptionCard>
     )

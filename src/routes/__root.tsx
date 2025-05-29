@@ -19,8 +19,10 @@ function RootComponent() {
         <>
             <div className={"base-container"}>
                 <MapBackground viewport={viewport} />
+                <div className={"grid-content"}>
+                    <Outlet />
+                </div>
             </div>
-            <Outlet />
             <TanStackRouterDevtools position="bottom-right" />
         </>
     )

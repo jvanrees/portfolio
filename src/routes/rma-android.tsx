@@ -1,17 +1,17 @@
 import { createFileRoute } from '@tanstack/react-router'
 import DescriptionCard from '../components/DescriptionCard'
 
-export const Route = createFileRoute('/about')({
-    component: AboutComponent,
+export const Route = createFileRoute('/rma-android')({
+    component: RmaAndroidComponent,
 })
-
 const pageConfig = {
-    title: "About Me",
-    content: "About Me Placeholder"
+    title: "RMA Android",
+    content: "RMA Android Placeholder"
 }
 
-function AboutComponent() {
+function RmaAndroidComponent() {
     return (
         <DescriptionCard {...pageConfig} ></DescriptionCard>
+
     )
 }

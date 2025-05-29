@@ -11,10 +11,59 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as ShadedReliefImport } from './routes/shaded-relief'
+import { Route as RmaVisitorPostgisImport } from './routes/rma-visitor-postgis'
+import { Route as RmaAndroidImport } from './routes/rma-android'
+import { Route as QingDynastyMapImport } from './routes/qing-dynasty-map'
+import { Route as NightmodeImport } from './routes/nightmode'
+import { Route as GoogleMapsApiImport } from './routes/google-maps-api'
+import { Route as EvenMoreMapsImport } from './routes/even-more-maps'
 import { Route as AboutImport } from './routes/about'
 import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
+
+const ShadedReliefRoute = ShadedReliefImport.update({
+  id: '/shaded-relief',
+  path: '/shaded-relief',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const RmaVisitorPostgisRoute = RmaVisitorPostgisImport.update({
+  id: '/rma-visitor-postgis',
+  path: '/rma-visitor-postgis',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const RmaAndroidRoute = RmaAndroidImport.update({
+  id: '/rma-android',
+  path: '/rma-android',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const QingDynastyMapRoute = QingDynastyMapImport.update({
+  id: '/qing-dynasty-map',
+  path: '/qing-dynasty-map',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const NightmodeRoute = NightmodeImport.update({
+  id: '/nightmode',
+  path: '/nightmode',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const GoogleMapsApiRoute = GoogleMapsApiImport.update({
+  id: '/google-maps-api',
+  path: '/google-maps-api',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const EvenMoreMapsRoute = EvenMoreMapsImport.update({
+  id: '/even-more-maps',
+  path: '/even-more-maps',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const AboutRoute = AboutImport.update({
   id: '/about',
@@ -46,6 +95,55 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutImport
       parentRoute: typeof rootRoute
     }
+    '/even-more-maps': {
+      id: '/even-more-maps'
+      path: '/even-more-maps'
+      fullPath: '/even-more-maps'
+      preLoaderRoute: typeof EvenMoreMapsImport
+      parentRoute: typeof rootRoute
+    }
+    '/google-maps-api': {
+      id: '/google-maps-api'
+      path: '/google-maps-api'
+      fullPath: '/google-maps-api'
+      preLoaderRoute: typeof GoogleMapsApiImport
+      parentRoute: typeof rootRoute
+    }
+    '/nightmode': {
+      id: '/nightmode'
+      path: '/nightmode'
+      fullPath: '/nightmode'
+      preLoaderRoute: typeof NightmodeImport
+      parentRoute: typeof rootRoute
+    }
+    '/qing-dynasty-map': {
+      id: '/qing-dynasty-map'
+      path: '/qing-dynasty-map'
+      fullPath: '/qing-dynasty-map'
+      preLoaderRoute: typeof QingDynastyMapImport
+      parentRoute: typeof rootRoute
+    }
+    '/rma-android': {
+      id: '/rma-android'
+      path: '/rma-android'
+      fullPath: '/rma-android'
+      preLoaderRoute: typeof RmaAndroidImport
+      parentRoute: typeof rootRoute
+    }
+    '/rma-visitor-postgis': {
+      id: '/rma-visitor-postgis'
+      path: '/rma-visitor-postgis'
+      fullPath: '/rma-visitor-postgis'
+      preLoaderRoute: typeof RmaVisitorPostgisImport
+      parentRoute: typeof rootRoute
+    }
+    '/shaded-relief': {
+      id: '/shaded-relief'
+      path: '/shaded-relief'
+      fullPath: '/shaded-relief'
+      preLoaderRoute: typeof ShadedReliefImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -54,36 +152,99 @@ declare module '@tanstack/react-router' {
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/even-more-maps': typeof EvenMoreMapsRoute
+  '/google-maps-api': typeof GoogleMapsApiRoute
+  '/nightmode': typeof NightmodeRoute
+  '/qing-dynasty-map': typeof QingDynastyMapRoute
+  '/rma-android': typeof RmaAndroidRoute
+  '/rma-visitor-postgis': typeof RmaVisitorPostgisRoute
+  '/shaded-relief': typeof ShadedReliefRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/even-more-maps': typeof EvenMoreMapsRoute
+  '/google-maps-api': typeof GoogleMapsApiRoute
+  '/nightmode': typeof NightmodeRoute
+  '/qing-dynasty-map': typeof QingDynastyMapRoute
+  '/rma-android': typeof RmaAndroidRoute
+  '/rma-visitor-postgis': typeof RmaVisitorPostgisRoute
+  '/shaded-relief': typeof ShadedReliefRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/even-more-maps': typeof EvenMoreMapsRoute
+  '/google-maps-api': typeof GoogleMapsApiRoute
+  '/nightmode': typeof NightmodeRoute
+  '/qing-dynasty-map': typeof QingDynastyMapRoute
+  '/rma-android': typeof RmaAndroidRoute
+  '/rma-visitor-postgis': typeof RmaVisitorPostgisRoute
+  '/shaded-relief': typeof ShadedReliefRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/even-more-maps'
+    | '/google-maps-api'
+    | '/nightmode'
+    | '/qing-dynasty-map'
+    | '/rma-android'
+    | '/rma-visitor-postgis'
+    | '/shaded-relief'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about'
-  id: '__root__' | '/' | '/about'
+  to:
+    | '/'
+    | '/about'
+    | '/even-more-maps'
+    | '/google-maps-api'
+    | '/nightmode'
+    | '/qing-dynasty-map'
+    | '/rma-android'
+    | '/rma-visitor-postgis'
+    | '/shaded-relief'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/even-more-maps'
+    | '/google-maps-api'
+    | '/nightmode'
+    | '/qing-dynasty-map'
+    | '/rma-android'
+    | '/rma-visitor-postgis'
+    | '/shaded-relief'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  EvenMoreMapsRoute: typeof EvenMoreMapsRoute
+  GoogleMapsApiRoute: typeof GoogleMapsApiRoute
+  NightmodeRoute: typeof NightmodeRoute
+  QingDynastyMapRoute: typeof QingDynastyMapRoute
+  RmaAndroidRoute: typeof RmaAndroidRoute
+  RmaVisitorPostgisRoute: typeof RmaVisitorPostgisRoute
+  ShadedReliefRoute: typeof ShadedReliefRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  EvenMoreMapsRoute: EvenMoreMapsRoute,
+  GoogleMapsApiRoute: GoogleMapsApiRoute,
+  NightmodeRoute: NightmodeRoute,
+  QingDynastyMapRoute: QingDynastyMapRoute,
+  RmaAndroidRoute: RmaAndroidRoute,
+  RmaVisitorPostgisRoute: RmaVisitorPostgisRoute,
+  ShadedReliefRoute: ShadedReliefRoute,
 }
 
 export const routeTree = rootRoute
@@ -97,7 +258,14 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/about"
+        "/about",
+        "/even-more-maps",
+        "/google-maps-api",
+        "/nightmode",
+        "/qing-dynasty-map",
+        "/rma-android",
+        "/rma-visitor-postgis",
+        "/shaded-relief"
       ]
     },
     "/": {
@@ -105,6 +273,27 @@ export const routeTree = rootRoute
     },
     "/about": {
       "filePath": "about.tsx"
+    },
+    "/even-more-maps": {
+      "filePath": "even-more-maps.tsx"
+    },
+    "/google-maps-api": {
+      "filePath": "google-maps-api.tsx"
+    },
+    "/nightmode": {
+      "filePath": "nightmode.tsx"
+    },
+    "/qing-dynasty-map": {
+      "filePath": "qing-dynasty-map.tsx"
+    },
+    "/rma-android": {
+      "filePath": "rma-android.tsx"
+    },
+    "/rma-visitor-postgis": {
+      "filePath": "rma-visitor-postgis.tsx"
+    },
+    "/shaded-relief": {
+      "filePath": "shaded-relief.tsx"
     }
   }
 }

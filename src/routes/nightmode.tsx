@@ -1,16 +1,13 @@
 import { createFileRoute } from '@tanstack/react-router'
 import DescriptionCard from '../components/DescriptionCard'
-
-export const Route = createFileRoute('/about')({
-    component: AboutComponent,
+export const Route = createFileRoute('/nightmode')({
+    component: NightmodeComponent,
 })
-
 const pageConfig = {
-    title: "About Me",
-    content: "About Me Placeholder"
+    title: "Nightmode",
+    content: "Nightmode Placeholder"
 }
-
-function AboutComponent() {
+function NightmodeComponent() {
     return (
         <DescriptionCard {...pageConfig} ></DescriptionCard>
     )
