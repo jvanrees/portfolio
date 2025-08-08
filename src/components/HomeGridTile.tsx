@@ -1,4 +1,4 @@
-import { Box, Image, Overlay, Text } from "@mantine/core";
+import { Image, Overlay, Paper, Text } from "@mantine/core";
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 
@@ -13,12 +13,13 @@ const HomeGridTile = ({ imageSrc, title, link }: HomeGridTileProps) => {
 
   return (
     <Link to={link}>
-      <Box
-        style={{ position: "relative", display: "inline-block", width: "300px", height: "200px" }}
+      <Paper
+        style={{ position: "relative", display: "inline-block" }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
+        radius={"xs"}
       >
-        <Image src={imageSrc} alt={title} radius="lg" style={{ width: "100%", height: "100%" }} />
+        <Image src={imageSrc} alt={title} />
 
         {hovered && (
           <>
@@ -55,7 +56,7 @@ const HomeGridTile = ({ imageSrc, title, link }: HomeGridTileProps) => {
             </Overlay>
           </>
         )}
-      </Box>
+      </Paper>
     </Link >
   );
 };

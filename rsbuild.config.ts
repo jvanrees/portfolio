@@ -8,6 +8,7 @@ export default defineConfig({
   plugins: [pluginReact(), pluginCssMinimizer()],
   html: {
     title: "Jeff Van Rees",
+    favicon: './favicon.ico',
   },
 
   tools: {
