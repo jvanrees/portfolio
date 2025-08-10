@@ -1,63 +1,44 @@
-import { Image, Overlay, Paper, Text } from "@mantine/core";
+import { Box, Image, Overlay, Paper, Text } from "@mantine/core";
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
+import classes from '../styles/Grid.module.css';
 
 interface HomeGridTileProps {
   imageSrc: string;
   title: string;
   link: string;
+  className?: string;
 }
 
-const HomeGridTile = ({ imageSrc, title, link }: HomeGridTileProps) => {
+
+const HomeGridTile = ({ imageSrc, title, link, className }: HomeGridTileProps) => {
   const [hovered, setHovered] = useState(false);
+  const radius = "xs";
 
   return (
     <Link to={link}>
-      <Paper
-        style={{ position: "relative", display: "inline-block" }}
+      <Box
+        className={`${classes.gridChild} ${classes.gridTileWrapper} ${className ? className : ''}`}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        radius={"xs"}
       >
-        <Image src={imageSrc} alt={title} />
-
+        <Paper radius={radius} withBorder className={classes.gridTilePaper}>
+          <Image
+            src={imageSrc}
+            alt={title}
+            radius={radius}
+            className={classes.gridTileImage}
+          />
+        </Paper>
         {hovered && (
-          <>
-            <Overlay
-              backgroundOpacity={0.6}
-              color="black"
-              blur={1}
-              style={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                width: "100%",
-                height: "100%",
-              }}
-            >
-              <Text
-                c="#fff"
-                size="2rem"
-                fw={500}
-                ta={"center"}
-                ff={"Lato"}
-                lts={"0.2em"}
-                style={{
-                  position: "absolute",
-                  top: "50%",
-                  left: "50%",
-                  transform: "translate(-50%, -50%)",
-                  textShadow: "0 3 3px hsl(210, 35%, 7%)",
-                  zIndex: 201
-                }}
-              >
-                {title}
-              </Text>
-            </Overlay>
-          </>
+          <Overlay backgroundOpacity={0.6} color="black" blur={1} className={classes.gridTileOverlay}>
+            <Text className={classes.gridTileText}            >
+              {title}
+            </Text>
+          </Overlay>
         )}
-      </Paper>
-    </Link >
+      </Box>
+    </Link>
   );
 };
 

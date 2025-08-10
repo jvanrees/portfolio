@@ -13,17 +13,17 @@ function RouteComponent() {
     <Flipper flipKey={gridItems.map(item => item.key).join('-')}>
       <div className={classes.gridContainer}>
         {gridItems.map(item => (
-          <div key={item.key} className={item.className + ' ' + "grid-child"}>
-            <Flipped flipId={item.flipId}>
-              <div>
+          <div key={item.key} className={`${item.className} ${classes.gridChild}`}>
+            <Flipped flipId={item.flipId} >
+              <div style={{ width: "100%", height: "100%" }}>
                 {item.content ? (
                   <>
                     {item.content}
                   </>
                 ) : (
-                  <div className={item.className + ' ' + "grid-child"}>
+                  <div className={`${item.className} ${classes.gridChild}`}>
                     <div className={classes.gridTitle}>
-                      <div className={classes.gridTitleText + ' ' + classes.w1}>{item.title}</div>
+                      <div className={`${classes.gridTitleText} ${classes.w1}`}>{item.title}</div>
                     </div>
                   </div>
                 )}
