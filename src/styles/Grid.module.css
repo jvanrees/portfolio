@@ -11,11 +11,6 @@
   height: 100%;
 }
 
-.gridTileImage {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
 
 .gridTileOverlay {
   position: absolute;
@@ -38,21 +33,32 @@
   text-align: center;
   font-family: 'Lato', Arial, sans-serif;
   letter-spacing: 0.2em;
+
 }
 
 .gridContainer {
   vertical-align: middle;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* min-height: 100vh; */
+  align-items: center;
+  margin: 1rem;
+  z-index: 3;
+}
+
+.gridInner {
+  width: 100%;
   display: grid;
   grid-gap: 1rem;
   grid-auto-flow: dense;
   grid-auto-rows: minmax(9.375rem, auto);
   grid-template-columns: repeat(auto-fit, minmax(9.375rem, 1fr));
-  margin: 1rem;
-  z-index: 3;
 }
 
 .gridContent {
   max-width: 1170px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   z-index: 2;
@@ -72,7 +78,6 @@
 
 .gridChild {
   font-size: 14px;
-  /* border-radius: 4px; */
   color: #000000;
   min-width: 9.375rem;
   transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
@@ -91,29 +96,38 @@
 
 .gridChild:hover {
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2), 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12);
-  transform: scale(1.05);
+  /* Removed transform: scale(1.05); to prevent tile growth */
   transition: all 300ms ease-out;
 }
 
-.gridChild:hover .gridTitle {
-  background-color: rgba(0, 0, 0, 0.40);
-  opacity: 1;
-}
 
 .gridChild:hover .newText {
   display: inline-flex;
 }
 
-.gridChild:hover .newWrapperAbsolute {
+/* .gridChild:hover .newWrapperAbsolute {
   background-color: rgba(0, 0, 0, 0.0);
-  /*opacity: 0;*/
   transform: scale(1.05);
-}
+} */
 
-.gridChild:hover .evenMoreMaps {
+/* .gridChild:hover .evenMoreMaps {
   color: rgba(0, 0, 0, 0.0);
   transform: scale(1) translateY(0%);
   transition: all 300ms ease-out;
+} */
+
+.gridTileImage {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform 0.3s ease;
+}
+
+.gridChild:hover .gridTileImage {
+  transform: scale(1.1);
+  /* Zoom in the image on hover */
 }
 
 .spanSquareLarge {
@@ -148,10 +162,7 @@
   width: 100%;
 }
 
-.expandableCell {
-  grid-column-end: span 2;
-  grid-row-end: span 1;
-}
+
 
 .titleBox {
   background-color: #61dafb;
@@ -164,30 +175,73 @@
   box-shadow: none;
 }
 
+/* Media queries adapted from old_portfolio_index.css */
+
+@media only screen and (max-width: 530px) {
+  .shadedReliefBox {
+    transform: rotate(90deg);
+    grid-column-end: span 2;
+    grid-row-end: span 1;
+    background-size: 100% auto;
+  }
+
+  .gridContainer {
+    /* Assuming .map-logo-row is not used; if needed, add analogous class */
+    text-align: center;
+  }
+
+  /* .aboutMeResume and .footer not directly applicable; skip or add if used */
+
+  .gridContainer {
+    grid-template-areas: "map-logo-row" "image-grid" "description-grid";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr 1fr auto;
+  }
+
+
+  /* .description-grid not directly applicable; skip */
+
+  /* .img-android-original not applicable */
+
+  .gridTileText {
+    max-width: 40vw;
+    max-height: 40vw;
+  }
+}
+
+@media only screen and (min-width: 531px) and (max-width: 690px) {
+  .gridChild {
+    grid-column-end: span 1;
+    grid-row-end: span 2;
+  }
+
+  /* .gridTileImage {
+    background-size: auto 100%;
+  } */
+}
+
+@media only screen and (min-width: 846px) and (max-width: 1011px) {
+  /* .gridChild {
+    grid-column-end: span 2;
+    grid-row-end: span 1;
+  } */
+
+  .expandableCell {
+    grid-column-end: span 2;
+    grid-row-end: span 1;
+  }
+
+  /* .gridTileImage {
+    background-size: 100% auto;
+  } */
+}
+
 @media only screen and (min-width: 764px) {
-  .content-box {
+  .gridContent {
     display: flex;
     flex-direction: column;
     justify-content: center;
     min-height: 100%;
     margin: auto;
-  }
-}
-
-@media only screen and (min-width: 1250px) {
-
-  html,
-  body,
-  #root,
-  .App {
-    font-size: 19.5px;
-  }
-
-  .content-box {
-    max-width: 1300px;
-  }
-
-  .full-grid-overlay {
-    max-width: 1300px;
   }
 }

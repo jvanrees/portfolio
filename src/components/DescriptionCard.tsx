@@ -20,7 +20,7 @@ const HomeButton = () => (
 
 const DescriptionCard = ({ title, content }: { title: string; content: string }) => {
     return (
-        <Card shadow="sm" padding="lg" radius="xs" withBorder className={styles.gridChild}>
+        <Card shadow="sm" padding="lg" withBorder className={styles.gridChild}>
             <h1>{title}</h1>
             <Text size="md">{content}</Text>
             <HomeButton />

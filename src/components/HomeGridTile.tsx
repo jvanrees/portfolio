@@ -1,4 +1,4 @@
-import { Box, Image, Overlay, Paper, Text } from "@mantine/core";
+import { Overlay, Paper, Text } from "@mantine/core";
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import classes from '../styles/Grid.module.css';
@@ -10,34 +10,32 @@ interface HomeGridTileProps {
   className?: string;
 }
 
-
 const HomeGridTile = ({ imageSrc, title, link, className }: HomeGridTileProps) => {
   const [hovered, setHovered] = useState(false);
-  const radius = "xs";
 
   return (
     <Link to={link}>
-      <Box
+      <Paper
         className={`${classes.gridChild} ${classes.gridTileWrapper} ${className ? className : ''}`}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >
-        <Paper radius={radius} withBorder className={classes.gridTilePaper}>
-          <Image
-            src={imageSrc}
-            alt={title}
-            radius={radius}
-            className={classes.gridTileImage}
-          />
-        </Paper>
+        {/* The div below is used to display the background image.
+        It is not the background of the Paper component for the neat hover zoom in effect */}
+        <div
+          className={classes.gridTileImage}
+          style={{
+            backgroundImage: `url(${imageSrc})`,
+          }}
+        />
         {hovered && (
           <Overlay backgroundOpacity={0.6} color="black" blur={1} className={classes.gridTileOverlay}>
-            <Text className={classes.gridTileText}            >
+            <Text className={classes.gridTileText}>
               {title}
             </Text>
           </Overlay>
         )}
-      </Box>
+      </Paper>
     </Link>
   );
 };

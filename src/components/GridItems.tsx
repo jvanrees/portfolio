@@ -17,7 +17,7 @@ export const gridItems = [
     flipId: "AboutMe",
     title: "About Me",
     content: (
-      <Card radius="lg">
+      <Card>
         <h1>About Me Placeholder</h1>
         <Link to='/about'>
           <Button variant="outline" color="dark" size="lg" >About Me</Button>
@@ -85,7 +85,7 @@ export const gridItems = [
   },
   {
     key: "evenMoreMaps",
-    className: styles.spanSquareSmall + " " + styles.expandableCell,
+    className: styles.expandableCell,
     flipId: "EvenMoreMaps",
     title: "More...",
     content: (
