@@ -1,5 +1,3 @@
-import { Button, Card } from '@mantine/core';
-import { Link } from '@tanstack/react-router';
 import googleMapsImage from '../img/google_maps_android.png';
 import leafletMap from '../img/leaflet_map.png';
 import QingDynasty from '../img/ming_cartocss.png';
@@ -8,6 +6,7 @@ import rmaAndroidImage from '../img/rma_history_android.png';
 import rmaVisitorImage from '../img/rma_node_express.png';
 import shadedReliefImage from '../img/shaded_relief.png';
 import styles from '../styles/Grid.module.css';
+import AboutMeCard from './AboutMeCard';
 import HomeGridTile from './HomeGridTile';
 
 export const gridItems = [
@@ -16,14 +15,7 @@ export const gridItems = [
     className: `${styles.spanSquareLarge} ${styles.titleBox} ${styles.noShadow}`,
     flipId: "AboutMe",
     title: "About Me",
-    content: (
-      <Card>
-        <h1>About Me Placeholder</h1>
-        <Link to='/about'>
-          <Button variant="outline" color="dark" size="lg" >About Me</Button>
-        </Link>
-      </Card>
-    ),
+    content: <AboutMeCard />,
   },
   {
     key: "rmaAndroid",

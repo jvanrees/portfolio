@@ -57,7 +57,7 @@
 }
 
 .gridContent {
-  max-width: 1170px;
+  max-width: 1150px;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -153,6 +153,7 @@
 .spanCenterpiece {
   grid-column-end: span 2;
   grid-row-end: span 4;
+  background-position: 50%;
 }
 
 .shadedReliefBox {
@@ -165,8 +166,6 @@
 
 
 .titleBox {
-  background-color: #61dafb;
-  background: linear-gradient(to bottom, #61dafb 0%, #61dafb 50%, #61dafb 50%, white 50%, white 100%);
   overflow: hidden;
   position: relative;
 }
@@ -243,4 +242,35 @@
   .googleMapsApiBox {
     background-size: auto 100%;
   }
+}
+
+
+@media only screen and (min-width: 1200px) and (max-width: 1599px) {
+
+  html,
+  body,
+  #root,
+  .App {
+    font-size: 18.5px;
+  }
+
+  .gridContent {
+    max-width: 1350px !important;
+  }
+}
+
+
+@media only screen and (min-width: 1600px) {
+
+  html,
+  body,
+  #root,
+  .App {
+    font-size: 20.5px;
+  }
+
+  .gridContent {
+    max-width: 1475px !important;
+  }
+
 }

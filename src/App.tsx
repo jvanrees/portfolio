@@ -6,7 +6,7 @@ import { routeTree } from './routeTree.gen';
 
 // Ensures mantine radius is consistent across all components
 const theme = createTheme({
-  defaultRadius: 'sm'
+  defaultRadius: 'sm',
 });
 
 const router = createRouter({
