@@ -10,13 +10,10 @@ const MapBackground = ({
 }: {
     viewport: ViewState;
 }) => {
-    // ...map style logic (move from App.js here)...
     return (
         <div className={styles.backgroundMap}>
             <Map
                 {...viewport}
-
-                // style={{ position: "absolute", top: 0, left: 0, width: "100vw", height: "100vh", zIndex: 1 }}
                 mapStyle={`https://api.maptiler.com/maps/dataviz/style.json?key=${API_KEY}`}
             >
                 <div className={styles.mapOverlay}></div>
