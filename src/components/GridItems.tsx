@@ -7,26 +7,27 @@ import nightModeImage from '../img/new_night_mode.png';
 import rmaAndroidImage from '../img/rma_history_android.png';
 import rmaVisitorImage from '../img/rma_node_express.png';
 import shadedReliefImage from '../img/shaded_relief.png';
+import styles from '../styles/Grid.module.css';
 import HomeGridTile from './HomeGridTile';
 
 export const gridItems = [
   {
     key: "aboutMe",
-    className: "span-square-large titleBox no-shadow",
+    className: `${styles.spanSquareLarge} ${styles.titleBox} ${styles.noShadow}`,
     flipId: "AboutMe",
     title: "About Me",
     content: (
-      <Card radius="lg">
+      <Card>
         <h1>About Me Placeholder</h1>
         <Link to='/about'>
-          <Button variant="outline" color="dark" size="lg" className="button">About Me</Button>
+          <Button variant="outline" color="dark" size="lg" >About Me</Button>
         </Link>
       </Card>
     ),
   },
   {
     key: "rmaAndroid",
-    className: "span-centerpiece",
+    className: styles.spanCenterpiece,
     flipId: "RmaAndroid",
     title: "Arsenal Android App",
     content: (
@@ -35,7 +36,7 @@ export const gridItems = [
   },
   {
     key: "googleMapsApi",
-    className: "span-rect-horizontal rotate-cell",
+    className: styles.spanRectHorizontal + " " + styles.rotateCell,
     flipId: "GoogleMaps",
     title: "Google Maps API",
     content: (
@@ -44,7 +45,7 @@ export const gridItems = [
   },
   {
     key: "rmaVisitor",
-    className: "span-square-small",
+    className: styles.spanSquareSmall,
     flipId: "RmaVisitor",
     title: "PostGIS WebApp",
     content: (
@@ -53,7 +54,7 @@ export const gridItems = [
   },
   {
     key: "qingMap",
-    className: "span-rect-vertical",
+    className: styles.spanRectVertical,
     flipId: "CartoCSS",
     title: "Qing Dynasty",
     content: (
@@ -66,7 +67,7 @@ export const gridItems = [
   },
   {
     key: "nightMode",
-    className: "span-square-large",
+    className: styles.spanSquareLarge,
     flipId: "NightMode",
     title: "MapQuest Night Mode",
     content: (
@@ -75,7 +76,7 @@ export const gridItems = [
   },
   {
     key: "shadedRelief",
-    className: "span-shadedReliefBox shadedReliefBox",
+    className: styles.shadedReliefBox,
     flipId: "ShadedRelief",
     title: "Shaded Relief",
     content: (
@@ -84,7 +85,7 @@ export const gridItems = [
   },
   {
     key: "evenMoreMaps",
-    className: "span-square-small expandable-cell",
+    className: styles.expandableCell,
     flipId: "EvenMoreMaps",
     title: "More...",
     content: (
