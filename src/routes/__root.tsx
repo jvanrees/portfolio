@@ -22,13 +22,13 @@ function RootComponent() {
 
     useEffect(() => {
         console.log("Path changed to:", location.pathname);
-    }, [location.pathname]);
+    }, [location]);
 
     return (
         <>
             <MapBackground viewport={viewport} />
             <TanStackRouterDevtools position="bottom-right" />
-            <div className={classes.gridContent}>
+            <div className={`${classes.gridContent}`}>
                 <Outlet />
             </div>
         </>

@@ -1,29 +1,24 @@
 import { Overlay, Paper, Text } from "@mantine/core";
 import { Link } from "@tanstack/react-router";
-import React, { forwardRef, useState } from 'react';
+import React, { useState } from 'react';
 import styles from '../styles/Grid.module.css';
 
 interface HomeGridTileProps extends React.HTMLAttributes<HTMLDivElement> {
   imageSrc: string;
   title: string;
   link: string;
-  transitionName?: string;
 }
 
-const HomeGridTile = forwardRef<HTMLDivElement, HomeGridTileProps>(({ imageSrc, title, link, className, style, transitionName, ...rest }, ref) => {
+function HomeGridTile({ imageSrc, title, link, className }: HomeGridTileProps) {
   const [hovered, setHovered] = useState(false);
   const imageClassName = link?.includes('rma-android') ? `${styles.gridTileImage} ${styles.spanCenterpiece}` : `${styles.gridTileImage}`
 
   return (
-    <Link to={link}>
+    <Link to={link} viewTransition>
       <Paper
-        ref={ref}
         className={`${styles.gridChild} ${styles.gridTileWrapper} ${className ?? ''}`}
-        style={{ ...style, viewTransitionName: transitionName }}
         onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-        {...rest}
-      >
+        onMouseLeave={() => setHovered(false)}      >
         {/* The div below is used to display the background image.
           It is not the background of the Paper component for the neat hover zoom in effect */}
         <div
@@ -42,6 +37,6 @@ const HomeGridTile = forwardRef<HTMLDivElement, HomeGridTileProps>(({ imageSrc, 
       </Paper>
     </Link>
   );
-});
+};
 
 export default HomeGridTile;

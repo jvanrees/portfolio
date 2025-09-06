@@ -15,7 +15,7 @@ export const gridItems = [
     className: `${styles.spanSquareLarge} ${styles.titleBox} ${styles.noShadow}`,
     transitionName: "AboutMe",
     title: "About Me",
-    content: <AboutMeCard transitionName="AboutMe" />,
+    content: <AboutMeCard />,
   },
   {
     key: "rmaAndroid",
@@ -23,7 +23,7 @@ export const gridItems = [
     transitionName: "RmaAndroid",
     title: "Arsenal Android App",
     content: (
-      <HomeGridTile imageSrc={rmaAndroidImage} title={"Android Arsenal App"} link={"/rma-android"} transitionName="RmaAndroid" />
+      <HomeGridTile imageSrc={rmaAndroidImage} title={"Android Arsenal App"} link={"/rma-android"} />
     ),
   },
   {
@@ -32,7 +32,7 @@ export const gridItems = [
     transitionName: "GoogleMaps",
     title: "Google Maps API",
     content: (
-      <HomeGridTile imageSrc={googleMapsImage} title={"Google Maps API"} link={"/google-maps-api"} transitionName="GoogleMaps" />
+      <HomeGridTile imageSrc={googleMapsImage} title={"Google Maps API"} link={"/google-maps-api"} />
     ),
   },
   {
@@ -41,7 +41,7 @@ export const gridItems = [
     transitionName: "RmaVisitor",
     title: "PostGIS WebApp",
     content: (
-      <HomeGridTile imageSrc={rmaVisitorImage} title={"PostGIS WebApp"} link={"/rma-visitor-postgis"} transitionName="RmaVisitor" />
+      <HomeGridTile imageSrc={rmaVisitorImage} title={"PostGIS WebApp"} link={"/rma-visitor-postgis"} />
     ),
   },
   {
@@ -54,7 +54,6 @@ export const gridItems = [
         imageSrc={QingDynasty}
         title={"Qing Dynasty Map"}
         link={"/qing-dynasty-map"}
-        flipId="CartoCSS"
       />
     ),
   },
@@ -64,7 +63,7 @@ export const gridItems = [
     transitionName: "NightMode",
     title: "MapQuest Night Mode",
     content: (
-      <HomeGridTile imageSrc={nightModeImage} title={"MapQuest  Night Mode"} link={"/nightmode"} transitionName="NightMode" />
+      <HomeGridTile imageSrc={nightModeImage} title={"MapQuest  Night Mode"} link={"/nightmode"} />
     ),
   },
   {
@@ -73,7 +72,7 @@ export const gridItems = [
     transitionName: "ShadedRelief",
     title: "Shaded Relief",
     content: (
-      <HomeGridTile imageSrc={shadedReliefImage} title={"Shaded Relief"} link={"/shaded-relief"} transitionName="ShadedRelief" />
+      <HomeGridTile imageSrc={shadedReliefImage} title={"Shaded Relief"} link={"/shaded-relief"} />
     ),
   },
   {
@@ -86,7 +85,6 @@ export const gridItems = [
         imageSrc={leafletMap}
         title={"More Maps"}
         link={"/even-more-maps"}
-        transitionName="EvenMoreMaps"
       />
     ),
   },
