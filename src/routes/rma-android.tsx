@@ -11,7 +11,8 @@ const pageConfig = {
 
 function RmaAndroidComponent() {
     return (
-        <DescriptionCard {...pageConfig} ></DescriptionCard>
-
+        <div style={{ viewTransitionName: 'RmaAndroid' }}>
+            <DescriptionCard {...pageConfig} />
+        </div>
     )
 }

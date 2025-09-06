@@ -1,5 +1,6 @@
-import { Button, Card, Text } from "@mantine/core";
+import { Button, Paper, Text } from "@mantine/core";
 import { Link } from "@tanstack/react-router";
+import { forwardRef } from 'react';
 import styles from '../styles/Grid.module.css';
 
 export const MantineButtonLink = (props: any) => {
@@ -18,15 +19,16 @@ const HomeButton = () => (
 );
 
 
-const DescriptionCard = ({ title, content }: { title: string; content: string }) => {
+const DescriptionCard = forwardRef<HTMLDivElement, { title: string; content: string }>((props, ref) => {
+    const { title, content } = props;
     return (
-        <Card shadow="sm" padding="lg" withBorder className={styles.gridChild}>
+        <Paper ref={ref} shadow="sm" p="lg" withBorder className={styles.gridChild}>
             <h1>{title}</h1>
             <Text size="md">{content}</Text>
             <HomeButton />
-        </Card>
+        </Paper>
     );
-};
+});
 
 
 export default DescriptionCard

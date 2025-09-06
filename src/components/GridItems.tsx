@@ -13,14 +13,14 @@ export const gridItems = [
   {
     key: "aboutMe",
     className: `${styles.spanSquareLarge} ${styles.titleBox} ${styles.noShadow}`,
-    flipId: "AboutMe",
+    transitionName: "AboutMe",
     title: "About Me",
     content: <AboutMeCard />,
   },
   {
     key: "rmaAndroid",
     className: styles.spanCenterpiece,
-    flipId: "RmaAndroid",
+    transitionName: "RmaAndroid",
     title: "Arsenal Android App",
     content: (
       <HomeGridTile imageSrc={rmaAndroidImage} title={"Android Arsenal App"} link={"/rma-android"} />
@@ -29,7 +29,7 @@ export const gridItems = [
   {
     key: "googleMapsApi",
     className: styles.spanRectHorizontal + " " + styles.rotateCell,
-    flipId: "GoogleMaps",
+    transitionName: "GoogleMaps",
     title: "Google Maps API",
     content: (
       <HomeGridTile imageSrc={googleMapsImage} title={"Google Maps API"} link={"/google-maps-api"} />
@@ -38,7 +38,7 @@ export const gridItems = [
   {
     key: "rmaVisitor",
     className: styles.spanSquareSmall,
-    flipId: "RmaVisitor",
+    transitionName: "RmaVisitor",
     title: "PostGIS WebApp",
     content: (
       <HomeGridTile imageSrc={rmaVisitorImage} title={"PostGIS WebApp"} link={"/rma-visitor-postgis"} />
@@ -47,7 +47,7 @@ export const gridItems = [
   {
     key: "qingMap",
     className: styles.spanRectVertical,
-    flipId: "CartoCSS",
+    transitionName: "CartoCSS",
     title: "Qing Dynasty",
     content: (
       <HomeGridTile
@@ -60,7 +60,7 @@ export const gridItems = [
   {
     key: "nightMode",
     className: styles.spanSquareLarge,
-    flipId: "NightMode",
+    transitionName: "NightMode",
     title: "MapQuest Night Mode",
     content: (
       <HomeGridTile imageSrc={nightModeImage} title={"MapQuest  Night Mode"} link={"/nightmode"} />
@@ -69,7 +69,7 @@ export const gridItems = [
   {
     key: "shadedRelief",
     className: styles.shadedReliefBox,
-    flipId: "ShadedRelief",
+    transitionName: "ShadedRelief",
     title: "Shaded Relief",
     content: (
       <HomeGridTile imageSrc={shadedReliefImage} title={"Shaded Relief"} link={"/shaded-relief"} />
@@ -78,7 +78,7 @@ export const gridItems = [
   {
     key: "evenMoreMaps",
     className: styles.expandableCell,
-    flipId: "EvenMoreMaps",
+    transitionName: "EvenMoreMaps",
     title: "More...",
     content: (
       <HomeGridTile
