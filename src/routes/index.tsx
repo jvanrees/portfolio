@@ -10,22 +10,22 @@ export const Route = createFileRoute('/')({
 
 function RouteComponent() {
   return (
-    <div className={classes.gridContainer}>
-      <div className={classes.gridInner}>
-        {gridItems.map(item => (
-          <Paper key={item.key} className={`${item.className} ${classes.gridChild}`} style={{ viewTransitionName: item.transitionName }}>
-            <div style={{ width: "100%", height: "100%" }}>
-              {item.content ? (
-                <>
-                  {item.content}
-                </>
-              ) : (
-                <Text className={classes.gridTileText}>Jeff, you forgot to add content to {item.title}.</Text>
-              )}
-            </div>
-          </Paper>
-        ))}
-      </div>
+
+    <div className={classes.gridInner}>
+      {gridItems.map(item => (
+        <Paper key={item.key} className={`${item.className} ${classes.gridChild}`} style={{ viewTransitionName: item.transitionName }}>
+          <div style={{ width: "100%", height: "100%" }}>
+            {item.content ? (
+              <>
+                {item.content}
+              </>
+            ) : (
+              <Text className={classes.gridTileText}>Jeff, you forgot to add content to {item.title}.</Text>
+            )}
+          </div>
+        </Paper>
+      ))}
     </div>
+
   );
 }
