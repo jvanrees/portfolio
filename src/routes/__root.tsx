@@ -1,5 +1,6 @@
-import { Outlet, createRootRoute } from '@tanstack/react-router';
+import { Outlet, createRootRoute, useLocation } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
+import { useEffect } from 'react';
 import { ViewState } from 'react-map-gl/maplibre';
 import MapBackground from '../components/MapBackground';
 import classes from '../styles/Grid.module.css';
@@ -17,13 +18,19 @@ const viewport: ViewState = {
 }
 
 function RootComponent() {
+    const location = useLocation();
+
+    useEffect(() => {
+        console.log("Path changed to:", location.pathname);
+    }, [location.pathname]);
+
     return (
         <>
             <MapBackground viewport={viewport} />
+            <TanStackRouterDevtools position="bottom-right" />
             <div className={classes.gridContent}>
                 <Outlet />
             </div>
-            <TanStackRouterDevtools position="bottom-right" />
         </>
     )
 }

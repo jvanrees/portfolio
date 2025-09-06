@@ -1,22 +1,25 @@
 import { Box, Button, Group, Stack, Text, Title } from '@mantine/core';
 import { Link } from '@tanstack/react-router';
+import React, { forwardRef } from 'react';
 import linkedinIcon from '../img/icon_linkedin.svg';
 import mailIcon from '../img/icon_mail.svg';
 import logo from '../img/logo.svg';
+import styles from '../routes/About.module.css';
 
-interface AboutMeCardProps {
+interface AboutMeCardProps extends React.HTMLAttributes<HTMLDivElement> {
     children?: React.ReactNode;
+    transitionName?: string;
 }
 
-const AboutMeCard = ({ children }: AboutMeCardProps) => {
+const AboutMeCard = forwardRef<HTMLDivElement, AboutMeCardProps>(({ children, className, style, transitionName, ...rest }, ref) => {
     return (
-        <Box style={{ height: '100%' }}>
-            <div style={{ display: 'flex', flexDirection: 'column', height: '100%', padding: 'none' }}>
-                <div style={{ display: 'flex', backgroundColor: '#61dafb', padding: '1rem' }}>
-                    <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
-                        <img src={logo} alt="Jeff Van Rees Map Logo" style={{ height: '6rem' }} />
+        <Box ref={ref} className={`${styles.aboutMeCard} ${className ?? ''}`} style={{ ...style, viewTransitionName: transitionName }} {...rest}>
+            <div className={styles.aboutMeCardContainer}>
+                <div className={styles.aboutMeCardHeader}>
+                    <div className={styles.aboutMeCardLogoContainer}>
+                        <img src={logo} alt="Jeff Van Rees Map Logo" className={styles.aboutMeCardLogo} />
                     </div>
-                    <div style={{ width: '80px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                    <div className={styles.aboutMeCardButtons}>
                         <Stack gap="sm">
                             <Button
                                 component="a"
@@ -37,7 +40,7 @@ const AboutMeCard = ({ children }: AboutMeCardProps) => {
                         </Stack>
                     </div>
                 </div>
-                <div style={{ flex: 1, padding: '1rem' }}>
+                <div className={styles.aboutMeCardContent}>
                     <Title order={4} mb="sm">
                         Hello, I'm Jeff and I make maps on the internet.
                     </Title>
@@ -55,6 +58,6 @@ const AboutMeCard = ({ children }: AboutMeCardProps) => {
             </div>
         </Box>
     );
-};
+});
 
 export default AboutMeCard;

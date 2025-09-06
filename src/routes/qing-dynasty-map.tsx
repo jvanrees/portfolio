@@ -13,7 +13,8 @@ const pageConfig = {
 
 function QingDynastyComponent() {
     return (
-        <DescriptionCard {...pageConfig} ></DescriptionCard>
-
+        <div style={{ viewTransitionName: 'CartoCSS' }}>
+            <DescriptionCard {...pageConfig} />
+        </div>
     )
 }

@@ -11,6 +11,8 @@ const pageConfig = {
 
 function GoogleMapsComponent() {
     return (
-        <DescriptionCard {...pageConfig} ></DescriptionCard>
+        <div style={{ viewTransitionName: 'GoogleMaps' }}>
+            <DescriptionCard {...pageConfig} />
+        </div>
     )
 }

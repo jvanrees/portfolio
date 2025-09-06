@@ -13,78 +13,80 @@ export const gridItems = [
   {
     key: "aboutMe",
     className: `${styles.spanSquareLarge} ${styles.titleBox} ${styles.noShadow}`,
-    flipId: "AboutMe",
+    transitionName: "AboutMe",
     title: "About Me",
-    content: <AboutMeCard />,
+    content: <AboutMeCard transitionName="AboutMe" />,
   },
   {
     key: "rmaAndroid",
     className: styles.spanCenterpiece,
-    flipId: "RmaAndroid",
+    transitionName: "RmaAndroid",
     title: "Arsenal Android App",
     content: (
-      <HomeGridTile imageSrc={rmaAndroidImage} title={"Android Arsenal App"} link={"/rma-android"} />
+      <HomeGridTile imageSrc={rmaAndroidImage} title={"Android Arsenal App"} link={"/rma-android"} transitionName="RmaAndroid" />
     ),
   },
   {
     key: "googleMapsApi",
     className: styles.spanRectHorizontal + " " + styles.rotateCell,
-    flipId: "GoogleMaps",
+    transitionName: "GoogleMaps",
     title: "Google Maps API",
     content: (
-      <HomeGridTile imageSrc={googleMapsImage} title={"Google Maps API"} link={"/google-maps-api"} />
+      <HomeGridTile imageSrc={googleMapsImage} title={"Google Maps API"} link={"/google-maps-api"} transitionName="GoogleMaps" />
     ),
   },
   {
     key: "rmaVisitor",
     className: styles.spanSquareSmall,
-    flipId: "RmaVisitor",
+    transitionName: "RmaVisitor",
     title: "PostGIS WebApp",
     content: (
-      <HomeGridTile imageSrc={rmaVisitorImage} title={"PostGIS WebApp"} link={"/rma-visitor-postgis"} />
+      <HomeGridTile imageSrc={rmaVisitorImage} title={"PostGIS WebApp"} link={"/rma-visitor-postgis"} transitionName="RmaVisitor" />
     ),
   },
   {
     key: "qingMap",
     className: styles.spanRectVertical,
-    flipId: "CartoCSS",
+    transitionName: "CartoCSS",
     title: "Qing Dynasty",
     content: (
       <HomeGridTile
         imageSrc={QingDynasty}
         title={"Qing Dynasty Map"}
         link={"/qing-dynasty-map"}
+        flipId="CartoCSS"
       />
     ),
   },
   {
     key: "nightMode",
     className: styles.spanSquareLarge,
-    flipId: "NightMode",
+    transitionName: "NightMode",
     title: "MapQuest Night Mode",
     content: (
-      <HomeGridTile imageSrc={nightModeImage} title={"MapQuest  Night Mode"} link={"/nightmode"} />
+      <HomeGridTile imageSrc={nightModeImage} title={"MapQuest  Night Mode"} link={"/nightmode"} transitionName="NightMode" />
     ),
   },
   {
     key: "shadedRelief",
     className: styles.shadedReliefBox,
-    flipId: "ShadedRelief",
+    transitionName: "ShadedRelief",
     title: "Shaded Relief",
     content: (
-      <HomeGridTile imageSrc={shadedReliefImage} title={"Shaded Relief"} link={"/shaded-relief"} />
+      <HomeGridTile imageSrc={shadedReliefImage} title={"Shaded Relief"} link={"/shaded-relief"} transitionName="ShadedRelief" />
     ),
   },
   {
     key: "evenMoreMaps",
     className: styles.expandableCell,
-    flipId: "EvenMoreMaps",
+    transitionName: "EvenMoreMaps",
     title: "More...",
     content: (
       <HomeGridTile
         imageSrc={leafletMap}
         title={"More Maps"}
         link={"/even-more-maps"}
+        transitionName="EvenMoreMaps"
       />
     ),
   },
