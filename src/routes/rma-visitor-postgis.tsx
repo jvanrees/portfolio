@@ -11,7 +11,7 @@ const pageConfig = {
 
 function RmaVisitorComponent() {
     return (
-        <div style={{ viewTransitionName: 'RmaVisitor' }}>
+        <div style={{ viewTransitionName: 'RmaVisitor', height: '100%', overflowY: 'auto' }}>
             <DescriptionCard {...pageConfig} />
         </div>
     )

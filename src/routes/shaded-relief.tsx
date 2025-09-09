@@ -11,7 +11,7 @@ const pageConfig = {
 
 function ShadedReliefComponent() {
     return (
-        <div style={{ viewTransitionName: 'ShadedRelief' }}>
+        <div style={{ viewTransitionName: 'ShadedRelief', height: '100%', overflowY: 'auto' }}>
             <DescriptionCard {...pageConfig} />
         </div>
     )

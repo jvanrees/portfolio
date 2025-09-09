@@ -11,7 +11,7 @@ const pageConfig = {
 
 function GoogleMapsComponent() {
     return (
-        <div style={{ viewTransitionName: 'GoogleMaps' }}>
+        <div style={{ viewTransitionName: 'GoogleMaps', height: '100%', overflowY: 'auto' }}>
             <DescriptionCard {...pageConfig} />
         </div>
     )

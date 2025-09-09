@@ -1,0 +1,179 @@
+.imageCarouselContainer {
+    width: 100%;
+    height: 100%;
+    min-height: 650px;
+    max-height: 1000px;
+    overflow: hidden;
+    /* background-color: hsla(0, 93%, 48%, 0.0); */
+}
+
+/* Swiper Cards Effect Styles */
+.imageCarouselContainer .swiper {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background-color: black;
+    margin: 0 auto;
+}
+
+.imageCarouselContainer .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: black;
+}
+
+.imageCarouselContainer .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+/* Cards effect specific styles */
+.imageCarouselContainer .swiper-3d .swiper-slide-shadow-left,
+.imageCarouselContainer .swiper-3d .swiper-slide-shadow-right {
+    background-image: none;
+}
+
+/* Main Cards Container */
+.mainCardsContainer {
+    position: relative;
+    height: 100%;
+}
+
+/* Thumbnail Navigation Styles */
+.thumbnailNavigation {
+    width: 100%;
+    max-width: 600px;
+}
+
+.thumbnailSwiper {
+    padding: 5px 0;
+}
+
+.thumbnailContainer {
+    width: 60px;
+    height: 35px;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.thumbnailImage {
+    width: 60px;
+    height: 35px;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+
+/* Thumbnail Navigation Container */
+.thumbnailNavContainer {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: auto;
+    max-width: 300px;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 12px;
+    padding: 10px;
+    backdrop-filter: blur(10px);
+}
+
+/* Slide Container */
+.slideContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    padding: 5px;
+}
+
+/* Slide Image */
+.slideImage {
+    object-fit: scale-down;
+    max-height: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+/* Thumbnail Image */
+.thumbnailImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.imageCarouselContainer .swiper-thumbs .swiper-slide {
+    width: 60px !important;
+    height: 35px !important;
+    margin: 0 5px;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0.7;
+    transform: scale(1);
+}
+
+.imageCarouselContainer .swiper-thumbs .swiper-slide-thumb-active {
+    opacity: 1 !important;
+    transform: scale(1.05) !important;
+    border: 3px solid #007bff !important;
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3) !important;
+}
+
+.imageCarouselContainer .swiper-thumbs .swiper-slide img {
+    width: 80%;
+    height: 80%;
+    object-fit: scale-down;
+    border-radius: 6px;
+}
+
+@media (max-width: 640px) {
+    .imageCarouselContainer .swiper-thumbs .swiper-slide {
+        width: 45px !important;
+        height: 28px !important;
+        margin: 0 3px;
+    }
+
+    .thumbnailNavContainer {
+        bottom: 15px;
+        right: 15px;
+        max-width: 200px;
+        padding: 8px;
+    }
+}
+
+.swiper-slide img {
+    height: 100%;
+}
+
+.rmaSwiper {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+:root {
+    /* Change the color of the navigation arrows */
+    --swiper-navigation-color: hsla(0, 0, 70%, 0.5);
+
+    /* Change the arrow size */
+    --swiper-navigation-size: 30px;
+}

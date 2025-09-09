@@ -13,7 +13,7 @@ const pageConfig = {
 
 function EvenMoreComponent() {
     return (
-        <div style={{ viewTransitionName: 'EvenMoreMaps' }}>
+        <div style={{ viewTransitionName: 'EvenMoreMaps', height: '100%', overflowY: 'auto' }}>
             <DescriptionCard {...pageConfig} />
         </div>
     )

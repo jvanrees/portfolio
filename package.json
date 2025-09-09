@@ -9,16 +9,19 @@
     "preview": "rsbuild preview"
   },
   "dependencies": {
+    "@mantine/carousel": "^8.2.8",
     "@mantine/core": "^8.0.0",
     "@mantine/hooks": "^8.0.0",
     "@rsbuild/plugin-css-minimizer": "^1.0.2",
     "@tanstack/react-router": "^1.119.0",
     "@tanstack/react-router-devtools": "^1.119.1",
     "clsx": "^2.1.1",
+    "embla-carousel-autoplay": "^8.6.0",
     "maplibre-gl": "^5.4.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-map-gl": "^8.0.4"
+    "react-map-gl": "^8.0.4",
+    "swiper": "^11.2.10"
   },
   "devDependencies": {
     "@iconify-icon/react": "^3.0.0",
