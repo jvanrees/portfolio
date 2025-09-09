@@ -34,3 +34,7 @@ body {
   font-size: 1.5rem;
   width: calc(100% - 2rem);
 }
+
+.embla__slide:not(.is-snapped) {
+  opacity: 0.05;
+}

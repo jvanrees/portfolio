@@ -184,11 +184,8 @@
   }
 
   .gridContainer {
-    /* Assuming .map-logo-row is not used; if needed, add analogous class */
     text-align: center;
   }
-
-  /* .aboutMeResume and .footer not directly applicable; skip or add if used */
 
   .gridContainer {
     grid-template-areas: "map-logo-row" "image-grid" "description-grid";
@@ -197,17 +194,11 @@
   }
 
 
-  /* .description-grid not directly applicable; skip */
-
-  /* .img-android-original not applicable */
-
   .gridTileText {
     max-width: 40vw;
     max-height: 40vw;
   }
 }
-
-
 
 @media only screen and (min-width: 846px) and (max-width: 1011px) {
   /* .gridChild {
@@ -272,5 +263,4 @@
   .gridContent {
     max-width: 1475px !important;
   }
-
 }
