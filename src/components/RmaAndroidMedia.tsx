@@ -31,7 +31,7 @@ export function RmaAndroidMedia() {
                     modules={[EffectCards, Thumbs, Navigation]}
                     centeredSlides={true}
                     slidesPerView={1}
-                    className="rmaSwiper"
+                    className={styles.rmaSwiper}
                     thumbs={{ swiper: thumbsSwiper }}
                     loop={true}
                     // autoplay={{
@@ -57,7 +57,9 @@ export function RmaAndroidMedia() {
                                     alt={`Rocky Mountain Arsenal: History Android app Screen ${index + 1}`}
                                     className={styles.slideImage}
                                     style={{
-                                        opacity: index === activeIndex ? 1 : 0.7,
+                                        border: activeIndex === index ? '1px solid' : '1px solid',
+                                        borderColor: activeIndex === index ? 'hsla(0, 0%, 25%, 0.56)' : 'transparent',
+                                        opacity: index === activeIndex ? 1 : 0.9,
                                         filter: index === activeIndex ? 'none' : 'blur(1px)',
                                     }}
                                 />
@@ -76,7 +78,7 @@ export function RmaAndroidMedia() {
                     modules={[Thumbs]}
                     watchSlidesProgress={true}
                     style={{
-                        padding: '5px 0'
+                        padding: '5px 0',
                     }}
                     breakpoints={{
                         320: {

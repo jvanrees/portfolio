@@ -3,7 +3,7 @@ import styles from '../styles/Grid.module.css';
 
 export function RmaAndroidDesc() {
     return (
-        <Paper shadow="sm" p="lg" withBorder className={styles.gridChild}>
+        <Paper p="md" className={styles.gridChild + styles.noShadow}>
             <h1>Rocky Mountain Arsenal Android App</h1>
             <Text size="md">
                 The Rocky Mountain Arsenal National Wildlife Refuge is one of the nation’s largest urban wildlife
@@ -17,17 +17,6 @@ export function RmaAndroidDesc() {
                 ground up. I enjoy challenging myself and learning new technologies.
             </Text>
             <br />
-            <a
-                href='https://play.google.com/store/apps/details?id=com.rmahistory&hl=en&utm_source=2&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <img
-                    alt='Get it on Google Play'
-                    style={{ width: "50%", marginLeft: "auto", marginRight: "auto" }}
-                    src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'
-                />
-            </a>
         </Paper>
     );
 }

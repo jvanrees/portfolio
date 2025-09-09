@@ -9,7 +9,7 @@ const pageConfig = {
 }
 function NightmodeComponent() {
     return (
-        <div style={{ viewTransitionName: 'NightMode' }}>
+        <div style={{ viewTransitionName: 'NightMode', height: '100%', overflowY: 'auto' }}>
             <DescriptionCard {...pageConfig} />
         </div>
     )

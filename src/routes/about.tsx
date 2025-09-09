@@ -14,7 +14,7 @@ function AboutComponent() {
     const isMobile = window.innerWidth < 520
 
     return (
-        <div className={`${gridClasses.gridChild} ${aboutStyles.fullGridOverlay} ${aboutStyles.noShadow} ${aboutStyles.flexColumn}`} style={{ viewTransitionName: 'AboutMe' }}>
+        <div className={`${gridClasses.gridChild} ${aboutStyles.fullGridOverlay} ${aboutStyles.noShadow} ${aboutStyles.flexColumn}`} style={{ viewTransitionName: 'AboutMe', overflowY: 'auto' }}>
             <div className={aboutStyles.aboutMeOpen + ' ' + gridClasses.subGridChild}>
                 <div className={aboutStyles.aboutMeOpenContent + ' ' + gridClasses.subGridChild}>
                     <div className={aboutStyles.mapLogoRow}>

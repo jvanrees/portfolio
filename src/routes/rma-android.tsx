@@ -56,7 +56,7 @@ function RmaAndroidComponent() {
     };
 
     return (
-        <div style={{ viewTransitionName: 'RmaAndroid' }}>
+        <div style={{ viewTransitionName: 'RmaAndroid', height: '100%', overflowY: 'auto' }}>
             <div style={gridContainerStyle}>
                 <div style={imageGridStyle}>
                     <RmaAndroidMedia />

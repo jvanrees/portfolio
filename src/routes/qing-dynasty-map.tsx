@@ -13,7 +13,7 @@ const pageConfig = {
 
 function QingDynastyComponent() {
     return (
-        <div style={{ viewTransitionName: 'CartoCSS' }}>
+        <div style={{ viewTransitionName: 'CartoCSS', height: '100%', overflowY: 'auto' }}>
             <DescriptionCard {...pageConfig} />
         </div>
     )
