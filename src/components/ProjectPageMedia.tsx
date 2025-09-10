@@ -6,36 +6,31 @@ import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 import { EffectCoverflow, Thumbs } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import img1 from '../img/android_app/Screenshot_20181103-203245_Rocky Mountain Arsenal History.jpg';
-import img2 from '../img/android_app/Screenshot_20181103-203534_Rocky Mountain Arsenal History.jpg';
-import img3 from '../img/android_app/Screenshot_20181103-203554_Rocky Mountain Arsenal History.jpg';
-import img4 from '../img/android_app/Screenshot_20181103-204001_Rocky Mountain Arsenal History.jpg';
-import img5 from '../img/android_app/Screenshot_20181103-204113_Rocky Mountain Arsenal History.jpg';
 import styles from '../styles/ProjectPage.module.css';
 
-const images = [img1, img2, img3, img4, img5];
-const images2x = [...images, ...images];
 
-export function ProjectMedia() {
+function ensureImageArrayLengthForLoop(images: string[]) {
+    // Ensure the returned array has at least 12 items by repeating
+    // the source images as many times as necessary.
+    if (images.length >= 12) return images;
+
+    const repeatCount = Math.ceil(12 / images.length);
+    const out: string[] = [];
+    for (let i = 0; i < repeatCount; i++) {
+        out.push(...images);
+    }
+    return out;
+}
+
+export interface ProjectMediaProps {
+    images?: string[];
+    title?: string;
+}
+
+export function ProjectMedia({ images, title }: ProjectMediaProps) {
+    const imagesExtended = ensureImageArrayLengthForLoop(images);
     const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
     const [activeIndex, setActiveIndex] = useState(0);
-    const [mainSwiper, setMainSwiper] = useState<any>(null);
-
-    const handleSlideClick = (clickedIndex: number) => {
-        if (!mainSwiper) {
-            console.log('Swiper not ready');
-            return;
-        }
-
-        console.log('Clicked slide:', clickedIndex, 'Active:', activeIndex);
-
-        if (clickedIndex === activeIndex) {
-            console.log('Clicked active slide, ignoring');
-            return;
-        }
-
-        mainSwiper.slideToLoop(clickedIndex);
-    };
 
     return (
         <div className={styles.imageCarouselContainer}>
@@ -43,30 +38,20 @@ export function ProjectMedia() {
                 <Swiper
                     effect={'coverflow'}
                     slideToClickedSlide={true}
-                    // loopAdditionalSlides={images2x.length}
-                    // watchSlidesProgress={true}
                     autoHeight={false}
                     grabCursor={true}
-                    // bring autoplay back
+                    autoplay={{
+                        delay: 5000,
+                    }}
                     modules={[EffectCoverflow, Thumbs]}
                     centeredSlides={true}
                     slidesPerView={3}
                     className={styles.rmaSwiper}
                     thumbs={{ swiper: thumbsSwiper }}
                     loop={true}
-                    onSwiper={setMainSwiper}
                     onClick={(swiper) => console.log(swiper.clickedSlide)}
                     spaceBetween={-75}
-
-                    // autoplay={{
-                    //     delay: 5000,
-                    //     disableOnInteraction: false,
-                    // }}
                     onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-                    // style={{
-                    //     width: '100%',
-                    //     height: '50%',
-                    // }}
                     coverflowEffect={{
                         slideShadows: false,
                         rotate: 0,
@@ -75,22 +60,20 @@ export function ProjectMedia() {
                         scale: 0.95,
                     }}
                 >
-                    {images2x.map((img, index) => {
-                        const mappedIndex = index % images.length;
-                        // console.log(`Rendering slide ${index}, mapped to image ${mappedIndex}`);
+                    {imagesExtended.map((img, index) => {
                         return (
                             <SwiperSlide key={index}>
-                                <div className={styles.slideContainer} onClick={() => handleSlideClick(index)}>
+                                <div className={styles.slideContainer} >
                                     <img
                                         src={img}
-                                        alt={`Rocky Mountain Arsenal: History Android app Screen ${index + 1}`}
+                                        alt={`${title} Screen ${index + 1}`}
                                         className={styles.slideImage}
                                         style={{
-                                            border: (activeIndex % images2x.length) === index ? '1px solid' : '1px solid',
-                                            borderColor: (activeIndex % images2x.length) === index ? 'hsla(0, 0%, 25%, 0.56)' : 'transparent',
-                                            opacity: (activeIndex % images2x.length) === index ? 1 : 0.9,
-                                            filter: (activeIndex % images2x.length) === index ? 'none' : 'blur(1px)',
-                                            cursor: (activeIndex % images2x.length) !== index ? 'pointer' : 'default',
+                                            border: (activeIndex % imagesExtended.length) === index ? '1px solid' : '1px solid',
+                                            borderColor: (activeIndex % imagesExtended.length) === index ? 'hsla(0, 0%, 25%, 0.56)' : 'transparent',
+                                            opacity: (activeIndex % imagesExtended.length) === index ? 1 : 0.9,
+                                            filter: (activeIndex % imagesExtended.length) === index ? 'none' : 'blur(1px)',
+                                            cursor: (activeIndex % imagesExtended.length) !== index ? 'pointer' : 'default',
                                         }}
                                     />
                                 </div>

@@ -48,6 +48,78 @@
     height: 100%;
 }
 
+/* RMA Route Grid Layout (migrated from rma-android.tsx inline styles) */
+.projectPageGridContainer {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    z-index: 3;
+    grid-template-areas:
+        "map-logo-row image-grid"
+        "description-grid image-grid"
+        "bottom-nav image-grid";
+    grid-template-columns: 37.5% 62.5%;
+    grid-template-rows: auto 1fr auto;
+}
+
+@media (max-width: 529px) {
+    .projectPageGridContainer {
+        grid-template-areas:
+            "image-grid"
+            "description-grid"
+            "bufferButton"
+            "bottom-nav";
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr auto auto;
+    }
+}
+
+.imageGrid {
+    overflow: hidden;
+    grid-area: image-grid;
+    box-shadow: none;
+    background: transparent;
+}
+
+.descriptionGrid {
+    background-color: #fff;
+    grid-area: description-grid;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    padding: 1rem;
+}
+
+.bottomNav {
+    grid-area: bottom-nav;
+    background-color: white;
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    z-index: 999;
+    box-shadow: 0 -0.2px 1px 1px rgba(0, 0, 0, 0.1), 0 -0.5px 0px 0 rgba(0, 0, 0, 0.05), 0 -1px 1px 0 rgba(0, 0, 0, 0.01);
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+@media (max-width: 529px) {
+    .bottomNav {
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+}
+
+.bufferButton {
+    grid-area: bufferButton;
+    display: none;
+    padding: 0.5rem;
+}
+
+@media (max-width: 529px) {
+    .bufferButton {
+        display: block;
+    }
+}
+
 /* Thumbnail Navigation Styles */
 .thumbnailNavigation {
     width: 100%;
@@ -60,7 +132,7 @@
 
 .thumbnailContainer {
     width: 5rem;
-    height: 35px;
+    height: 3rem;
     border-radius: 6px;
     overflow: hidden;
     cursor: pointer;
@@ -70,6 +142,7 @@
 .thumbnailImage {
     width: 5rem;
     height: 3rem;
+    margin: 0.3rem;
     border-radius: 6px;
     overflow: hidden;
     cursor: pointer;
