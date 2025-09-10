@@ -1,7 +1,8 @@
+import { Icon } from '@iconify-icon/react'
 import { Button } from '@mantine/core'
 import { createFileRoute, Link } from '@tanstack/react-router'
-import { RmaAndroidDesc } from '../components/RmaAndroidDesc'
-import { RmaAndroidMedia } from '../components/RmaAndroidMedia'
+import { RmaAndroidDesc } from '../components/ProjectDescription'
+import { ProjectMedia } from '../components/ProjectMedia'
 
 export const Route = createFileRoute('/rma-android')({
     component: RmaAndroidComponent,
@@ -46,7 +47,14 @@ function RmaAndroidComponent() {
         backgroundColor: 'white',
         padding: '0.5rem 0.5rem 0.5rem 1rem',
         zIndex: 999,
-        boxShadow: '0 -0.2px 1px 1px rgba(0, 0, 0, 0.1), 0 -0.5px 0px 0 rgba(0, 0, 0, 0.05), 0 -1px 1px 0 rgba(0, 0, 0, 0.01)'
+        boxShadow: '0 -0.2px 1px 1px rgba(0, 0, 0, 0.1), 0 -0.5px 0px 0 rgba(0, 0, 0, 0.05), 0 -1px 1px 0 rgba(0, 0, 0, 0.01)',
+        ...(isMobile ? {
+            borderTopLeftRadius: '4px',
+            borderTopRightRadius: '4px'
+        } : {
+            borderBottomLeftRadius: '4px',
+            borderBottomRightRadius: '4px'
+        })
     };
 
     const bufferButtonStyle = {
@@ -59,7 +67,7 @@ function RmaAndroidComponent() {
         <div style={{ viewTransitionName: 'RmaAndroid', height: '100%', overflowY: 'auto' }}>
             <div style={gridContainerStyle}>
                 <div style={imageGridStyle}>
-                    <RmaAndroidMedia />
+                    <ProjectMedia />
                 </div>
                 <div style={descriptionGridStyle}>
                     <RmaAndroidDesc />
@@ -72,15 +80,14 @@ function RmaAndroidComponent() {
                     </div>
                 )}
                 <div style={bottomNavStyle}>
-                    <Link to="/">
-                        <Button
-                            variant="outline"
-                            color="dark"
-                            size="lg"
-                        >
-                            ← Back
-                        </Button>
-                    </Link>
+                    <Button
+                        component={Link}
+                        to="/"
+                        leftSection={<Icon icon="mdi:chevron-left" />}
+                        variant='transparent'
+                    >
+                        Back
+                    </Button>
                 </div>
             </div>
         </div>
