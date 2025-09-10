@@ -51,6 +51,9 @@ importers:
       '@iconify-icon/react':
         specifier: ^3.0.0
         version: 3.0.0(react@19.1.1)
+      '@iconify-icons/grommet-icons':
+        specifier: ^1.2.5
+        version: 1.2.5
       '@rsbuild/core':
         specifier: ^1.3.1
         version: 1.5.4
@@ -395,6 +398,9 @@ packages:
     resolution: {integrity: sha512-TOyzGUIfOFbmRQflMbf8k8bBGbeVAVCnvJ/rKz2SgBOV6VZLv7E9gzLvkPzfkZ2HZL+GbRtLNX/GJq2EI54OFQ==}
     peerDependencies:
       react: '>=16'
+
+  '@iconify-icons/grommet-icons@1.2.5':
+    resolution: {integrity: sha512-5jlawotGr2v5yAJdCzMUg9lxB3P8N8SKyd2DtkYuFug9MPhbYCEWdpkJR+Dhmq9N6eqTzvt86Iv6CUSZtLn7Fg==}
 
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
@@ -2197,6 +2203,10 @@ snapshots:
     dependencies:
       iconify-icon: 3.0.0
       react: 19.1.1
+
+  '@iconify-icons/grommet-icons@1.2.5':
+    dependencies:
+      '@iconify/types': 2.0.0
 
   '@iconify/types@2.0.0': {}
 

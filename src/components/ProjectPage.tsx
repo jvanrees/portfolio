@@ -1,31 +1,22 @@
 import { Icon } from '@iconify-icon/react'
 import { Button } from '@mantine/core'
-import { createFileRoute, Link } from '@tanstack/react-router'
-import { RmaAndroidDesc } from '../components/ProjectPageDescription'
-import { ProjectMedia } from '../components/ProjectPageMedia'
+import { Link } from '@tanstack/react-router'
 import styles from '../styles/ProjectPage.module.css'
+import { RmaAndroidDesc } from './ProjectPageDescription'
+import { ProjectMedia } from './ProjectPageMedia'
 
-import img1 from '../img/android_app/Screenshot_20181103-203245_Rocky Mountain Arsenal History.jpg'
-import img2 from '../img/android_app/Screenshot_20181103-203534_Rocky Mountain Arsenal History.jpg'
-import img3 from '../img/android_app/Screenshot_20181103-203554_Rocky Mountain Arsenal History.jpg'
-import img4 from '../img/android_app/Screenshot_20181103-204001_Rocky Mountain Arsenal History.jpg'
-import img5 from '../img/android_app/Screenshot_20181103-204113_Rocky Mountain Arsenal History.jpg'
+interface ProjectPageComponentProps extends React.HTMLAttributes<HTMLDivElement> {
+    children?: React.ReactNode;
+    transitionName?: string;
+}
 
-const images = [img1, img2, img3, img4, img5]
-const title = 'Rocky Mountain Arsenal: History Android app'
-
-export const Route = createFileRoute('/rma-android')({
-    component: RmaAndroidComponent,
-})
-
-function RmaAndroidComponent() {
+export function ProjectPageComponent({ transitionName }: ProjectPageComponentProps) {
     const isMobile = typeof window !== 'undefined' && window.innerWidth < 530;
-
     return (
-        <div style={{ viewTransitionName: 'RmaAndroid', height: '100%', overflowY: 'auto' }}>
+        <div style={{ viewTransitionName: transitionName, height: '100%', overflowY: 'auto' }}>
             <div className={styles.projectPageGridContainer}>
                 <div className={styles.imageGrid}>
-                    <ProjectMedia images={images} title={title} />
+                    <ProjectMedia />
                 </div>
                 <div className={styles.descriptionGrid}>
                     <RmaAndroidDesc />
