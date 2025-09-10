@@ -1,9 +1,5 @@
-import { Icon } from '@iconify-icon/react'
-import { Button } from '@mantine/core'
-import { createFileRoute, Link } from '@tanstack/react-router'
-import { RmaAndroidDesc } from '../components/ProjectPageDescription'
-import { ProjectMedia } from '../components/ProjectPageMedia'
-import styles from '../styles/ProjectPage.module.css'
+import { createFileRoute } from '@tanstack/react-router'
+import ProjectPage from '../components/ProjectPage'
 
 import img1 from '../img/android_app/Screenshot_20181103-203245_Rocky Mountain Arsenal History.jpg'
 import img2 from '../img/android_app/Screenshot_20181103-203534_Rocky Mountain Arsenal History.jpg'
@@ -12,8 +8,11 @@ import img4 from '../img/android_app/Screenshot_20181103-204001_Rocky Mountain A
 import img5 from '../img/android_app/Screenshot_20181103-204113_Rocky Mountain Arsenal History.jpg'
 
 const images = [img1, img2, img3, img4, img5]
-const title = 'Rocky Mountain Arsenal: History Android app'
-
+const title = 'Rocky Mountain Arsenal Android App'
+const paragraphs = [
+    `The Rocky Mountain Arsenal National Wildlife Refuge is one of the nation’s largest urban wildlife preserves. The open space it provides, just 10 miles from downtown Denver, for wildlife and recreators is courtesy the location’s complex history as a manufacturing facility for weapons and chemicals. It is a story that includes both environmental damage and restoration, and reflects our increasing recognition of the value of wildlife and open space.`,
+    `The data, digitized scanned government documents, and the application itself were built from the ground up. I enjoy challenging myself and learning new technologies.`
+]
 export const Route = createFileRoute('/rma-android')({
     component: RmaAndroidComponent,
 })
@@ -23,31 +22,7 @@ function RmaAndroidComponent() {
 
     return (
         <div style={{ viewTransitionName: 'RmaAndroid', height: '100%', overflowY: 'auto' }}>
-            <div className={styles.projectPageGridContainer}>
-                <div className={styles.imageGrid}>
-                    <ProjectMedia images={images} title={title} />
-                </div>
-                <div className={styles.descriptionGrid}>
-                    <RmaAndroidDesc />
-                </div>
-                {isMobile && (
-                    <div className={styles.bufferButton}>
-                        <Button style={{ opacity: 0 }}>
-                            &nbsp;
-                        </Button>
-                    </div>
-                )}
-                <div className={styles.bottomNav}>
-                    <Button
-                        component={Link}
-                        to="/"
-                        leftSection={<Icon icon="mdi:chevron-left" />}
-                        variant='transparent'
-                    >
-                        Back
-                    </Button>
-                </div>
-            </div>
+            <ProjectPage title={title} images={images} paragraphs={paragraphs} />
         </div>
     )
 }
