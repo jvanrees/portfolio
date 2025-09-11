@@ -9,7 +9,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import styles from '../styles/ProjectPage.module.css';
 
 
-function ensureImageArrayLengthForLoop(images: string[]) {
+function ensureImageArrayLengthForLoop(images: any[]) {
     // Ensure the returned array has at least 12 items by repeating
     // the source images as many times as necessary.
     if (images.length >= 12) return images;
@@ -23,8 +23,8 @@ function ensureImageArrayLengthForLoop(images: string[]) {
 }
 
 export interface ProjectMediaProps {
-    images?: string[];
-    title?: string;
+    images: any[];
+    title: string;
 }
 
 export function ProjectMedia({ images, title }: ProjectMediaProps) {
