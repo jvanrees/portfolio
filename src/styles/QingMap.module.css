@@ -1,0 +1,24 @@
+.container {
+    position: relative;
+    width: 100%;
+    /* fill the parent grid cell */
+    height: 100%;
+}
+
+.container > .maplibregl-map {
+    /* ensure the inner map from react-map-gl fills the container */
+    width: 100%;
+    height: 100%;
+}
+
+.info {
+    position: absolute;
+    z-index: 2;
+    left: 10px;
+    top: 10px;
+    background: white;
+    padding: 6px 8px;
+    border-radius: 4px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}

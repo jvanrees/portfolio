@@ -7,16 +7,24 @@ import { ProjectMedia } from './ProjectPageMedia'
 
 interface ProjectPageComponentProps extends React.HTMLAttributes<HTMLDivElement> {
     title: string;
-    images: string[];
+    images?: string[]; // optional - legacy image slider
     paragraphs: string[];
+    // optional media node: e.g., a map component to render instead of images
+    media?: React.ReactNode;
 }
 
-export default function ProjectPageComponent({ title, images, paragraphs }: ProjectPageComponentProps) {
+export default function ProjectPageComponent({ title, images, paragraphs, media }: ProjectPageComponentProps) {
     const isMobile = typeof window !== 'undefined' && window.innerWidth < 530;
     return (
         <div className={styles.projectPageGridContainer}>
             <div className={styles.imageGrid}>
-                <ProjectMedia title={title} images={images} />
+                {media ? (
+                    // render provided media node (map, video, etc.)
+                    media
+                ) : (
+                    // fallback to legacy image slider
+                    <ProjectMedia title={title} images={images || []} />
+                )}
             </div>
             <div className={styles.descriptionGrid}>
                 <ProjectPageDesc title={title} paragraphs={paragraphs} />

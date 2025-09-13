@@ -18,8 +18,6 @@ export const Route = createFileRoute('/rma-android')({
 })
 
 function RmaAndroidComponent() {
-    const isMobile = typeof window !== 'undefined' && window.innerWidth < 530;
-
     return (
         <div style={{ viewTransitionName: 'RmaAndroid', height: '100%', overflowY: 'auto' }}>
             <ProjectPage title={title} images={images} paragraphs={paragraphs} />
