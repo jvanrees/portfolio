@@ -9,6 +9,7 @@ export const Route = createFileRoute('/')({
 })
 
 function RouteComponent() {
+
   return (
 
     <div className={classes.gridInner}>
