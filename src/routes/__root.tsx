@@ -1,4 +1,4 @@
-import { Outlet, createRootRoute, useLocation } from '@tanstack/react-router';
+import { Outlet, createRootRoute, useLocation, useNavigate } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
 import { useEffect } from 'react';
 import { ViewState } from 'react-map-gl/maplibre';
@@ -19,10 +19,21 @@ const viewport: ViewState = {
 
 function RootComponent() {
     const location = useLocation();
+    const navigate = useNavigate();
 
     useEffect(() => {
         console.log("Path changed to:", location.pathname);
     }, [location]);
+
+    useEffect(() => {
+        // Handle SPA redirect for GitHub Pages
+        const searchParams = new URLSearchParams(location.search);
+        const path = searchParams.get('/');
+        if (path) {
+            const decodedPath = path.replace(/~and~/g, '&');
+            navigate({ to: decodedPath, replace: true });
+        }
+    }, [location.search, navigate]);
 
     return (
         <>
