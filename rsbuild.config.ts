@@ -11,6 +11,12 @@ export default defineConfig({
     favicon: './favicon.ico',
   },
 
+  source: {
+    assetsInclude: [
+      /\.geojson$/,
+      /\.html$/,
+    ]
+  },
   tools: {
     rspack: {
       plugins: [

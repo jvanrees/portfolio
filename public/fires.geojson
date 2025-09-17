@@ -1,0 +1,1047 @@
+{
+    "type": "FeatureCollection",
+    "name": "fires_finalized",
+    "crs": {
+        "type": "name",
+        "properties": {
+            "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+        }
+    },
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "SOURCE_S_1": "FWS-FMIS",
+                "name": "PENSTEMON BEACH",
+                "FIRE_YEAR": "2005",
+                "DISCOVERY_": "2005/05/19 00:00:00.000",
+                "STAT_CAU_1": "Miscellaneous",
+                "CONT_DATE": "2005/05/19 00:00:00.000",
+                "FIRE_SIZE": 0.1,
+                "fire_id": "1",
+                "cost": "1974"
+            },
+            "geometry": {
+                "type": "MultiPoint",
+                "coordinates": [
+                    [
+                        -104.8728,
+                        39.8273
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "SOURCE_S_1": "FWS-FMIS",
+                "name": "BISON FIRE",
+                "FIRE_YEAR": "2007",
+                "DISCOVERY_": "2007/07/04 00:00:00.000",
+                "STAT_CAU_1": "Miscellaneous",
+                "CONT_DATE": "2007/07/04 00:00:00.000",
+                "FIRE_SIZE": 1.3,
+                "fire_id": "2",
+                "cost": "18490"
+            },
+            "geometry": {
+                "type": "MultiPoint",
+                "coordinates": [
+                    [
+                        -104.868888889999937,
+                        39.826944440000034
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "SOURCE_S_1": "FWS-FMIS",
+                "name": "LIFT STATION",
+                "FIRE_YEAR": "2013",
+                "DISCOVERY_": "2013/06/02 00:00:00.000",
+                "STAT_CAU_1": "Campfire",
+                "CONT_DATE": "2013/06/02 00:00:00.000",
+                "FIRE_SIZE": 0.1,
+                "fire_id": "3",
+                "cost": "1100"
+            },
+            "geometry": {
+                "type": "MultiPoint",
+                "coordinates": [
+                    [
+                        -104.866666669999972,
+                        39.816666670000075
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "SOURCE_S_1": "FWS-FMIS",
+                "name": "HAVANA FIRE",
+                "FIRE_YEAR": "2006",
+                "DISCOVERY_": "2006/07/20 00:00:00.000",
+                "STAT_CAU_1": "Lightning",
+                "CONT_DATE": "2006/07/20 00:00:00.000",
+                "FIRE_SIZE": 0.6,
+                "fire_id": "4",
+                "cost": "9881"
+            },
+            "geometry": {
+                "type": "MultiPoint",
+                "coordinates": [
+                    [
+                        -104.854444439999952,
+                        39.804444440000054
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "SOURCE_S_1": "FWS-FMIS",
+                "name": "WFSEC23",
+                "FIRE_YEAR": "2001",
+                "DISCOVERY_": "2001/07/04 00:00:00.000",
+                "STAT_CAU_1": "Miscellaneous",
+                "CONT_DATE": "2001/07/04 00:00:00.000",
+                "FIRE_SIZE": 0.1,
+                "fire_id": "5",
+                "cost": "1024"
+            },
+            "geometry": {
+                "type": "MultiPoint",
+                "coordinates": [
+                    [
+                        -104.861,
+                        39.8701
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "SOURCE_S_1": "FWS-FMIS",
+                "name": "CORRAL",
+                "FIRE_YEAR": "2010",
+                "DISCOVERY_": "2010/07/14 00:00:00.000",
+                "STAT_CAU_1": "Railroad",
+                "CONT_DATE": "2010/07/14 00:00:00.000",
+                "FIRE_SIZE": 0.5,
+                "fire_id": "6",
+                "cost": "5175"
+            },
+            "geometry": {
+                "type": "MultiPoint",
+                "coordinates": [
+                    [
+                        -104.859444439999947,
+                        39.83472222000006
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "SOURCE_S_1": "FWS-FMIS",
+                "name": "KESTREL",
+                "FIRE_YEAR": "2004",
+                "DISCOVERY_": "2004/07/08 00:00:00.000",
+                "STAT_CAU_1": "Lightning",
+                "CONT_DATE": "2004/07/09 00:00:00.000",
+                "FIRE_SIZE": 0.1,
+                "fire_id": "7",
+                "cost": "1297"
+            },
+            "geometry": {
+                "type": "MultiPoint",
+                "coordinates": [
+                    [
+                        -104.858333329999937,
+                        39.835833330000078
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "SOURCE_S_1": "FWS-FMIS",
+                "name": "WFSEC11",
+                "FIRE_YEAR": "2001",
+                "DISCOVERY_": "2001/08/20 00:00:00.000",
+                "STAT_CAU_1": "Miscellaneous",
+                "CONT_DATE": "2001/08/20 00:00:00.000",
+                "FIRE_SIZE": 1.6,
+                "fire_id": "8",
+                "cost": "27394"
+            },
+            "geometry": {
+                "type": "MultiPoint",
+                "coordinates": [
+                    [
+                        -104.8569,
+                        39.799
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "SOURCE_S_1": "FWS-FMIS",
+                "name": "SEC23-95",
+                "FIRE_YEAR": "1995",
+                "DISCOVERY_": "1995/07/07 00:00:00.000",
+                "STAT_CAU_1": "Equipment Use",
+                "CONT_DATE": "1995/07/07 00:00:00.000",
+                "FIRE_SIZE": 442.9,
+                "fire_id": "9",
+                "cost": "857942"
+            },
+            "geometry": {
+                "type": "MultiPoint",
+                "coordinates": [
+                    [
+                        -104.8533,
+                        39.8642
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "SOURCE_S_1": "FWS-FMIS",
+                "name": "DERBY",
+                "FIRE_YEAR": "2012",
+                "DISCOVERY_": "2012/07/09 00:00:00.000",
+                "STAT_CAU_1": "Lightning",
+                "CONT_DATE": null,
+                "FIRE_SIZE": 0.4,
+                "fire_id": "10",
+                "cost": "5068"
+            },
+            "geometry": {
+                "type": "MultiPoint",
+                "coordinates": [
+                    [
+                        -104.846944439999959,
+                        39.817222220000076
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "SOURCE_S_1": "FWS-FMIS",
+                "name": "NPSECT2596",
+                "FIRE_YEAR": "1996",
+                "DISCOVERY_": "1996/06/20 00:00:00.000",
+                "STAT_CAU_1": "Lightning",
+                "CONT_DATE": "1996/06/20 00:00:00.000",
+                "FIRE_SIZE": 9.4,
+                "fire_id": "11",
+                "cost": "140267"
+            },
+            "geometry": {
+                "type": "MultiPoint",
+                "coordinates": [
+                    [
+                        -104.8397,
+                        39.8522
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "SOURCE_S_1": "FWS-FMIS",
+                "name": "ARSENAL FIRE",
+                "FIRE_YEAR": "2011",
+                "DISCOVERY_": "2011/09/04 00:00:00.000",
+                "STAT_CAU_1": "Lightning",
+                "CONT_DATE": "2011/09/05 00:00:00.000",
+                "FIRE_SIZE": 6.5,
+                "fire_id": "12",
+                "cost": "79749"
+            },
+            "geometry": {
+                "type": "MultiPoint",
+                "coordinates": [
+                    [
+                        -104.826093,
+                        39.815657
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "SOURCE_S_1": "FWS-FMIS",
+                "name": "WF0401SE30",
+                "FIRE_YEAR": "2001",
+                "DISCOVERY_": "2001/04/27 00:00:00.000",
+                "STAT_CAU_1": "Equipment Use",
+                "CONT_DATE": "2001/04/27 00:00:00.000",
+                "FIRE_SIZE": 0.1,
+                "fire_id": "13",
+                "cost": "1501"
+            },
+            "geometry": {
+                "type": "MultiPoint",
+                "coordinates": [
+                    [
+                        -104.8192,
+                        39.8487
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "SOURCE_S_1": "FWS-FMIS",
+                "name": "SECTION 32 FIRE",
+                "FIRE_YEAR": "2006",
+                "DISCOVERY_": "2006/05/25 00:00:00.000",
+                "STAT_CAU_1": "Lightning",
+                "CONT_DATE": "2006/05/25 00:00:00.000",
+                "FIRE_SIZE": 98.5,
+                "fire_id": "14",
+                "cost": "1859286"
+            },
+            "geometry": {
+                "type": "MultiPoint",
+                "coordinates": [
+                    [
+                        -104.805833329999984,
+                        39.839166670000054
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "SOURCE_S_1": "FWS-FMIS",
+                "name": "EW-SEC5-96",
+                "FIRE_YEAR": "1996",
+                "DISCOVERY_": "1996/08/04 00:00:00.000",
+                "STAT_CAU_1": "Lightning",
+                "CONT_DATE": "1996/08/04 00:00:00.000",
+                "FIRE_SIZE": 34.2,
+                "fire_id": "15",
+                "cost": "357937"
+            },
+            "geometry": {
+                "type": "MultiPoint",
+                "coordinates": [
+                    [
+                        -104.7975,
+                        39.8218
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "SOURCE_S_1": "FWS-FMIS",
+                "name": "EAGLE WATCH",
+                "FIRE_YEAR": "2004",
+                "DISCOVERY_": "2004/07/09 00:00:00.000",
+                "STAT_CAU_1": "Lightning",
+                "CONT_DATE": "2004/07/09 00:00:00.000",
+                "FIRE_SIZE": 0.7,
+                "fire_id": "16",
+                "cost": "11395"
+            },
+            "geometry": {
+                "type": "MultiPoint",
+                "coordinates": [
+                    [
+                        -104.795833329999937,
+                        39.835833330000078
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "SOURCE_S_1": "FWS-FMIS",
+                "name": "RMANES2000",
+                "FIRE_YEAR": "2000",
+                "DISCOVERY_": "2000/08/03 00:00:00.000",
+                "STAT_CAU_1": "Lightning",
+                "CONT_DATE": "2000/08/03 00:00:00.000",
+                "FIRE_SIZE": 11.0,
+                "fire_id": "17",
+                "cost": "124091"
+            },
+            "geometry": {
+                "type": "MultiPoint",
+                "coordinates": [
+                    [
+                        -104.7954,
+                        39.8658
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "SOURCE_S_1": "FWS-FMIS",
+                "name": "WFSEC08",
+                "FIRE_YEAR": "2001",
+                "DISCOVERY_": "2001/07/05 00:00:00.000",
+                "STAT_CAU_1": "Miscellaneous",
+                "CONT_DATE": "2001/07/05 00:00:00.000",
+                "FIRE_SIZE": 0.1,
+                "fire_id": "18",
+                "cost": "1209"
+            },
+            "geometry": {
+                "type": "MultiPoint",
+                "coordinates": [
+                    [
+                        -104.7938,
+                        39.799
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "SOURCE_S_1": "FWS-FMIS",
+                "name": "JAMES FIRE",
+                "FIRE_YEAR": "2006",
+                "DISCOVERY_": "2006/06/18 00:00:00.000",
+                "STAT_CAU_1": "Lightning",
+                "CONT_DATE": "2006/06/18 00:00:00.000",
+                "FIRE_SIZE": 8.3,
+                "fire_id": "19",
+                "cost": "159269"
+            },
+            "geometry": {
+                "type": "MultiPoint",
+                "coordinates": [
+                    [
+                        -104.793055559999971,
+                        39.812222220000081
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "SOURCE_S_1": "FWS-FMIS",
+                "name": "WF07SEC08",
+                "FIRE_YEAR": "2000",
+                "DISCOVERY_": "2000/07/04 00:00:00.000",
+                "STAT_CAU_1": "Miscellaneous",
+                "CONT_DATE": "2000/07/05 00:00:00.000",
+                "FIRE_SIZE": 5.0,
+                "fire_id": "20",
+                "cost": "87745"
+            },
+            "geometry": {
+                "type": "MultiPoint",
+                "coordinates": [
+                    [
+                        -104.7921,
+                        39.8021
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "SOURCE_S_1": "FWS-FMIS",
+                "name": "RMACTRKOO",
+                "FIRE_YEAR": "2000",
+                "DISCOVERY_": "2000/04/24 00:00:00.000",
+                "STAT_CAU_1": "Miscellaneous",
+                "CONT_DATE": "2000/04/24 00:00:00.000",
+                "FIRE_SIZE": 0.1,
+                "fire_id": "21",
+                "cost": "1308"
+            },
+            "geometry": {
+                "type": "MultiPoint",
+                "coordinates": [
+                    [
+                        -104.7918,
+                        39.8603
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "SOURCE_S_1": "FWS-FMIS",
+                "name": "BUCKELY",
+                "FIRE_YEAR": "2002",
+                "DISCOVERY_": "2002/06/09 00:00:00.000",
+                "STAT_CAU_1": "Smoking",
+                "CONT_DATE": "2002/06/10 00:00:00.000",
+                "FIRE_SIZE": 0.1,
+                "fire_id": "22",
+                "cost": "1404"
+            },
+            "geometry": {
+                "type": "MultiPoint",
+                "coordinates": [
+                    [
+                        -104.7913,
+                        39.8277
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "SOURCE_S_1": "FWS-FMIS",
+                "name": "CENTER POST",
+                "FIRE_YEAR": "2015",
+                "DISCOVERY_": "2015/07/30 00:00:00.000",
+                "STAT_CAU_1": "Equipment Use",
+                "CONT_DATE": "2015/07/30 00:00:00.000",
+                "FIRE_SIZE": 0.1,
+                "fire_id": "23",
+                "cost": "1170"
+            },
+            "geometry": {
+                "type": "MultiPoint",
+                "coordinates": [
+                    [
+                        -104.859822,
+                        39.829141
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "SOURCE_S_1": "FWS-FMIS",
+                "name": "6TH E",
+                "FIRE_YEAR": "2015",
+                "DISCOVERY_": "2015/08/26 00:00:00.000",
+                "STAT_CAU_1": "Equipment Use",
+                "CONT_DATE": "2015/08/26 00:00:00.000",
+                "FIRE_SIZE": 0.1,
+                "fire_id": "24",
+                "cost": "1674"
+            },
+            "geometry": {
+                "type": "MultiPoint",
+                "coordinates": [
+                    [
+                        -104.8279,
+                        39.812828
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "SOURCE_S_1": "FWS-FMIS",
+                "name": "64QBCPER00",
+                "FIRE_YEAR": "2000",
+                "DISCOVERY_": "2000/07/04 00:00:00.000",
+                "STAT_CAU_1": "Miscellaneous",
+                "CONT_DATE": "2000/07/04 00:00:00.000",
+                "FIRE_SIZE": 1.0,
+                "fire_id": "25",
+                "cost": "10527"
+            },
+            "geometry": {
+                "type": "MultiPoint",
+                "coordinates": [
+                    [
+                        -104.9017,
+                        39.8136
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "SOURCE_S_1": "FWS-FMIS",
+                "name": "WFSEC3",
+                "FIRE_YEAR": "1999",
+                "DISCOVERY_": "1999/07/21 00:00:00.000",
+                "STAT_CAU_1": "Equipment Use",
+                "CONT_DATE": "1999/07/21 00:00:00.000",
+                "FIRE_SIZE": 0.1,
+                "fire_id": "26",
+                "cost": "1436"
+            },
+            "geometry": {
+                "type": "MultiPoint",
+                "coordinates": [
+                    [
+                        -104.8759,
+                        39.8207
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "SOURCE_S_1": "FWS-FMIS",
+                "name": "WFSEC36",
+                "FIRE_YEAR": "2001",
+                "DISCOVERY_": "2001/08/12 00:00:00.000",
+                "STAT_CAU_1": "Equipment Use",
+                "CONT_DATE": "2001/08/12 00:00:00.000",
+                "FIRE_SIZE": 6.4,
+                "fire_id": "27",
+                "cost": "80154"
+            },
+            "geometry": {
+                "type": "MultiPoint",
+                "coordinates": [
+                    [
+                        -104.8455,
+                        39.828
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "SOURCE_S_1": "ST-NASF",
+                "name": "UNNAMED FIRE",
+                "FIRE_YEAR": "2010",
+                "DISCOVERY_": "2010/08/10 00:00:00.000",
+                "STAT_CAU_1": "Miscellaneous",
+                "CONT_DATE": "2010/08/10 00:00:00.000",
+                "FIRE_SIZE": 1.0,
+                "fire_id": "28",
+                "cost": "17925"
+            },
+            "geometry": {
+                "type": "MultiPoint",
+                "coordinates": [
+                    [
+                        -104.894,
+                        39.8323
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "SOURCE_S_1": "ST-NASF",
+                "name": "UNNAMED FIRE",
+                "FIRE_YEAR": "2010",
+                "DISCOVERY_": "2010/09/02 00:00:00.000",
+                "STAT_CAU_1": "Miscellaneous",
+                "CONT_DATE": "2010/09/02 00:00:00.000",
+                "FIRE_SIZE": 1.0,
+                "fire_id": "29",
+                "cost": "17721"
+            },
+            "geometry": {
+                "type": "MultiPoint",
+                "coordinates": [
+                    [
+                        -104.894,
+                        39.8323
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "SOURCE_S_1": "ST-NASF",
+                "name": "UNNAMED FIRE",
+                "FIRE_YEAR": "2010",
+                "DISCOVERY_": "2010/04/05 00:00:00.000",
+                "STAT_CAU_1": "Miscellaneous",
+                "CONT_DATE": null,
+                "FIRE_SIZE": 0.1,
+                "fire_id": "30",
+                "cost": "1138"
+            },
+            "geometry": {
+                "type": "MultiPoint",
+                "coordinates": [
+                    [
+                        -104.894,
+                        39.8323
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "SOURCE_S_1": "ST-NASF",
+                "name": "UNNAMED FIRE",
+                "FIRE_YEAR": "2010",
+                "DISCOVERY_": "2010/04/11 00:00:00.000",
+                "STAT_CAU_1": "Miscellaneous",
+                "CONT_DATE": null,
+                "FIRE_SIZE": 0.1,
+                "fire_id": "31",
+                "cost": "1622"
+            },
+            "geometry": {
+                "type": "MultiPoint",
+                "coordinates": [
+                    [
+                        -104.894,
+                        39.8323
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "SOURCE_S_1": "ST-NASF",
+                "name": "UNNAMED FIRE",
+                "FIRE_YEAR": "2010",
+                "DISCOVERY_": "2010/04/14 00:00:00.000",
+                "STAT_CAU_1": "Miscellaneous",
+                "CONT_DATE": null,
+                "FIRE_SIZE": 3.0,
+                "fire_id": "32",
+                "cost": "54087"
+            },
+            "geometry": {
+                "type": "MultiPoint",
+                "coordinates": [
+                    [
+                        -104.894,
+                        39.8323
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "SOURCE_S_1": "ST-NASF",
+                "name": "UNNAMED FIRE",
+                "FIRE_YEAR": "2010",
+                "DISCOVERY_": "2010/05/03 00:00:00.000",
+                "STAT_CAU_1": "Miscellaneous",
+                "CONT_DATE": null,
+                "FIRE_SIZE": 0.1,
+                "fire_id": "33",
+                "cost": "1004"
+            },
+            "geometry": {
+                "type": "MultiPoint",
+                "coordinates": [
+                    [
+                        -104.894,
+                        39.8323
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "SOURCE_S_1": "ST-NASF",
+                "name": "UNNAMED FIRE",
+                "FIRE_YEAR": "2010",
+                "DISCOVERY_": "2010/05/04 00:00:00.000",
+                "STAT_CAU_1": "Miscellaneous",
+                "CONT_DATE": null,
+                "FIRE_SIZE": 0.1,
+                "fire_id": "34",
+                "cost": "1928"
+            },
+            "geometry": {
+                "type": "MultiPoint",
+                "coordinates": [
+                    [
+                        -104.894,
+                        39.8323
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "SOURCE_S_1": "ST-NASF",
+                "name": "UNNAMED FIRE",
+                "FIRE_YEAR": "2010",
+                "DISCOVERY_": "2010/05/22 00:00:00.000",
+                "STAT_CAU_1": "Miscellaneous",
+                "CONT_DATE": null,
+                "FIRE_SIZE": 0.1,
+                "fire_id": "35",
+                "cost": "1292"
+            },
+            "geometry": {
+                "type": "MultiPoint",
+                "coordinates": [
+                    [
+                        -104.894,
+                        39.8323
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "SOURCE_S_1": "ST-NASF",
+                "name": "UNNAMED FIRE",
+                "FIRE_YEAR": "2010",
+                "DISCOVERY_": "2010/06/17 00:00:00.000",
+                "STAT_CAU_1": "Miscellaneous",
+                "CONT_DATE": null,
+                "FIRE_SIZE": 0.1,
+                "fire_id": "36",
+                "cost": "1789"
+            },
+            "geometry": {
+                "type": "MultiPoint",
+                "coordinates": [
+                    [
+                        -104.894,
+                        39.8323
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "SOURCE_S_1": "ST-NASF",
+                "name": "UNNAMED FIRE",
+                "FIRE_YEAR": "2010",
+                "DISCOVERY_": "2010/06/19 00:00:00.000",
+                "STAT_CAU_1": "Miscellaneous",
+                "CONT_DATE": null,
+                "FIRE_SIZE": 0.1,
+                "fire_id": "37",
+                "cost": "1350"
+            },
+            "geometry": {
+                "type": "MultiPoint",
+                "coordinates": [
+                    [
+                        -104.894,
+                        39.8323
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "SOURCE_S_1": "ST-NASF",
+                "name": "UNNAMED FIRE",
+                "FIRE_YEAR": "2010",
+                "DISCOVERY_": "2010/06/21 00:00:00.000",
+                "STAT_CAU_1": "Lightning",
+                "CONT_DATE": null,
+                "FIRE_SIZE": 0.1,
+                "fire_id": "38",
+                "cost": "1692"
+            },
+            "geometry": {
+                "type": "MultiPoint",
+                "coordinates": [
+                    [
+                        -104.894,
+                        39.8323
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "SOURCE_S_1": "ST-NASF",
+                "name": "UNNAMED FIRE",
+                "FIRE_YEAR": "2010",
+                "DISCOVERY_": "2010/07/13 00:00:00.000",
+                "STAT_CAU_1": "Miscellaneous",
+                "CONT_DATE": null,
+                "FIRE_SIZE": 0.1,
+                "fire_id": "39",
+                "cost": "1737"
+            },
+            "geometry": {
+                "type": "MultiPoint",
+                "coordinates": [
+                    [
+                        -104.894,
+                        39.8323
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "SOURCE_S_1": "ST-NASF",
+                "name": "UNNAMED FIRE",
+                "FIRE_YEAR": "2010",
+                "DISCOVERY_": "2010/08/03 00:00:00.000",
+                "STAT_CAU_1": "Miscellaneous",
+                "CONT_DATE": null,
+                "FIRE_SIZE": 0.1,
+                "fire_id": "40",
+                "cost": "1442"
+            },
+            "geometry": {
+                "type": "MultiPoint",
+                "coordinates": [
+                    [
+                        -104.894,
+                        39.8323
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "SOURCE_S_1": "ST-NASF",
+                "name": "UNNAMED FIRE",
+                "FIRE_YEAR": "2010",
+                "DISCOVERY_": "2010/09/02 00:00:00.000",
+                "STAT_CAU_1": "Miscellaneous",
+                "CONT_DATE": null,
+                "FIRE_SIZE": 0.1,
+                "fire_id": "41",
+                "cost": "1054"
+            },
+            "geometry": {
+                "type": "MultiPoint",
+                "coordinates": [
+                    [
+                        -104.894,
+                        39.8323
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "SOURCE_S_1": "FWS-FMIS",
+                "name": "QUEBEC",
+                "FIRE_YEAR": "2010",
+                "DISCOVERY_": "2010/11/09 00:00:00.000",
+                "STAT_CAU_1": "Railroad",
+                "CONT_DATE": "2010/11/09 00:00:00.000",
+                "FIRE_SIZE": 0.1,
+                "fire_id": "42",
+                "cost": "1335"
+            },
+            "geometry": {
+                "type": "MultiPoint",
+                "coordinates": [
+                    [
+                        -104.89555556,
+                        39.837222220000058
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "SOURCE_S_1": "FWS-FMIS",
+                "name": "WFSEC27",
+                "FIRE_YEAR": "1999",
+                "DISCOVERY_": "1999/07/02 00:00:00.000",
+                "STAT_CAU_1": "Lightning",
+                "CONT_DATE": "1999/07/02 00:00:00.000",
+                "FIRE_SIZE": 0.2,
+                "fire_id": "43",
+                "cost": "2134"
+            },
+            "geometry": {
+                "type": "MultiPoint",
+                "coordinates": [
+                    [
+                        -104.8709,
+                        39.8463
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "SOURCE_S_1": "FWS-FMIS",
+                "name": "MARKER 24",
+                "FIRE_YEAR": "1996",
+                "DISCOVERY_": "1996/02/07 00:00:00.000",
+                "STAT_CAU_1": "Miscellaneous",
+                "CONT_DATE": "1996/02/07 00:00:00.000",
+                "FIRE_SIZE": 0.1,
+                "fire_id": "44",
+                "cost": "1099"
+            },
+            "geometry": {
+                "type": "MultiPoint",
+                "coordinates": [
+                    [
+                        -104.8778,
+                        39.8521
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "SOURCE_S_1": "FWS-FMIS",
+                "name": "NWSEC27-96",
+                "FIRE_YEAR": "1996",
+                "DISCOVERY_": "1996/07/04 00:00:00.000",
+                "STAT_CAU_1": "Arson",
+                "CONT_DATE": "1996/07/04 00:00:00.000",
+                "FIRE_SIZE": 1.1,
+                "fire_id": "45",
+                "cost": "16178"
+            },
+            "geometry": {
+                "type": "MultiPoint",
+                "coordinates": [
+                    [
+                        -104.8812,
+                        39.8544
+                    ]
+                ]
+            }
+        }
+    ]
+}
