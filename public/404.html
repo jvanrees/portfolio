@@ -24,8 +24,8 @@
         // and the pathSegmentsToKeep should be 1, so the script will redirect to
         // 'https://username.github.io/my-app/?/one/two&a=b~and~c=d#qwe'
         // otherwise it will redirect to 'https://username.github.io/?/my-app/one/two&a=b~and~c=d#qwe'
-        var pathSegmentsToKeep = 1;
-
+        // For custom domains, set pathSegmentsToKeep to 0
+        var pathSegmentsToKeep = 0;
         var l = window.location;
         l.replace(
             l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +

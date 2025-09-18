@@ -7,7 +7,7 @@ import { TanStackRouterRspack } from '@tanstack/router-plugin/rspack';
 export default defineConfig({
   plugins: [pluginReact(), pluginCssMinimizer()],
   output: {
-    assetPrefix: '/portfolio/',
+    assetPrefix: '/',
   },
   source: {
     assetsInclude: [
