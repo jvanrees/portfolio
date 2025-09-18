@@ -9,7 +9,6 @@ export default defineConfig({
   html: {
     title: "Jeff Van Rees",
     favicon: './favicon.ico',
-    template: './static/index.html',
   },
   output: {
     assetPrefix: '/',

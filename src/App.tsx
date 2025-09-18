@@ -1,5 +1,5 @@
 import { MantineProvider, createTheme } from '@mantine/core';
-import { RouterProvider, createRouter, createHashHistory } from '@tanstack/react-router';
+import { RouterProvider, createHashHistory, createRouter } from '@tanstack/react-router';
 import './styles/App.css';
 
 import { routeTree } from './routeTree.gen';
