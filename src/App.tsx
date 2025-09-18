@@ -1,5 +1,5 @@
 import { MantineProvider, createTheme } from '@mantine/core';
-import { RouterProvider, createHashHistory, createRouter } from '@tanstack/react-router';
+import { RouterProvider, createBrowserHistory, createRouter } from '@tanstack/react-router';
 import './styles/App.css';
 
 import { routeTree } from './routeTree.gen';
@@ -11,7 +11,7 @@ const theme = createTheme({
 
 const router = createRouter({
   routeTree,
-  history: createHashHistory(),
+  history: createBrowserHistory(),
   defaultPreload: 'intent',
   scrollRestoration: true,
   defaultViewTransition: true,
