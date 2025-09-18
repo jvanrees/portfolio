@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="src/img/logo_row.svg" alt="Jeff Van Rees Logo" width="400">
+</div>
+
 # Jeff Van Rees - Portfolio
 
 This is my personal portfolio website, showcasing my work in web development, mapping, and data visualization.
