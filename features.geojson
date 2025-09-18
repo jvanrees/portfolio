@@ -1,588 +1,408 @@
 {
-    "type": "FeatureCollection",
-    "name": "features",
-    "crs": {
-        "type": "name",
-        "properties": {
-            "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
-        }
-    },
-    "features": [
-        {
-            "type": "Feature",
-            "properties": {
-                "name": "Lower Derby Lake Dam",
-                "marker": "general_marker"
-            },
-            "geometry": {
-                "type": "MultiPoint",
-                "coordinates": [
-                    [
-                        -104.8405303,
-                        39.8166531
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "name": "Upper Derby Lake Dam",
-                "marker": "general_marker"
-            },
-            "geometry": {
-                "type": "MultiPoint",
-                "coordinates": [
-                    [
-                        -104.8338633,
-                        39.8183196
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "name": "Ladora Lake Dam",
-                "marker": "general_marker"
-            },
-            "geometry": {
-                "type": "MultiPoint",
-                "coordinates": [
-                    [
-                        -104.8588643,
-                        39.821653
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "name": "Reservoir E Dam",
-                "marker": "general_marker"
-            },
-            "geometry": {
-                "type": "MultiPoint",
-                "coordinates": [
-                    [
-                        -104.8555307,
-                        39.8433193
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "name": "Reservoir E",
-                "marker": "water_body"
-            },
-            "geometry": {
-                "type": "MultiPoint",
-                "coordinates": [
-                    [
-                        -104.8555239,
-                        39.8431681
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "name": "Reservoir C Dam",
-                "marker": "general_marker"
-            },
-            "geometry": {
-                "type": "MultiPoint",
-                "coordinates": [
-                    [
-                        -104.8521973,
-                        39.8466526
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "name": "Reservoir C",
-                "marker": "water_body"
-            },
-            "geometry": {
-                "type": "MultiPoint",
-                "coordinates": [
-                    [
-                        -104.853249,
-                        39.8465774
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "name": "Reservoir D Dam",
-                "marker": "general_marker"
-            },
-            "geometry": {
-                "type": "MultiPoint",
-                "coordinates": [
-                    [
-                        -104.8638644,
-                        39.8449859
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "name": "Reservoir D",
-                "marker": "water_body"
-            },
-            "geometry": {
-                "type": "MultiPoint",
-                "coordinates": [
-                    [
-                        -104.8628752,
-                        39.8445433
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "name": "Reservoir F Dam",
-                "marker": "general_marker"
-            },
-            "geometry": {
-                "type": "MultiPoint",
-                "coordinates": [
-                    [
-                        -104.8588641,
-                        39.8533191
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "name": "Derby Dam",
-                "marker": "general_marker"
-            },
-            "geometry": {
-                "type": "MultiPoint",
-                "coordinates": [
-                    [
-                        -104.8456298,
-                        39.8149311
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "name": "Wildlife Viewing",
-                "marker": "wildlife_view"
-            },
-            "geometry": {
-                "type": "MultiPoint",
-                "coordinates": [
-                    [
-                        -104.839991,
-                        39.8096565
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "name": "Wildlife Viewing",
-                "marker": "wildlife_view"
-            },
-            "geometry": {
-                "type": "MultiPoint",
-                "coordinates": [
-                    [
-                        -104.859378,
-                        39.8055417
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "name": "Wildlife Drive Turn-Around",
-                "marker": "general_marker"
-            },
-            "geometry": {
-                "type": "MultiPoint",
-                "coordinates": [
-                    [
-                        -104.8207948,
-                        39.8128418
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "name": "Information Kiosk",
-                "marker": "information"
-            },
-            "geometry": {
-                "type": "MultiPoint",
-                "coordinates": [
-                    [
-                        -104.8646003,
-                        39.8212345
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "name": "Old Army HQ Flag Pole",
-                "marker": "general_marker"
-            },
-            "geometry": {
-                "type": "MultiPoint",
-                "coordinates": [
-                    [
-                        -104.8587705,
-                        39.8278068
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "name": "Sand Creek Lateral",
-                "marker": "general_marker"
-            },
-            "geometry": {
-                "type": "MultiPoint",
-                "coordinates": [
-                    [
-                        -104.8603844,
-                        39.8357645
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "name": "Rattlesnake Hill",
-                "marker": "wildlife_view"
-            },
-            "geometry": {
-                "type": "MultiPoint",
-                "coordinates": [
-                    [
-                        -104.8548332,
-                        39.8346198
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "name": "Parking",
-                "marker": "parking"
-            },
-            "geometry": {
-                "type": "MultiPoint",
-                "coordinates": [
-                    [
-                        -104.879559803520479,
-                        39.814359427158848
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "name": "Restrooms",
-                "marker": "restrooms"
-            },
-            "geometry": {
-                "type": "MultiPoint",
-                "coordinates": [
-                    [
-                        -104.880440826904604,
-                        39.81503068307056
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "name": "Amphitheater",
-                "marker": "amphitheater"
-            },
-            "geometry": {
-                "type": "MultiPoint",
-                "coordinates": [
-                    [
-                        -104.879701979251777,
-                        39.814988729576079
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "name": "Visitors Center",
-                "marker": "water_body"
-            },
-            "geometry": {
-                "type": "MultiPoint",
-                "coordinates": [
-                    [
-                        -104.880398873410144,
-                        39.815168197302476
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "name": "Parking",
-                "marker": "parking"
-            },
-            "geometry": {
-                "type": "MultiPoint",
-                "coordinates": [
-                    [
-                        -104.864360984769434,
-                        39.82133069949198
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "name": "Contact Station",
-                "marker": "information"
-            },
-            "geometry": {
-                "type": "MultiPoint",
-                "coordinates": [
-                    [
-                        -104.86403001831296,
-                        39.821461221474799
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "name": "Parking",
-                "marker": "parking"
-            },
-            "geometry": {
-                "type": "MultiPoint",
-                "coordinates": [
-                    [
-                        -104.863465976887142,
-                        39.821232808004844
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "name": "Lake Mary Boardwalk",
-                "marker": "picnic_table"
-            },
-            "geometry": {
-                "type": "MultiPoint",
-                "coordinates": [
-                    [
-                        -104.861923020590069,
-                        39.819414823243946
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "name": "Restroom",
-                "marker": "restroom"
-            },
-            "geometry": {
-                "type": "MultiPoint",
-                "coordinates": [
-                    [
-                        -104.862804043974208,
-                        39.820734027570445
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "name": "Parking",
-                "marker": "parking"
-            },
-            "geometry": {
-                "type": "MultiPoint",
-                "coordinates": [
-                    [
-                        -104.863172302425752,
-                        39.820577867340965
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "name": "Parking",
-                "marker": "parking"
-            },
-            "geometry": {
-                "type": "MultiPoint",
-                "coordinates": [
-                    [
-                        -104.861069966202251,
-                        39.819955557172818
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "name": "Restroom",
-                "marker": "restroom"
-            },
-            "geometry": {
-                "type": "MultiPoint",
-                "coordinates": [
-                    [
-                        -104.861258756927427,
-                        39.819911272928643
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "name": "Parking",
-                "marker": "parking"
-            },
-            "geometry": {
-                "type": "MultiPoint",
-                "coordinates": [
-                    [
-                        -104.860610808512632,
-                        39.813587949010277
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "name": "Restroom",
-                "marker": "restroom"
-            },
-            "geometry": {
-                "type": "MultiPoint",
-                "coordinates": [
-                    [
-                        -104.860233227062295,
-                        39.813492388272842
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "name": "Lake Mary",
-                "marker": "water_body"
-            },
-            "geometry": {
-                "type": "MultiPoint",
-                "coordinates": [
-                    [
-                        -104.863391392896801,
-                        39.81888690843833
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "name": "Lake Ladora",
-                "marker": "water_body"
-            },
-            "geometry": {
-                "type": "MultiPoint",
-                "coordinates": [
-                    [
-                        -104.85751790366929,
-                        39.817110877171899
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "name": "Parking",
-                "marker": "parking"
-            },
-            "geometry": {
-                "type": "MultiPoint",
-                "coordinates": [
-                    [
-                        -104.820713035259928,
-                        39.812421408788666
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "name": "RMA Headquarters",
-                "marker": "information"
-            },
-            "geometry": {
-                "type": "MultiPoint",
-                "coordinates": [
-                    [
-                        -104.857748647888897,
-                        39.828447643680832
-                    ]
-                ]
-            }
-        }
-    ]
+	"type": "FeatureCollection",
+	"name": "features",
+	"crs": {
+		"type": "name",
+		"properties": {
+			"name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+		}
+	},
+	"features": [
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Lower Derby Lake Dam",
+				"marker": "general_marker"
+			},
+			"geometry": {
+				"type": "MultiPoint",
+				"coordinates": [[-104.8405303, 39.8166531]]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Upper Derby Lake Dam",
+				"marker": "general_marker"
+			},
+			"geometry": {
+				"type": "MultiPoint",
+				"coordinates": [[-104.8338633, 39.8183196]]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Ladora Lake Dam",
+				"marker": "general_marker"
+			},
+			"geometry": {
+				"type": "MultiPoint",
+				"coordinates": [[-104.8588643, 39.821653]]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Reservoir E Dam",
+				"marker": "general_marker"
+			},
+			"geometry": {
+				"type": "MultiPoint",
+				"coordinates": [[-104.8555307, 39.8433193]]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Reservoir E",
+				"marker": "water_body"
+			},
+			"geometry": {
+				"type": "MultiPoint",
+				"coordinates": [[-104.8555239, 39.8431681]]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Reservoir C Dam",
+				"marker": "general_marker"
+			},
+			"geometry": {
+				"type": "MultiPoint",
+				"coordinates": [[-104.8521973, 39.8466526]]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Reservoir C",
+				"marker": "water_body"
+			},
+			"geometry": {
+				"type": "MultiPoint",
+				"coordinates": [[-104.853249, 39.8465774]]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Reservoir D Dam",
+				"marker": "general_marker"
+			},
+			"geometry": {
+				"type": "MultiPoint",
+				"coordinates": [[-104.8638644, 39.8449859]]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Reservoir D",
+				"marker": "water_body"
+			},
+			"geometry": {
+				"type": "MultiPoint",
+				"coordinates": [[-104.8628752, 39.8445433]]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Reservoir F Dam",
+				"marker": "general_marker"
+			},
+			"geometry": {
+				"type": "MultiPoint",
+				"coordinates": [[-104.8588641, 39.8533191]]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Derby Dam",
+				"marker": "general_marker"
+			},
+			"geometry": {
+				"type": "MultiPoint",
+				"coordinates": [[-104.8456298, 39.8149311]]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Wildlife Viewing",
+				"marker": "wildlife_view"
+			},
+			"geometry": {
+				"type": "MultiPoint",
+				"coordinates": [[-104.839991, 39.8096565]]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Wildlife Viewing",
+				"marker": "wildlife_view"
+			},
+			"geometry": {
+				"type": "MultiPoint",
+				"coordinates": [[-104.859378, 39.8055417]]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Wildlife Drive Turn-Around",
+				"marker": "general_marker"
+			},
+			"geometry": {
+				"type": "MultiPoint",
+				"coordinates": [[-104.8207948, 39.8128418]]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Information Kiosk",
+				"marker": "information"
+			},
+			"geometry": {
+				"type": "MultiPoint",
+				"coordinates": [[-104.8646003, 39.8212345]]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Old Army HQ Flag Pole",
+				"marker": "general_marker"
+			},
+			"geometry": {
+				"type": "MultiPoint",
+				"coordinates": [[-104.8587705, 39.8278068]]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Sand Creek Lateral",
+				"marker": "general_marker"
+			},
+			"geometry": {
+				"type": "MultiPoint",
+				"coordinates": [[-104.8603844, 39.8357645]]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Rattlesnake Hill",
+				"marker": "wildlife_view"
+			},
+			"geometry": {
+				"type": "MultiPoint",
+				"coordinates": [[-104.8548332, 39.8346198]]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Parking",
+				"marker": "parking"
+			},
+			"geometry": {
+				"type": "MultiPoint",
+				"coordinates": [[-104.879559803520479, 39.814359427158848]]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Restrooms",
+				"marker": "restrooms"
+			},
+			"geometry": {
+				"type": "MultiPoint",
+				"coordinates": [[-104.880440826904604, 39.81503068307056]]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Amphitheater",
+				"marker": "amphitheater"
+			},
+			"geometry": {
+				"type": "MultiPoint",
+				"coordinates": [[-104.879701979251777, 39.814988729576079]]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Visitors Center",
+				"marker": "water_body"
+			},
+			"geometry": {
+				"type": "MultiPoint",
+				"coordinates": [[-104.880398873410144, 39.815168197302476]]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Parking",
+				"marker": "parking"
+			},
+			"geometry": {
+				"type": "MultiPoint",
+				"coordinates": [[-104.864360984769434, 39.82133069949198]]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Contact Station",
+				"marker": "information"
+			},
+			"geometry": {
+				"type": "MultiPoint",
+				"coordinates": [[-104.86403001831296, 39.821461221474799]]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Parking",
+				"marker": "parking"
+			},
+			"geometry": {
+				"type": "MultiPoint",
+				"coordinates": [[-104.863465976887142, 39.821232808004844]]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Lake Mary Boardwalk",
+				"marker": "picnic_table"
+			},
+			"geometry": {
+				"type": "MultiPoint",
+				"coordinates": [[-104.861923020590069, 39.819414823243946]]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Restroom",
+				"marker": "restroom"
+			},
+			"geometry": {
+				"type": "MultiPoint",
+				"coordinates": [[-104.862804043974208, 39.820734027570445]]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Parking",
+				"marker": "parking"
+			},
+			"geometry": {
+				"type": "MultiPoint",
+				"coordinates": [[-104.863172302425752, 39.820577867340965]]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Parking",
+				"marker": "parking"
+			},
+			"geometry": {
+				"type": "MultiPoint",
+				"coordinates": [[-104.861069966202251, 39.819955557172818]]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Restroom",
+				"marker": "restroom"
+			},
+			"geometry": {
+				"type": "MultiPoint",
+				"coordinates": [[-104.861258756927427, 39.819911272928643]]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Parking",
+				"marker": "parking"
+			},
+			"geometry": {
+				"type": "MultiPoint",
+				"coordinates": [[-104.860610808512632, 39.813587949010277]]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Restroom",
+				"marker": "restroom"
+			},
+			"geometry": {
+				"type": "MultiPoint",
+				"coordinates": [[-104.860233227062295, 39.813492388272842]]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Lake Mary",
+				"marker": "water_body"
+			},
+			"geometry": {
+				"type": "MultiPoint",
+				"coordinates": [[-104.863391392896801, 39.81888690843833]]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Lake Ladora",
+				"marker": "water_body"
+			},
+			"geometry": {
+				"type": "MultiPoint",
+				"coordinates": [[-104.85751790366929, 39.817110877171899]]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Parking",
+				"marker": "parking"
+			},
+			"geometry": {
+				"type": "MultiPoint",
+				"coordinates": [[-104.820713035259928, 39.812421408788666]]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "RMA Headquarters",
+				"marker": "information"
+			},
+			"geometry": {
+				"type": "MultiPoint",
+				"coordinates": [[-104.857748647888897, 39.828447643680832]]
+			}
+		}
+	]
 }
