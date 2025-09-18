@@ -28,7 +28,7 @@ const qingStyle: any = {
         vector_mountain: {
             type: 'vector',
             // use the tilejson (JSON) URL so the vector source can be loaded as a tileset description
-            url: `https://api.mapbox.com/v4/jvanrees.6lps1j6n.json?access_token=${MAPBOX_API_KEY}`
+            url: `https://api.mapbox.com/v4/jvanrees.6lps1j6n.json?secure&access_token=${MAPBOX_API_KEY}`
         }
     },
     sprite: 'https://s3.amazonaws.com/jvr-portfolio-examples/portfolio_bg',
