@@ -13,6 +13,7 @@ import { Route as ShadedReliefRouteImport } from './routes/shaded-relief'
 import { Route as RmaVisitorPostgisRouteImport } from './routes/rma-visitor-postgis'
 import { Route as RmaAndroidRouteImport } from './routes/rma-android'
 import { Route as QingDynastyMapRouteImport } from './routes/qing-dynasty-map'
+import { Route as NotFoundRouteImport } from './routes/not-found'
 import { Route as NightmodeRouteImport } from './routes/nightmode'
 import { Route as GoogleMapsApiRouteImport } from './routes/google-maps-api'
 import { Route as EvenMoreMapsRouteImport } from './routes/even-more-maps'
@@ -37,6 +38,11 @@ const RmaAndroidRoute = RmaAndroidRouteImport.update({
 const QingDynastyMapRoute = QingDynastyMapRouteImport.update({
   id: '/qing-dynasty-map',
   path: '/qing-dynasty-map',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NotFoundRoute = NotFoundRouteImport.update({
+  id: '/not-found',
+  path: '/not-found',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NightmodeRoute = NightmodeRouteImport.update({
@@ -71,6 +77,7 @@ export interface FileRoutesByFullPath {
   '/even-more-maps': typeof EvenMoreMapsRoute
   '/google-maps-api': typeof GoogleMapsApiRoute
   '/nightmode': typeof NightmodeRoute
+  '/not-found': typeof NotFoundRoute
   '/qing-dynasty-map': typeof QingDynastyMapRoute
   '/rma-android': typeof RmaAndroidRoute
   '/rma-visitor-postgis': typeof RmaVisitorPostgisRoute
@@ -82,6 +89,7 @@ export interface FileRoutesByTo {
   '/even-more-maps': typeof EvenMoreMapsRoute
   '/google-maps-api': typeof GoogleMapsApiRoute
   '/nightmode': typeof NightmodeRoute
+  '/not-found': typeof NotFoundRoute
   '/qing-dynasty-map': typeof QingDynastyMapRoute
   '/rma-android': typeof RmaAndroidRoute
   '/rma-visitor-postgis': typeof RmaVisitorPostgisRoute
@@ -94,6 +102,7 @@ export interface FileRoutesById {
   '/even-more-maps': typeof EvenMoreMapsRoute
   '/google-maps-api': typeof GoogleMapsApiRoute
   '/nightmode': typeof NightmodeRoute
+  '/not-found': typeof NotFoundRoute
   '/qing-dynasty-map': typeof QingDynastyMapRoute
   '/rma-android': typeof RmaAndroidRoute
   '/rma-visitor-postgis': typeof RmaVisitorPostgisRoute
@@ -107,6 +116,7 @@ export interface FileRouteTypes {
     | '/even-more-maps'
     | '/google-maps-api'
     | '/nightmode'
+    | '/not-found'
     | '/qing-dynasty-map'
     | '/rma-android'
     | '/rma-visitor-postgis'
@@ -118,6 +128,7 @@ export interface FileRouteTypes {
     | '/even-more-maps'
     | '/google-maps-api'
     | '/nightmode'
+    | '/not-found'
     | '/qing-dynasty-map'
     | '/rma-android'
     | '/rma-visitor-postgis'
@@ -129,6 +140,7 @@ export interface FileRouteTypes {
     | '/even-more-maps'
     | '/google-maps-api'
     | '/nightmode'
+    | '/not-found'
     | '/qing-dynasty-map'
     | '/rma-android'
     | '/rma-visitor-postgis'
@@ -141,6 +153,7 @@ export interface RootRouteChildren {
   EvenMoreMapsRoute: typeof EvenMoreMapsRoute
   GoogleMapsApiRoute: typeof GoogleMapsApiRoute
   NightmodeRoute: typeof NightmodeRoute
+  NotFoundRoute: typeof NotFoundRoute
   QingDynastyMapRoute: typeof QingDynastyMapRoute
   RmaAndroidRoute: typeof RmaAndroidRoute
   RmaVisitorPostgisRoute: typeof RmaVisitorPostgisRoute
@@ -175,6 +188,13 @@ declare module '@tanstack/react-router' {
       path: '/qing-dynasty-map'
       fullPath: '/qing-dynasty-map'
       preLoaderRoute: typeof QingDynastyMapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/not-found': {
+      id: '/not-found'
+      path: '/not-found'
+      fullPath: '/not-found'
+      preLoaderRoute: typeof NotFoundRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/nightmode': {
@@ -221,6 +241,7 @@ const rootRouteChildren: RootRouteChildren = {
   EvenMoreMapsRoute: EvenMoreMapsRoute,
   GoogleMapsApiRoute: GoogleMapsApiRoute,
   NightmodeRoute: NightmodeRoute,
+  NotFoundRoute: NotFoundRoute,
   QingDynastyMapRoute: QingDynastyMapRoute,
   RmaAndroidRoute: RmaAndroidRoute,
   RmaVisitorPostgisRoute: RmaVisitorPostgisRoute,

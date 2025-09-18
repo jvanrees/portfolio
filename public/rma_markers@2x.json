@@ -1,79 +1,79 @@
 {
-  "amphitheater": {
-    "height": 100,
-    "pixelRatio": 2,
-    "width": 100,
-    "x": 0,
-    "y": 0
-  },
-  "fires": {
-    "height": 100,
-    "pixelRatio": 2,
-    "width": 100,
-    "x": 100,
-    "y": 0
-  },
-  "general_marker": {
-    "height": 100,
-    "pixelRatio": 2,
-    "width": 100,
-    "x": 0,
-    "y": 100
-  },
-  "information": {
-    "height": 100,
-    "pixelRatio": 2,
-    "width": 100,
-    "x": 100,
-    "y": 100
-  },
-  "line_pattern": {
-    "height": 32,
-    "pixelRatio": 2,
-    "width": 32,
-    "x": 200,
-    "y": 200
-  },
-  "parking": {
-    "height": 100,
-    "pixelRatio": 2,
-    "width": 100,
-    "x": 200,
-    "y": 0
-  },
-  "picnic_table": {
-    "height": 100,
-    "pixelRatio": 2,
-    "width": 100,
-    "x": 300,
-    "y": 0
-  },
-  "restroom": {
-    "height": 100,
-    "pixelRatio": 2,
-    "width": 100,
-    "x": 200,
-    "y": 100
-  },
-  "visitors_center": {
-    "height": 100,
-    "pixelRatio": 2,
-    "width": 100,
-    "x": 300,
-    "y": 100
-  },
-  "water_body": {
-    "height": 100,
-    "pixelRatio": 2,
-    "width": 100,
-    "x": 0,
-    "y": 200
-  },
-  "wildlife_view": {
-    "height": 100,
-    "pixelRatio": 2,
-    "width": 100,
-    "x": 100,
-    "y": 200
-  }
+	"amphitheater": {
+		"height": 100,
+		"pixelRatio": 2,
+		"width": 100,
+		"x": 0,
+		"y": 0
+	},
+	"fires": {
+		"height": 100,
+		"pixelRatio": 2,
+		"width": 100,
+		"x": 100,
+		"y": 0
+	},
+	"general_marker": {
+		"height": 100,
+		"pixelRatio": 2,
+		"width": 100,
+		"x": 0,
+		"y": 100
+	},
+	"information": {
+		"height": 100,
+		"pixelRatio": 2,
+		"width": 100,
+		"x": 100,
+		"y": 100
+	},
+	"line_pattern": {
+		"height": 32,
+		"pixelRatio": 2,
+		"width": 32,
+		"x": 200,
+		"y": 200
+	},
+	"parking": {
+		"height": 100,
+		"pixelRatio": 2,
+		"width": 100,
+		"x": 200,
+		"y": 0
+	},
+	"picnic_table": {
+		"height": 100,
+		"pixelRatio": 2,
+		"width": 100,
+		"x": 300,
+		"y": 0
+	},
+	"restroom": {
+		"height": 100,
+		"pixelRatio": 2,
+		"width": 100,
+		"x": 200,
+		"y": 100
+	},
+	"visitors_center": {
+		"height": 100,
+		"pixelRatio": 2,
+		"width": 100,
+		"x": 300,
+		"y": 100
+	},
+	"water_body": {
+		"height": 100,
+		"pixelRatio": 2,
+		"width": 100,
+		"x": 0,
+		"y": 200
+	},
+	"wildlife_view": {
+		"height": 100,
+		"pixelRatio": 2,
+		"width": 100,
+		"x": 100,
+		"y": 200
+	}
 }
