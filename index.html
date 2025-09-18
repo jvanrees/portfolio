@@ -1,1 +1,31 @@
-<!doctype html><html><head><link rel="icon" href="/favicon.ico"><title>Jeff Van Rees</title><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><script defer src="/static/js/lib-react.4fef0930.js"></script><script defer src="/static/js/499.8841603b.js"></script><script defer src="/static/js/index.1dc3499a.js"></script><link href="/static/css/499.656d1c5b.css" rel="stylesheet"><link href="/static/css/index.cd09677e.css" rel="stylesheet"></head><body><div id="root"></div></body></html>
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SPA GitHub Pages redirect (must run before your app) -->
+  <script>
+    (function (l) {
+      if (l.search && l.search[1] === '/') {
+        var decoded = l.search.slice(1).split('&')
+          .map(function (s) { return s.replace(/~and~/g, '&').split('='); })
+          .reduce(function (acc, p) { acc[p[0]] = p[1]; return acc; }, {});
+        if (decoded.p !== undefined) {
+          window.history.replaceState(
+            null, null,
+            decoded.p + (decoded.q ? ('?' + decoded.q) : '') + (l.hash || '')
+          );
+        }
+      }
+    })(window.location);
+  </script>
+<link rel="icon" href="/favicon.ico"><title>Jeff Van Rees</title><script defer src="/static/js/lib-react.4fef0930.js"></script><script defer src="/static/js/499.8841603b.js"></script><script defer src="/static/js/index.7c568268.js"></script><link href="/static/css/499.656d1c5b.css" rel="stylesheet"><link href="/static/css/index.cd09677e.css" rel="stylesheet"></head>
+
+<body>
+  <div id="root"></div>
+  <!-- Let Rsbuild auto-inject JS/CSS; don't add htmlPlugin.tags manually -->
+</body>
+
+</html>
