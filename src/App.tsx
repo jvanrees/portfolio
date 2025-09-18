@@ -6,6 +6,7 @@ import {
 } from "@tanstack/react-router";
 import "./styles/App.css";
 
+import NotFoundComponent from "./routes/not-found";
 import { routeTree } from "./routeTree.gen";
 
 // Ensures mantine radius is consistent across all components
@@ -19,6 +20,7 @@ const router = createRouter({
 	defaultPreload: "intent",
 	scrollRestoration: true,
 	defaultViewTransition: true,
+	defaultNotFoundComponent: NotFoundComponent,
 });
 
 declare module "@tanstack/react-router" {

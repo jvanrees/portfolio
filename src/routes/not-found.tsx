@@ -9,7 +9,7 @@ export const Route = createFileRoute("/not-found")({
 	component: NotFoundComponent,
 });
 
-function NotFoundComponent() {
+export default function NotFoundComponent() {
 	const isMobile = window.innerWidth < 520;
 
 	return (
