@@ -1,4 +1,4 @@
-import { Outlet, createRootRoute, useLocation, useNavigate } from '@tanstack/react-router';
+import { Outlet, createRootRoute, useLocation } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
 import { useEffect } from 'react';
 import { ViewState } from 'react-map-gl/maplibre';
@@ -19,21 +19,9 @@ const viewport: ViewState = {
 
 function RootComponent() {
     const location = useLocation();
-    const navigate = useNavigate();
 
     useEffect(() => {
         console.log("Path changed to:", location.pathname);
-    }, [location]);
-
-    useEffect(() => {
-        // Handle SPA redirect for GitHub Pages
-        // The 404.html creates URLs like https://domain.com/?/about
-        // We need to extract the path from the malformed query string
-        const search = location.search;
-        if (Object.keys(search).length > 0) {
-            const the_url = Object.keys(search)[0]
-            navigate({ to: the_url, replace: true });
-        }
     }, [location]);
 
     return (
