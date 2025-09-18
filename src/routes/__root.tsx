@@ -25,18 +25,18 @@ function RootComponent() {
         console.log("Path changed to:", location.pathname);
     }, [location]);
 
-    useEffect(() => {
-        // Handle SPA redirect for GitHub Pages
-        // The 404.html creates URLs like https://domain.com/?/about
-        // We need to extract the path from the malformed query string
-        const search = location.searchStr;
-        if (search && search.startsWith('?/')) {
-            // Extract the path from the malformed query string
-            const path = search.slice(2); // Remove the leading '?/'
-            const decodedPath = path.replace(/~and~/g, '&');
-            navigate({ to: decodedPath, replace: true });
-        }
-    }, [location.search, navigate]);
+    // useEffect(() => {
+    //     // Handle SPA redirect for GitHub Pages
+    //     // The 404.html creates URLs like https://domain.com/?/about
+    //     // We need to extract the path from the malformed query string
+    //     const search = location.searchStr;
+    //     if (search && search.startsWith('?/')) {
+    //         // Extract the path from the malformed query string
+    //         const path = search.slice(2); // Remove the leading '?/'
+    //         const decodedPath = path.replace(/~and~/g, '&');
+    //         navigate({ to: decodedPath, replace: true });
+    //     }
+    // }, [location.search, navigate]);
 
     return (
         <>
