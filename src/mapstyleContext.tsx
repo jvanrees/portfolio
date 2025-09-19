@@ -37,7 +37,7 @@ const defaultMapColor: MapColor = {
 	water: "hsla(200, 5%, 78%, 1.00)",
 	roadLow: "hsla(80, 11%, 95%, 1.00)",
 	roadHigh: "hsla(0, 0%, 84%, 1.00)",
-	mapOverlayOpacity: 0.9,
+	mapOverlayOpacity: 0.0,
 };
 const MapContext = createContext<MapContextType>({
 	viewport: defaultViewport,
@@ -121,7 +121,7 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 				type: "background",
 				paint: {
 					"background-color": mapColor.background,
-					"background-opacity": currentPath === "/" ? 1 : 0,
+					"background-opacity": currentPath === "/" ? 0.5 : 0,
 				},
 			},
 			{
@@ -135,7 +135,7 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 				},
 				paint: {
 					"fill-color": mapColor.park,
-					"fill-opacity": currentPath === "/" ? 1 : 0,
+					"fill-opacity": currentPath === "/" ? 0.5 : 0,
 				},
 			},
 			{
@@ -145,7 +145,7 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 					visibility: currentPath === "/qing-dynasty-map" ? "visible" : "none",
 				},
 				paint: {
-					"background-opacity": currentPath === "/" ? 1 : 0,
+					"background-opacity": currentPath === "/" ? 0.5 : 0,
 					"background-pattern": "qing_bg",
 				},
 			},
@@ -161,7 +161,7 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 				},
 				paint: {
 					"fill-pattern": "rma_historic_pebble_background4-2",
-					"fill-opacity": currentPath === "/" ? 1 : 0,
+					"fill-opacity": currentPath === "/" ? 0.5 : 0,
 				},
 			},
 			{
@@ -176,7 +176,7 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 					visibility: currentPath === "/shaded-relief" ? "visible" : "none",
 				},
 				paint: {
-					"fill-opacity": currentPath === "/" ? 1 : 0,
+					"fill-opacity": currentPath === "/" ? 0.5 : 0,
 					"fill-color": [
 						"case",
 						["match", ["get", "class"], ["wood"], true, false],
@@ -190,6 +190,427 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 				},
 			},
 			{
+				id: "regular_landcover_wood",
+				type: "fill",
+				source: "openmaptiles",
+				"source-layer": "landcover",
+				minzoom: 10,
+				filter: ["all", ["==", "$type", "Polygon"], ["==", "class", "wood"]],
+				layout: {
+					visibility: "visible",
+				},
+				paint: {
+					"fill-color": "rgb(220,224,220)",
+					"fill-opacity": {
+						base: 1,
+						stops: [
+							[8, 0],
+							[12, 1],
+						],
+					},
+				},
+			},
+			{
+				id: "regular_water",
+				type: "fill",
+				source: "openmaptiles",
+				"source-layer": "water",
+				filter: ["==", "$type", "Polygon"],
+				layout: {
+					visibility: "visible",
+				},
+				paint: {
+					"fill-color": "hsl(195, 17%, 78%)",
+				},
+			},
+			{
+				id: "regular_waterway",
+				type: "line",
+				source: "openmaptiles",
+				"source-layer": "waterway",
+				filter: ["==", "$type", "LineString"],
+				layout: {
+					visibility: "visible",
+				},
+				paint: {
+					"line-color": "hsl(195, 17%, 78%)",
+				},
+			},
+			{
+				id: "regular_highway_path",
+				type: "line",
+				source: "openmaptiles",
+				"source-layer": "transportation",
+				filter: ["all", ["==", "$type", "LineString"], ["==", "class", "path"]],
+				layout: {
+					"line-cap": "round",
+					"line-join": "round",
+					visibility: "visible",
+				},
+				paint: {
+					"line-color": "rgb(234, 234, 234)",
+					"line-width": {
+						base: 1.2,
+						stops: [
+							[13, 1],
+							[20, 10],
+						],
+					},
+					"line-opacity": 1,
+				},
+			},
+			{
+				id: "regular_park",
+				type: "fill",
+				source: "openmaptiles",
+				"source-layer": "park",
+				filter: ["==", "$type", "Polygon"],
+				layout: {
+					visibility: "visible",
+				},
+				paint: {
+					"fill-color": "rgb(200, 216, 189)",
+				},
+			},
+			{
+				id: "regular_landuse_residential",
+				type: "fill",
+				source: "openmaptiles",
+				"source-layer": "landuse",
+				filter: ["==", "class", "residential"],
+				layout: {
+					visibility: "visible",
+				},
+				paint: {
+					"fill-color": "rgb(234, 234, 234)",
+				},
+			},
+			{
+				id: "regular_highway_minor",
+				type: "line",
+				source: "openmaptiles",
+				"source-layer": "transportation",
+				minzoom: 8,
+				filter: [
+					"all",
+					["==", "$type", "LineString"],
+					["in", "class", "minor", "service", "track"],
+				],
+				layout: {
+					"line-cap": "round",
+					"line-join": "round",
+					visibility: "visible",
+				},
+				paint: {
+					"line-color": "hsl(0, 0%, 88%)",
+					"line-width": {
+						base: 1.55,
+						stops: [
+							[13, 1.8],
+							[20, 20],
+						],
+					},
+					"line-opacity": 1,
+				},
+			},
+			{
+				id: "regular_highway_major_casing",
+				type: "line",
+				source: "openmaptiles",
+				"source-layer": "transportation",
+				minzoom: 11,
+				filter: [
+					"all",
+					["==", "$type", "LineString"],
+					["in", "class", "primary", "secondary", "tertiary", "trunk"],
+				],
+				layout: {
+					"line-cap": "butt",
+					"line-join": "miter",
+					visibility: "visible",
+				},
+				paint: {
+					"line-color": "rgb(213, 213, 213)",
+					"line-dasharray": [12, 0],
+					"line-width": {
+						base: 1.3,
+						stops: [
+							[10, 3],
+							[20, 23],
+						],
+					},
+				},
+			},
+			{
+				id: "regular_highway_major_inner",
+				type: "line",
+				source: "openmaptiles",
+				"source-layer": "transportation",
+				minzoom: 11,
+				filter: [
+					"all",
+					["==", "$type", "LineString"],
+					["in", "class", "primary", "secondary", "tertiary", "trunk"],
+				],
+				layout: {
+					"line-cap": "round",
+					"line-join": "round",
+					visibility: "visible",
+				},
+				paint: {
+					"line-color": "#fff",
+					"line-width": {
+						base: 1.3,
+						stops: [
+							[10, 2],
+							[20, 20],
+						],
+					},
+				},
+			},
+			{
+				id: "regular_highway_major_subtle",
+				type: "line",
+				source: "openmaptiles",
+				"source-layer": "transportation",
+				maxzoom: 11,
+				filter: [
+					"all",
+					["==", "$type", "LineString"],
+					["in", "class", "primary", "secondary", "tertiary", "trunk"],
+				],
+				layout: {
+					"line-cap": "round",
+					"line-join": "round",
+					visibility: "visible",
+				},
+				paint: {
+					"line-color": "hsla(0, 0%, 85%, 0.69)",
+					"line-width": 2,
+				},
+			},
+			{
+				id: "regular_highway_motorway_casing",
+				type: "line",
+				source: "openmaptiles",
+				"source-layer": "transportation",
+				minzoom: 6,
+				filter: [
+					"all",
+					["==", "$type", "LineString"],
+					[
+						"all",
+						["!in", "brunnel", "bridge", "tunnel"],
+						["==", "class", "motorway"],
+					],
+				],
+				layout: {
+					"line-cap": "butt",
+					"line-join": "miter",
+					visibility: "visible",
+				},
+				paint: {
+					"line-color": "rgb(213, 213, 213)",
+					"line-width": {
+						base: 1.4,
+						stops: [
+							[5.8, 0],
+							[6, 3],
+							[20, 40],
+						],
+					},
+					"line-dasharray": [2, 0],
+					"line-opacity": 1,
+				},
+			},
+			{
+				id: "regular_highway_motorway_inner",
+				type: "line",
+				source: "openmaptiles",
+				"source-layer": "transportation",
+				minzoom: 6,
+				filter: [
+					"all",
+					["==", "$type", "LineString"],
+					[
+						"all",
+						["!in", "brunnel", "bridge", "tunnel"],
+						["==", "class", "motorway"],
+					],
+				],
+				layout: {
+					"line-cap": "round",
+					"line-join": "round",
+					visibility: "visible",
+				},
+				paint: {
+					"line-color": {
+						base: 1,
+						stops: [
+							[5.8, "hsla(0, 0%, 85%, 0.53)"],
+							[6, "#fff"],
+						],
+					},
+					"line-width": {
+						base: 1.4,
+						stops: [
+							[4, 2],
+							[6, 1.3],
+							[20, 30],
+						],
+					},
+				},
+			},
+			{
+				id: "regular_highway_motorway_subtle",
+				type: "line",
+				source: "openmaptiles",
+				"source-layer": "transportation",
+				maxzoom: 6,
+				filter: [
+					"all",
+					["==", "$type", "LineString"],
+					["==", "class", "motorway"],
+				],
+				layout: {
+					"line-cap": "round",
+					"line-join": "round",
+					visibility: "visible",
+				},
+				paint: {
+					"line-color": "hsla(0, 0%, 85%, 0.53)",
+					"line-width": {
+						base: 1.4,
+						stops: [
+							[4, 2],
+							[6, 1.3],
+						],
+					},
+				},
+			},
+			{
+				id: "regular_highway_motorway_bridge_casing",
+				type: "line",
+				source: "openmaptiles",
+				"source-layer": "transportation",
+				minzoom: 6,
+				filter: [
+					"all",
+					["==", "$type", "LineString"],
+					["all", ["==", "brunnel", "bridge"], ["==", "class", "motorway"]],
+				],
+				layout: {
+					"line-cap": "butt",
+					"line-join": "miter",
+					visibility: "visible",
+				},
+				paint: {
+					"line-color": "rgb(213, 213, 213)",
+					"line-width": {
+						base: 1.4,
+						stops: [
+							[5.8, 0],
+							[6, 5],
+							[20, 45],
+						],
+					},
+					"line-dasharray": [2, 0],
+					"line-opacity": 1,
+				},
+			},
+			{
+				id: "regular_highway_motorway_bridge_inner",
+				type: "line",
+				source: "openmaptiles",
+				"source-layer": "transportation",
+				minzoom: 6,
+				filter: [
+					"all",
+					["==", "$type", "LineString"],
+					["all", ["==", "brunnel", "bridge"], ["==", "class", "motorway"]],
+				],
+				layout: {
+					"line-cap": "round",
+					"line-join": "round",
+					visibility: "visible",
+				},
+				paint: {
+					"line-color": {
+						base: 1,
+						stops: [
+							[5.8, "hsla(0, 0%, 85%, 0.53)"],
+							[6, "#fff"],
+						],
+					},
+					"line-width": {
+						base: 1.4,
+						stops: [
+							[4, 2],
+							[6, 1.3],
+							[20, 30],
+						],
+					},
+				},
+			},
+			{
+				id: "regular_tunnel_motorway_casing",
+				type: "line",
+				source: "openmaptiles",
+				"source-layer": "transportation",
+				minzoom: 6,
+				filter: [
+					"all",
+					["==", "$type", "LineString"],
+					["all", ["==", "brunnel", "tunnel"], ["==", "class", "motorway"]],
+				],
+				layout: {
+					"line-cap": "butt",
+					"line-join": "miter",
+					visibility: "visible",
+				},
+				paint: {
+					"line-color": "rgb(213, 213, 213)",
+					"line-width": {
+						base: 1.4,
+						stops: [
+							[5.8, 0],
+							[6, 3],
+							[20, 40],
+						],
+					},
+					"line-opacity": 1,
+				},
+			},
+			{
+				id: "regular_tunnel_motorway_inner",
+				type: "line",
+				source: "openmaptiles",
+				"source-layer": "transportation",
+				minzoom: 6,
+				filter: [
+					"all",
+					["==", "$type", "LineString"],
+					["all", ["==", "brunnel", "tunnel"], ["==", "class", "motorway"]],
+				],
+				layout: {
+					"line-cap": "round",
+					"line-join": "round",
+					visibility: "visible",
+				},
+				paint: {
+					"line-color": "rgb(234,234,234)",
+					"line-width": {
+						base: 1.4,
+						stops: [
+							[4, 2],
+							[6, 1.3],
+							[20, 30],
+						],
+					},
+				},
+			},
+
+			{
 				id: "leaflet_country_borders_add",
 				type: "fill",
 				source: "country_borders",
@@ -199,7 +620,7 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 					visibility: currentPath === "/even-more-maps" ? "visible" : "none",
 				},
 				paint: {
-					"fill-opacity": currentPath === "/" ? 1 : 0,
+					"fill-opacity": currentPath === "/" ? 0.5 : 0,
 					"fill-color": ["get", "color"],
 				},
 			},
@@ -225,7 +646,7 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 					},
 					"line-blur": 0.4,
 					"line-dasharray": [1, 2, 3, 2],
-					"line-opacity": currentPath === "/" ? 1 : 0,
+					"line-opacity": currentPath === "/" ? 0.5 : 0,
 				},
 			},
 			{
@@ -236,7 +657,7 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 					visibility: currentPath === "/google-maps-api" ? "visible" : "none",
 				},
 				paint: {
-					"raster-opacity": currentPath === "/" ? 1 : 0,
+					"raster-opacity": currentPath === "/" ? 0.5 : 0,
 				},
 			},
 			{
@@ -251,7 +672,7 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 				paint: {
 					"fill-color": mapColor.water,
 					"fill-antialias": true,
-					"fill-opacity": currentPath === "/" ? 1 : 0,
+					"fill-opacity": currentPath === "/" ? 0.5 : 0,
 				},
 			},
 			{
@@ -266,7 +687,7 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 				paint: {
 					"fill-color": "#152832",
 					"fill-antialias": true,
-					"fill-opacity": currentPath === "/" ? 1 : 0,
+					"fill-opacity": currentPath === "/" ? 0.5 : 0,
 					"fill-pattern": "vector_water_vector_water2",
 				},
 			},
@@ -281,7 +702,7 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 				},
 				paint: {
 					"line-color": mapColor.water,
-					"line-opacity": currentPath === "/" ? 1 : 0,
+					"line-opacity": currentPath === "/" ? 0.5 : 0,
 				},
 			},
 			{
@@ -304,7 +725,7 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 							[20, 10],
 						],
 					},
-					"line-opacity": currentPath === "/" ? 1 : 0,
+					"line-opacity": currentPath === "/" ? 0.5 : 0,
 				},
 			},
 			{
@@ -332,7 +753,7 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 							[20, 20],
 						],
 					},
-					"line-opacity": currentPath === "/" ? 1 : 0,
+					"line-opacity": currentPath === "/" ? 0.5 : 0,
 				},
 			},
 			{
@@ -361,7 +782,7 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 							[20, 23],
 						],
 					},
-					"line-opacity": currentPath === "/" ? 1 : 0,
+					"line-opacity": currentPath === "/" ? 0.5 : 0,
 				},
 			},
 			{
@@ -389,7 +810,7 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 							[20, 20],
 						],
 					},
-					"line-opacity": currentPath === "/" ? 1 : 0,
+					"line-opacity": currentPath === "/" ? 0.5 : 0,
 				},
 			},
 			{
@@ -411,7 +832,7 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 				paint: {
 					"line-color": mapColor.roadLow,
 					"line-width": 2,
-					"line-opacity": currentPath === "/" ? 1 : 0,
+					"line-opacity": currentPath === "/" ? 0.5 : 0,
 				},
 			},
 			{
@@ -445,7 +866,7 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 						],
 					},
 					"line-dasharray": [2, 0],
-					"line-opacity": currentPath === "/" ? 1 : 0,
+					"line-opacity": currentPath === "/" ? 0.5 : 0,
 				},
 			},
 			{
@@ -484,7 +905,7 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 							[20, 30],
 						],
 					},
-					"line-opacity": currentPath === "/" ? 1 : 0,
+					"line-opacity": currentPath === "/" ? 0.5 : 0,
 				},
 			},
 			{
@@ -512,7 +933,7 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 							[6, 1.3],
 						],
 					},
-					"line-opacity": currentPath === "/" ? 1 : 0,
+					"line-opacity": currentPath === "/" ? 0.5 : 0,
 				},
 			},
 			{
@@ -542,7 +963,7 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 						],
 					},
 					"line-dasharray": [2, 0],
-					"line-opacity": currentPath === "/" ? 1 : 0,
+					"line-opacity": currentPath === "/" ? 0.5 : 0,
 				},
 			},
 			{
@@ -577,7 +998,7 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 							[20, 30],
 						],
 					},
-					"line-opacity": currentPath === "/" ? 1 : 0,
+					"line-opacity": currentPath === "/" ? 0.5 : 0,
 				},
 			},
 			{
@@ -597,7 +1018,7 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 				source: "vector_mountain",
 				"source-layer": "updated_mountains-2hxde7",
 				paint: {
-					"icon-opacity": currentPath === "/" ? 1 : 0,
+					"icon-opacity": currentPath === "/" ? 0.5 : 0,
 				},
 				layout: {
 					visibility: currentPath === "/qing-dynasty-map" ? "visible" : "none",
@@ -727,7 +1148,7 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 						14,
 						0.75,
 						15,
-						currentPath === "/" ? 1 : 0,
+						currentPath === "/" ? 0.5 : 0,
 					],
 					"fill-pattern": "16_rma_historic_pebble_background4",
 				},
@@ -840,7 +1261,7 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 						currentPath === "/rma-visitor-postgis" ? "visible" : "none",
 				},
 				paint: {
-					"icon-opacity": currentPath === "/" ? 1 : 0,
+					"icon-opacity": currentPath === "/" ? 0.5 : 0,
 				},
 			},
 		],
