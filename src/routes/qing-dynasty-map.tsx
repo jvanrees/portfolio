@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ProjectPage from "../components/ProjectPage";
 import ProjectPageMap from "../components/ProjectPageMap";
-import { config } from "../config";
+import config from "../config";
 
 const MAPTILER_API_KEY = config.maptilerApiKey;
 const MAPBOX_API_KEY = config.mapboxApiKey;

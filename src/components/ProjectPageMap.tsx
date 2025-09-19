@@ -1,10 +1,7 @@
 import type { StyleSpecification } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { useEffect, useRef } from "react";
-import MapLibreMap, {
-	type MapRef,
-	NavigationControl,
-} from "react-map-gl/maplibre";
+import MapGL, { type MapRef, NavigationControl } from "react-map-gl/maplibre";
 import styles from "../styles/ProjectPageMap.module.css";
 
 interface ProjectPageMapProps {
@@ -40,14 +37,14 @@ export default function ProjectPageMap({
 
 	return (
 		<div className={styles.container}>
-			<MapLibreMap
+			<MapGL
 				ref={mapRef}
 				initialViewState={initialViewState}
 				mapStyle={mapStyle}
 				style={{ width: "100%", height: "100%" }}
 			>
 				<NavigationControl position="top-left" />
-			</MapLibreMap>
+			</MapGL>
 		</div>
 	);
 }

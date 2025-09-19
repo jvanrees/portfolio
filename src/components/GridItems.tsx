@@ -32,7 +32,7 @@ export const gridItems = [
 	},
 	{
 		key: "googleMapsApi",
-		className: styles.spanRectHorizontal + " " + styles.rotateCell,
+		className: `${styles.spanRectHorizontal} ${styles.rotateCell}`,
 		transitionName: "GoogleMaps",
 		title: "Google Maps API",
 		content: (

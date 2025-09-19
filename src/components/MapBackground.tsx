@@ -1,19 +1,20 @@
 import "maplibre-gl/dist/maplibre-gl.css";
-import Map, { type ViewState } from "react-map-gl/maplibre";
-import { config } from "../config";
+import MapGL from "react-map-gl/maplibre";
+import config from "../config.ts";
+import { useMapContext } from "../mapstyleContext";
 import styles from "../styles/MapBackground.module.css";
 
-const API_KEY = config.maptilerApiKey;
+const MAP_TILER_API_KEY = config.maptilerApiKey;
+const MAPBOX_API_KEY = config.mapboxApiKey;
 
-const MapBackground = ({ viewport }: { viewport: ViewState }) => {
+const MapBackground = () => {
+	const { viewport, mapsStyle } = useMapContext();
+
 	return (
 		<div className={styles.backgroundMap}>
-			<Map
-				{...viewport}
-				mapStyle={`https://api.maptiler.com/maps/dataviz/style.json?key=${API_KEY}`}
-			>
+			<MapGL {...viewport} mapStyle={mapsStyle}>
 				<div className={styles.mapOverlay}></div>
-			</Map>
+			</MapGL>
 		</div>
 	);
 };
