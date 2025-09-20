@@ -1,9 +1,14 @@
 import { useLocation } from "@tanstack/react-router";
 import type React from "react";
-import { createContext, type ReactNode, useContext, useState } from "react";
+import {
+	createContext,
+	type ReactNode,
+	useContext,
+	useEffect,
+	useState,
+} from "react";
 import type { StyleSpecification, ViewState } from "react-map-gl/maplibre";
 import config from "./config.ts";
-import countryBorders from "./country_borders.json";
 
 interface MapColor {
 	background: string;
@@ -32,11 +37,11 @@ const defaultViewport: ViewState = {
 	padding: { top: 0, bottom: 0, left: 0, right: 0 },
 };
 const defaultMapColor: MapColor = {
-	background: "hsla(80, 11%, 95%, 1.00)",
-	park: "hsla(190, 14%, 91%, 1.00)",
-	water: "hsla(200, 5%, 78%, 1.00)",
-	roadLow: "hsla(80, 11%, 95%, 1.00)",
-	roadHigh: "hsla(0, 0%, 84%, 1.00)",
+	background: "hsla(0, 0%, 100%, 1.00)",
+	park: "hsla(105, 8%, 91%, 1.00)",
+	water: "hsla(200, 50%, 70%, 1.00)",
+	roadLow: "hsla(0, 0%, 100%, 1.00)",
+	roadHigh: "hsla(0, 0%, 85%, 0.53)",
 	mapOverlayOpacity: 0.0,
 };
 const MapContext = createContext<MapContextType>({
@@ -52,14 +57,22 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 	children,
 }) => {
 	const [viewport, setViewport] = useState<ViewState>(defaultViewport);
-
 	const [mapColor, setMapColor] = useState<MapColor>(defaultMapColor);
-
 	const currentPath = useLocation().pathname;
+	const [isProjectPage, setIsProjectPage] = useState<boolean>(
+		currentPath !== "/" && currentPath !== "/about",
+	);
 
-	const fullURL = `${window.location.protocol}//${window.location.host}${import.meta.env.BASE_URL}`;
+	const absoluteBaseURL = new URL(
+		import.meta.env.BASE_URL,
+		window.location.origin,
+	);
 	const API_KEY = config.maptilerApiKey;
 	const MAPBOX_TOKEN = config.mapboxApiKey;
+
+	useEffect(() => {
+		setIsProjectPage(currentPath !== "/" && currentPath !== "/about");
+	}, [currentPath]);
 
 	const mapsStyle: StyleSpecification = {
 		version: 8,
@@ -98,7 +111,9 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 			},
 			rma_present_features: {
 				type: "geojson",
-				data: `${fullURL}Present_Features_reorganized.geojson`,
+				// data: `${fullURL}Present_Features_reorganized.geojson`,
+				data: new URL("Present_Features_reorganized.geojson", absoluteBaseURL)
+					.href,
 			},
 			natural_earth_raster: {
 				type: "raster",
@@ -110,22 +125,14 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 			},
 			country_borders: {
 				type: "geojson",
-				data: countryBorders,
+				data: new URL("countryBorders.geojson", absoluteBaseURL).href,
 			},
 		},
-		sprite: `${fullURL}portfolio_bg`,
+		sprite: new URL("portfolio_bg", absoluteBaseURL).href,
 		glyphs: "mapbox://fonts/jvanrees/{fontstack}/{range}.pbf",
 		layers: [
 			{
-				id: "night_background",
-				type: "background",
-				paint: {
-					"background-color": mapColor.background,
-					"background-opacity": currentPath === "/" ? 0.5 : 0,
-				},
-			},
-			{
-				id: "night_park",
+				id: "regular_park",
 				type: "fill",
 				source: "openmaptiles",
 				"source-layer": "park",
@@ -134,59 +141,34 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 					visibility: "visible",
 				},
 				paint: {
-					"fill-color": mapColor.park,
-					"fill-opacity": currentPath === "/" ? 0.5 : 0,
+					"fill-color": "hsla(105, 8%, 90%, 1.00)",
+					//
 				},
 			},
 			{
-				id: "qing-bg_add",
-				type: "background",
-				layout: {
-					visibility: currentPath === "/qing-dynasty-map" ? "visible" : "none",
-				},
-				paint: {
-					"background-opacity": currentPath === "/" ? 0.5 : 0,
-					"background-pattern": "qing_bg",
-				},
-			},
-			{
-				id: "historic_park_add",
+				id: "regular_water",
 				type: "fill",
 				source: "openmaptiles",
-				"source-layer": "park",
-				minzoom: 0,
+				"source-layer": "water",
 				filter: ["==", "$type", "Polygon"],
 				layout: {
-					visibility: currentPath === "/rma-android" ? "visible" : "none",
+					visibility: "visible",
 				},
 				paint: {
-					"fill-pattern": "rma_historic_pebble_background4-2",
-					"fill-opacity": currentPath === "/" ? 0.5 : 0,
+					"fill-color": "hsla(195, 8%, 78%, 1)",
 				},
 			},
 			{
-				id: "shaded_landcover_wood_add",
+				id: "regular_landuse_residential",
 				type: "fill",
 				source: "openmaptiles",
-				"source-layer": "landcover",
-				minzoom: 0,
-				maxzoom: 20,
-				filter: ["all", ["==", "$type", "Polygon"], ["==", "class", "wood"]],
+				"source-layer": "landuse",
+				filter: ["==", "class", "residential"],
 				layout: {
-					visibility: currentPath === "/shaded-relief" ? "visible" : "none",
+					visibility: "visible",
 				},
 				paint: {
-					"fill-opacity": currentPath === "/" ? 0.5 : 0,
-					"fill-color": [
-						"case",
-						["match", ["get", "class"], ["wood"], true, false],
-						"#006737",
-						["match", ["get", "class"], ["grass"], true, false],
-						"#A3BD9F",
-						["match", ["get", "class"], ["snow"], true, false],
-						"#fff",
-						"#8AA34C",
-					],
+					"fill-color": "hsla(60, 6%, 92%, 1)",
 				},
 			},
 			{
@@ -200,27 +182,16 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 					visibility: "visible",
 				},
 				paint: {
-					"fill-color": "rgb(220,224,220)",
-					"fill-opacity": {
-						base: 1,
-						stops: [
-							[8, 0],
-							[12, 1],
-						],
-					},
-				},
-			},
-			{
-				id: "regular_water",
-				type: "fill",
-				source: "openmaptiles",
-				"source-layer": "water",
-				filter: ["==", "$type", "Polygon"],
-				layout: {
-					visibility: "visible",
-				},
-				paint: {
-					"fill-color": "hsl(195, 17%, 78%)",
+					"fill-color": "hsla(120, 6%, 90%, 1.00)",
+					"fill-opacity": [
+						"interpolate",
+						["exponential", 1],
+						["zoom"],
+						8,
+						0,
+						12,
+						1,
+					],
 				},
 			},
 			{
@@ -233,7 +204,70 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 					visibility: "visible",
 				},
 				paint: {
-					"line-color": "hsl(195, 17%, 78%)",
+					"line-color": "hsla(193, 17%, 78%, 1)",
+				},
+			},
+			{
+				id: "regular_tunnel_motorway_casing",
+				type: "line",
+				source: "openmaptiles",
+				"source-layer": "transportation",
+				minzoom: 6,
+				filter: [
+					"all",
+					["==", "$type", "LineString"],
+					["all", ["==", "brunnel", "tunnel"], ["==", "class", "motorway"]],
+				],
+				layout: {
+					"line-cap": "butt",
+					"line-join": "miter",
+					visibility: "visible",
+				},
+				paint: {
+					"line-color": "hsla(0, 0%, 84%, 1.00)",
+					"line-width": [
+						"interpolate",
+						["exponential", 1.4],
+						["zoom"],
+						5.8,
+						0,
+						6,
+						3,
+						20,
+						40,
+					],
+					"line-opacity": 1,
+				},
+			},
+			{
+				id: "regular_tunnel_motorway_inner",
+				type: "line",
+				source: "openmaptiles",
+				"source-layer": "transportation",
+				minzoom: 6,
+				filter: [
+					"all",
+					["==", "$type", "LineString"],
+					["all", ["==", "brunnel", "tunnel"], ["==", "class", "motorway"]],
+				],
+				layout: {
+					"line-cap": "round",
+					"line-join": "round",
+					visibility: "visible",
+				},
+				paint: {
+					"line-color": "hsla(0, 0%, 95%, 1.00)",
+					"line-width": [
+						"interpolate",
+						["exponential", 1.4],
+						["zoom"],
+						4,
+						2,
+						6,
+						1.3,
+						20,
+						30,
+					],
 				},
 			},
 			{
@@ -248,41 +282,17 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 					visibility: "visible",
 				},
 				paint: {
-					"line-color": "rgb(234, 234, 234)",
-					"line-width": {
-						base: 1.2,
-						stops: [
-							[13, 1],
-							[20, 10],
-						],
-					},
+					"line-color": "hsla(0, 0%, 92%, 1.00)",
+					"line-width": [
+						"interpolate",
+						["exponential", 1.2],
+						["zoom"],
+						13,
+						1,
+						20,
+						10,
+					],
 					"line-opacity": 1,
-				},
-			},
-			{
-				id: "regular_park",
-				type: "fill",
-				source: "openmaptiles",
-				"source-layer": "park",
-				filter: ["==", "$type", "Polygon"],
-				layout: {
-					visibility: "visible",
-				},
-				paint: {
-					"fill-color": "rgb(200, 216, 189)",
-				},
-			},
-			{
-				id: "regular_landuse_residential",
-				type: "fill",
-				source: "openmaptiles",
-				"source-layer": "landuse",
-				filter: ["==", "class", "residential"],
-				layout: {
-					visibility: "visible",
-				},
-				paint: {
-					"fill-color": "rgb(234, 234, 234)",
 				},
 			},
 			{
@@ -302,15 +312,17 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 					visibility: "visible",
 				},
 				paint: {
-					"line-color": "hsl(0, 0%, 88%)",
-					"line-width": {
-						base: 1.55,
-						stops: [
-							[13, 1.8],
-							[20, 20],
-						],
-					},
-					"line-opacity": 1,
+					"line-color": "hsla(0, 0%, 88%, 1)",
+					"line-width": [
+						"interpolate",
+						["exponential", 1.55],
+						["zoom"],
+						13,
+						1.8,
+						20,
+						20,
+					],
+					"line-opacity": 0.8,
 				},
 			},
 			{
@@ -330,15 +342,17 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 					visibility: "visible",
 				},
 				paint: {
-					"line-color": "rgb(213, 213, 213)",
+					"line-color": "hsla(0, 0%, 85%, 1.00)",
 					"line-dasharray": [12, 0],
-					"line-width": {
-						base: 1.3,
-						stops: [
-							[10, 3],
-							[20, 23],
-						],
-					},
+					"line-width": [
+						"interpolate",
+						["exponential", 1.3],
+						["zoom"],
+						10,
+						3,
+						20,
+						23,
+					],
 				},
 			},
 			{
@@ -358,14 +372,16 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 					visibility: "visible",
 				},
 				paint: {
-					"line-color": "#fff",
-					"line-width": {
-						base: 1.3,
-						stops: [
-							[10, 2],
-							[20, 20],
-						],
-					},
+					"line-color": "hsla(0, 0%, 98%, 1.00)",
+					"line-width": [
+						"interpolate",
+						["exponential", 1.3],
+						["zoom"],
+						10,
+						2,
+						20,
+						20,
+					],
 				},
 			},
 			{
@@ -385,7 +401,7 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 					visibility: "visible",
 				},
 				paint: {
-					"line-color": "hsla(0, 0%, 85%, 0.69)",
+					"line-color": "hsla(0, 0%, 92%, 0.69)",
 					"line-width": 2,
 				},
 			},
@@ -410,15 +426,18 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 					visibility: "visible",
 				},
 				paint: {
-					"line-color": "rgb(213, 213, 213)",
-					"line-width": {
-						base: 1.4,
-						stops: [
-							[5.8, 0],
-							[6, 3],
-							[20, 40],
-						],
-					},
+					"line-color": "hsla(0, 0%, 84%, 1.00)",
+					"line-width": [
+						"interpolate",
+						["exponential", 1.4],
+						["zoom"],
+						5.8,
+						0,
+						6,
+						3,
+						20,
+						40,
+					],
 					"line-dasharray": [2, 0],
 					"line-opacity": 1,
 				},
@@ -444,21 +463,26 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 					visibility: "visible",
 				},
 				paint: {
-					"line-color": {
-						base: 1,
-						stops: [
-							[5.8, "hsla(0, 0%, 85%, 0.53)"],
-							[6, "#fff"],
-						],
-					},
-					"line-width": {
-						base: 1.4,
-						stops: [
-							[4, 2],
-							[6, 1.3],
-							[20, 30],
-						],
-					},
+					"line-color": [
+						"interpolate",
+						["exponential", 1],
+						["zoom"],
+						5.8,
+						"hsla(0, 0%, 90%, 0.53)",
+						6,
+						"hsla(0, 0%, 98%, 1.00)",
+					],
+					"line-width": [
+						"interpolate",
+						["exponential", 1.4],
+						["zoom"],
+						4,
+						2,
+						6,
+						1.3,
+						20,
+						30,
+					],
 				},
 			},
 			{
@@ -478,14 +502,16 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 					visibility: "visible",
 				},
 				paint: {
-					"line-color": "hsla(0, 0%, 85%, 0.53)",
-					"line-width": {
-						base: 1.4,
-						stops: [
-							[4, 2],
-							[6, 1.3],
-						],
-					},
+					"line-color": "hsla(0, 0%, 90%, 0.53)",
+					"line-width": [
+						"interpolate",
+						["exponential", 1.4],
+						["zoom"],
+						4,
+						2,
+						6,
+						1.3,
+					],
 				},
 			},
 			{
@@ -505,15 +531,18 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 					visibility: "visible",
 				},
 				paint: {
-					"line-color": "rgb(213, 213, 213)",
-					"line-width": {
-						base: 1.4,
-						stops: [
-							[5.8, 0],
-							[6, 5],
-							[20, 45],
-						],
-					},
+					"line-color": "hsla(0, 0%, 84%, 1.00)",
+					"line-width": [
+						"interpolate",
+						["exponential", 1.4],
+						["zoom"],
+						5.8,
+						0,
+						6,
+						5,
+						20,
+						45,
+					],
 					"line-dasharray": [2, 0],
 					"line-opacity": 1,
 				},
@@ -535,81 +564,121 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 					visibility: "visible",
 				},
 				paint: {
-					"line-color": {
-						base: 1,
-						stops: [
-							[5.8, "hsla(0, 0%, 85%, 0.53)"],
-							[6, "#fff"],
-						],
-					},
-					"line-width": {
-						base: 1.4,
-						stops: [
-							[4, 2],
-							[6, 1.3],
-							[20, 30],
-						],
-					},
-				},
-			},
-			{
-				id: "regular_tunnel_motorway_casing",
-				type: "line",
-				source: "openmaptiles",
-				"source-layer": "transportation",
-				minzoom: 6,
-				filter: [
-					"all",
-					["==", "$type", "LineString"],
-					["all", ["==", "brunnel", "tunnel"], ["==", "class", "motorway"]],
-				],
-				layout: {
-					"line-cap": "butt",
-					"line-join": "miter",
-					visibility: "visible",
-				},
-				paint: {
-					"line-color": "rgb(213, 213, 213)",
-					"line-width": {
-						base: 1.4,
-						stops: [
-							[5.8, 0],
-							[6, 3],
-							[20, 40],
-						],
-					},
-					"line-opacity": 1,
-				},
-			},
-			{
-				id: "regular_tunnel_motorway_inner",
-				type: "line",
-				source: "openmaptiles",
-				"source-layer": "transportation",
-				minzoom: 6,
-				filter: [
-					"all",
-					["==", "$type", "LineString"],
-					["all", ["==", "brunnel", "tunnel"], ["==", "class", "motorway"]],
-				],
-				layout: {
-					"line-cap": "round",
-					"line-join": "round",
-					visibility: "visible",
-				},
-				paint: {
-					"line-color": "rgb(234,234,234)",
-					"line-width": {
-						base: 1.4,
-						stops: [
-							[4, 2],
-							[6, 1.3],
-							[20, 30],
-						],
-					},
+					"line-color": [
+						"interpolate",
+						["exponential", 1],
+						["zoom"],
+						5.8,
+						"hsla(0, 0%, 90%, 0.53)",
+						6,
+						"hsla(0, 0%, 95%, 1.00)",
+					],
+					"line-width": [
+						"interpolate",
+						["exponential", 1.4],
+						["zoom"],
+						4,
+						2,
+						6,
+						1.3,
+						20,
+						30,
+					],
 				},
 			},
 
+			{
+				id: "night_background",
+				type: "background",
+				paint: {
+					"background-color": mapColor.background,
+					"background-opacity": isProjectPage ? 0.5 : 0,
+					"background-opacity-transition": {
+						duration: 2000,
+						delay: 0,
+					},
+					"background-color-transition": {
+						duration: 2000,
+						delay: 0,
+					},
+				},
+			},
+			{
+				id: "night_park",
+				type: "fill",
+				source: "openmaptiles",
+				"source-layer": "park",
+				filter: ["==", "$type", "Polygon"],
+				layout: {
+					visibility: "visible",
+				},
+				paint: {
+					"fill-color": mapColor.park,
+					"fill-opacity": isProjectPage ? 0.5 : 0,
+					"fill-color-transition": {
+						duration: 2000,
+						delay: 0,
+					},
+					"fill-opacity-transition": {
+						duration: 2000,
+						delay: 0,
+					},
+				},
+			},
+			{
+				id: "qing-bg_add",
+				type: "background",
+				layout: {
+					visibility: currentPath === "/qing-dynasty-map" ? "visible" : "none",
+				},
+				paint: {
+					"background-opacity": isProjectPage ? 0.5 : 0,
+					"background-pattern": "qing_bg",
+					"background-opacity-transition": { duration: 2000, delay: 0 },
+				},
+			},
+			{
+				id: "historic_park_add",
+				type: "fill",
+				source: "openmaptiles",
+				"source-layer": "park",
+				minzoom: 0,
+				filter: ["==", "$type", "Polygon"],
+				layout: {
+					visibility: currentPath === "/rma-android" ? "visible" : "none",
+				},
+				paint: {
+					"fill-pattern": "rma_historic_pebble_background4-2",
+					"fill-opacity": isProjectPage ? 0.5 : 0,
+					"fill-opacity-transition": { duration: 2000, delay: 0 },
+				},
+			},
+			{
+				id: "shaded_landcover_wood_add",
+				type: "fill",
+				source: "openmaptiles",
+				"source-layer": "landcover",
+				minzoom: 0,
+				maxzoom: 20,
+				filter: ["all", ["==", "$type", "Polygon"], ["==", "class", "wood"]],
+				layout: {
+					visibility: currentPath === "/shaded-relief" ? "visible" : "none",
+				},
+				paint: {
+					"fill-opacity": isProjectPage ? 0.5 : 0,
+					"fill-color": [
+						"case",
+						["match", ["get", "class"], ["wood"], true, false],
+						"hsla(152, 100%, 20%, 1.00)",
+						["match", ["get", "class"], ["grass"], true, false],
+						"hsla(112, 19%, 68%, 1.00)",
+						["match", ["get", "class"], ["snow"], true, false],
+						"hsla(0, 0%, 95%, 1.00)",
+						"hsla(77, 36%, 47%, 1.00)",
+					],
+					"fill-opacity-transition": { duration: 2000, delay: 0 },
+				},
+			},
 			{
 				id: "leaflet_country_borders_add",
 				type: "fill",
@@ -620,8 +689,9 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 					visibility: currentPath === "/even-more-maps" ? "visible" : "none",
 				},
 				paint: {
-					"fill-opacity": currentPath === "/" ? 0.5 : 0,
+					"fill-opacity": isProjectPage ? 0.5 : 0,
 					"fill-color": ["get", "color"],
+					"fill-opacity-transition": { duration: 2000, delay: 0 },
 				},
 			},
 			{
@@ -636,17 +706,20 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 					visibility: currentPath === "/even-more-maps" ? "visible" : "none",
 				},
 				paint: {
-					"line-color": "#0d2f59",
-					"line-width": {
-						base: 1.3,
-						stops: [
-							[3, 2],
-							[22, 40],
-						],
-					},
+					"line-color": "hsla(213, 75%, 20%, 1.00)",
+					"line-width": [
+						"interpolate",
+						["exponential", 1.3],
+						["zoom"],
+						3,
+						2,
+						22,
+						40,
+					],
 					"line-blur": 0.4,
 					"line-dasharray": [1, 2, 3, 2],
-					"line-opacity": currentPath === "/" ? 0.5 : 0,
+					"line-opacity": isProjectPage ? 0.5 : 0,
+					"line-opacity-transition": { duration: 2000, delay: 200 },
 				},
 			},
 			{
@@ -657,7 +730,8 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 					visibility: currentPath === "/google-maps-api" ? "visible" : "none",
 				},
 				paint: {
-					"raster-opacity": currentPath === "/" ? 0.5 : 0,
+					"raster-opacity": isProjectPage ? 1 : 0,
+					"raster-opacity-transition": { duration: 2000, delay: 250 },
 				},
 			},
 			{
@@ -672,7 +746,11 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 				paint: {
 					"fill-color": mapColor.water,
 					"fill-antialias": true,
-					"fill-opacity": currentPath === "/" ? 0.5 : 0,
+					"fill-opacity": isProjectPage ? 0.5 : 0,
+					"fill-color-transition": {
+						duration: 2000,
+						delay: 0,
+					},
 				},
 			},
 			{
@@ -685,10 +763,11 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 					visibility: currentPath === "/qing-dynasty-map" ? "visible" : "none",
 				},
 				paint: {
-					"fill-color": "#152832",
+					"fill-color": "hsla(201, 41%, 14%, 1.00)",
 					"fill-antialias": true,
-					"fill-opacity": currentPath === "/" ? 0.5 : 0,
+					"fill-opacity": isProjectPage ? 0.5 : 0,
 					"fill-pattern": "vector_water_vector_water2",
+					"fill-opacity-transition": { duration: 2000, delay: 0 },
 				},
 			},
 			{
@@ -702,7 +781,15 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 				},
 				paint: {
 					"line-color": mapColor.water,
-					"line-opacity": currentPath === "/" ? 0.5 : 0,
+					"line-opacity": isProjectPage ? 0.5 : 0,
+					"line-color-transition": {
+						duration: 2000,
+						delay: 0,
+					},
+					"line-opacity-transition": {
+						duration: 2000,
+						delay: 0,
+					},
 				},
 			},
 			{
@@ -718,14 +805,21 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 				},
 				paint: {
 					"line-color": mapColor.roadLow,
-					"line-width": {
-						base: 1.2,
-						stops: [
-							[13, 1],
-							[20, 10],
-						],
+					"line-width": [
+						"interpolate",
+						["exponential", 1.2],
+						["zoom"],
+						13,
+						1,
+						20,
+						10,
+					],
+					"line-color-transition": {
+						duration: 2000,
+						delay: 0,
 					},
-					"line-opacity": currentPath === "/" ? 0.5 : 0,
+					"line-opacity": isProjectPage ? 0.5 : 0,
+					"line-opacity-transition": { duration: 2000, delay: 0 },
 				},
 			},
 			{
@@ -746,14 +840,24 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 				},
 				paint: {
 					"line-color": mapColor.roadLow,
-					"line-width": {
-						base: 1.55,
-						stops: [
-							[13, 1.8],
-							[20, 20],
-						],
+					"line-width": [
+						"interpolate",
+						["exponential", 1.55],
+						["zoom"],
+						13,
+						1.8,
+						20,
+						20,
+					],
+					"line-opacity": isProjectPage ? 0.5 : 0,
+					"line-color-transition": {
+						duration: 2000,
+						delay: 0,
 					},
-					"line-opacity": currentPath === "/" ? 0.5 : 0,
+					"line-opacity-transition": {
+						duration: 2000,
+						delay: 0,
+					},
 				},
 			},
 			{
@@ -775,14 +879,24 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 				paint: {
 					"line-color": mapColor.roadLow,
 					"line-dasharray": [12, 0],
-					"line-width": {
-						base: 1.3,
-						stops: [
-							[10, 3],
-							[20, 23],
-						],
+					"line-width": [
+						"interpolate",
+						["exponential", 1.3],
+						["zoom"],
+						10,
+						3,
+						20,
+						23,
+					],
+					"line-opacity": isProjectPage ? 0.5 : 0,
+					"line-color-transition": {
+						duration: 2000,
+						delay: 0,
 					},
-					"line-opacity": currentPath === "/" ? 0.5 : 0,
+					"line-opacity-transition": {
+						duration: 2000,
+						delay: 0,
+					},
 				},
 			},
 			{
@@ -803,14 +917,24 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 				},
 				paint: {
 					"line-color": mapColor.roadLow,
-					"line-width": {
-						base: 1.3,
-						stops: [
-							[10, 2],
-							[20, 20],
-						],
+					"line-width": [
+						"interpolate",
+						["exponential", 1.3],
+						["zoom"],
+						10,
+						2,
+						20,
+						20,
+					],
+					"line-opacity": isProjectPage ? 0.5 : 0,
+					"line-color-transition": {
+						duration: 2000,
+						delay: 0,
 					},
-					"line-opacity": currentPath === "/" ? 0.5 : 0,
+					"line-opacity-transition": {
+						duration: 2000,
+						delay: 0,
+					},
 				},
 			},
 			{
@@ -832,7 +956,15 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 				paint: {
 					"line-color": mapColor.roadLow,
 					"line-width": 2,
-					"line-opacity": currentPath === "/" ? 0.5 : 0,
+					"line-opacity": isProjectPage ? 0.5 : 0,
+					"line-color-transition": {
+						duration: 2000,
+						delay: 0,
+					},
+					"line-opacity-transition": {
+						duration: 2000,
+						delay: 0,
+					},
 				},
 			},
 			{
@@ -857,16 +989,27 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 				},
 				paint: {
 					"line-color": mapColor.roadHigh,
-					"line-width": {
-						base: 1.4,
-						stops: [
-							[5.8, 0],
-							[6, 3],
-							[20, 40],
-						],
-					},
+					"line-width": [
+						"interpolate",
+						["exponential", 1.4],
+						["zoom"],
+						5.8,
+						0,
+						6,
+						3,
+						20,
+						40,
+					],
 					"line-dasharray": [2, 0],
-					"line-opacity": currentPath === "/" ? 0.5 : 0,
+					"line-opacity": isProjectPage ? 0.5 : 0,
+					"line-color-transition": {
+						duration: 2000,
+						delay: 0,
+					},
+					"line-opacity-transition": {
+						duration: 2000,
+						delay: 0,
+					},
 				},
 			},
 			{
@@ -890,22 +1033,28 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 					visibility: "visible",
 				},
 				paint: {
-					"line-color": {
-						base: 1,
-						stops: [
-							[5.8, mapColor.roadHigh],
-							[6, mapColor.roadHigh],
-						],
-					},
-					"line-width": {
-						base: 1.4,
-						stops: [
-							[4, 2],
-							[6, 1.3],
-							[20, 30],
-						],
-					},
-					"line-opacity": currentPath === "/" ? 0.5 : 0,
+					"line-color": [
+						"interpolate",
+						["exponential", 1],
+						["zoom"],
+						5.8,
+						"hsla(39, 53%, 54%,0.8)",
+						6,
+						"hsla(39, 53%, 54%,0.8)",
+					],
+					"line-width": [
+						"interpolate",
+						["exponential", 1.4],
+						["zoom"],
+						4,
+						2,
+						6,
+						1.3,
+						20,
+						30,
+					],
+					"line-opacity": isProjectPage ? 0.5 : 0,
+					"line-opacity-transition": { duration: 2000, delay: 0 },
 				},
 			},
 			{
@@ -926,14 +1075,24 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 				},
 				paint: {
 					"line-color": mapColor.roadHigh,
-					"line-width": {
-						base: 1.4,
-						stops: [
-							[4, 2],
-							[6, 1.3],
-						],
+					"line-width": [
+						"interpolate",
+						["exponential", 1.4],
+						["zoom"],
+						4,
+						2,
+						6,
+						1.3,
+					],
+					"line-opacity": isProjectPage ? 0.5 : 0,
+					"line-color-transition": {
+						duration: 2000,
+						delay: 0,
 					},
-					"line-opacity": currentPath === "/" ? 0.5 : 0,
+					"line-opacity-transition": {
+						duration: 2000,
+						delay: 0,
+					},
 				},
 			},
 			{
@@ -954,16 +1113,27 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 				},
 				paint: {
 					"line-color": mapColor.roadHigh,
-					"line-width": {
-						base: 1.4,
-						stops: [
-							[5.8, 0],
-							[6, 5],
-							[20, 45],
-						],
-					},
+					"line-width": [
+						"interpolate",
+						["exponential", 1.4],
+						["zoom"],
+						5.8,
+						0,
+						6,
+						5,
+						20,
+						45,
+					],
 					"line-dasharray": [2, 0],
-					"line-opacity": currentPath === "/" ? 0.5 : 0,
+					"line-opacity": isProjectPage ? 0.5 : 0,
+					"line-color-transition": {
+						duration: 2000,
+						delay: 0,
+					},
+					"line-opacity-transition": {
+						duration: 2000,
+						delay: 0,
+					},
 				},
 			},
 			{
@@ -983,22 +1153,28 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 					visibility: "visible",
 				},
 				paint: {
-					"line-color": {
-						base: 1,
-						stops: [
-							[5.8, mapColor.roadHigh],
-							[6, mapColor.roadHigh],
-						],
-					},
-					"line-width": {
-						base: 1.4,
-						stops: [
-							[4, 2],
-							[6, 1.3],
-							[20, 30],
-						],
-					},
-					"line-opacity": currentPath === "/" ? 0.5 : 0,
+					"line-color": [
+						"interpolate",
+						["exponential", 1],
+						["zoom"],
+						5.8,
+						"hsla(39, 53%, 54%,0.8)",
+						6,
+						"hsla(39, 53%, 54%,0.8)",
+					],
+					"line-width": [
+						"interpolate",
+						["exponential", 1.4],
+						["zoom"],
+						4,
+						2,
+						6,
+						1.3,
+						20,
+						30,
+					],
+					"line-opacity": isProjectPage ? 0.5 : 0,
+					"line-opacity-transition": { duration: 2000, delay: 0 },
 				},
 			},
 			{
@@ -1010,6 +1186,7 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 				paint: {
 					"background-opacity": mapColor.mapOverlayOpacity,
 					"background-pattern": "bg_overlay2",
+					"background-opacity-transition": { duration: 2000, delay: 0 },
 				},
 			},
 			{
@@ -1018,7 +1195,8 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 				source: "vector_mountain",
 				"source-layer": "updated_mountains-2hxde7",
 				paint: {
-					"icon-opacity": currentPath === "/" ? 0.5 : 0,
+					"icon-opacity": isProjectPage ? 0.5 : 0,
+					"icon-opacity-transition": { duration: 2000, delay: 0 },
 				},
 				layout: {
 					visibility: currentPath === "/qing-dynasty-map" ? "visible" : "none",
@@ -1148,9 +1326,10 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 						14,
 						0.75,
 						15,
-						currentPath === "/" ? 0.5 : 0,
+						isProjectPage ? 0.5 : 0,
 					],
 					"fill-pattern": "16_rma_historic_pebble_background4",
+					"fill-opacity-transition": { duration: 2000, delay: 0 },
 				},
 			},
 			{
@@ -1173,7 +1352,7 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 						17.9,
 						["interpolate", ["linear"], ["get", "levels"], 1, 4.3, 7, 30.1],
 					],
-					"fill-extrusion-color": "#a6bcca",
+					"fill-extrusion-color": "hsla(203, 25%, 72%, 1.00)",
 					"fill-extrusion-opacity": 0.7,
 				},
 			},
@@ -1244,7 +1423,7 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 						17.9,
 						["interpolate", ["linear"], ["get", "levels"], 1, 4.3, 7, 30.1],
 					],
-					"fill-extrusion-color": "#a6bcca",
+					"fill-extrusion-color": "hsla(203, 25%, 72%, 1.00)",
 					"fill-extrusion-opacity": 0.7,
 					"fill-extrusion-pattern": "16_rma_historic_pebble_background4",
 				},
@@ -1261,7 +1440,8 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 						currentPath === "/rma-visitor-postgis" ? "visible" : "none",
 				},
 				paint: {
-					"icon-opacity": currentPath === "/" ? 0.5 : 0,
+					"icon-opacity": isProjectPage ? 0.5 : 0,
+					"icon-opacity-transition": { duration: 2000, delay: 0 },
 				},
 			},
 		],

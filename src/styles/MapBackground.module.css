@@ -8,13 +8,14 @@
 }
 
 .mapOverlay {
-	background-color: #f1f9ef;
+	/* visibility: hidden; */
+	background-color: hsla(108, 45%, 96%, 1);
 	background-image: url("../img/map-background-noise-light.png");
 	opacity: 0.7;
 	position: fixed;
 	height: 100%;
 	width: 100%;
 	z-index: 1;
-	backdrop-filter: blur(3px);
+	backdrop-filter: blur(2px);
 	transition: all 3s ease-in-out;
 }
