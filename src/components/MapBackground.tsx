@@ -1,19 +1,35 @@
 import "maplibre-gl/dist/maplibre-gl.css";
 import MapGL from "react-map-gl/maplibre";
-import config from "../config.ts";
 import { useMapContext } from "../mapstyleContext";
 import styles from "../styles/MapBackground.module.css";
 
-const MAP_TILER_API_KEY = config.maptilerApiKey;
-const MAPBOX_API_KEY = config.mapboxApiKey;
-
 const MapBackground = () => {
-	const { viewport, mapsStyle } = useMapContext();
+	const {
+		viewport,
+		mapsStyle,
+		mapGlRef,
+		setViewport,
+		setIsMapLoaded,
+		mapColor,
+	} = useMapContext();
 
 	return (
 		<div className={styles.backgroundMap}>
-			<MapGL {...viewport} mapStyle={mapsStyle}>
-				<div className={styles.mapOverlay}></div>
+			<MapGL
+				ref={mapGlRef}
+				initialViewState={viewport}
+				onMoveEnd={(event) => setViewport(event.viewState)}
+				mapStyle={mapsStyle}
+				onLoad={() => {
+					setIsMapLoaded(true);
+					// Uncomment for debugging.
+					// window.mapBackgroundMap = mapGlRef.current?.getMap();
+				}}
+			>
+				<div
+					className={styles.mapOverlay}
+					style={{ opacity: mapColor.mapOverlayOpacity + 0.2 }}
+				></div>
 			</MapGL>
 		</div>
 	);

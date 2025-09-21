@@ -1,11 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { easePolyOut } from "d3-ease";
+import { useEffect } from "react";
 import ProjectPage from "../components/ProjectPage";
-
 import img1 from "../img/android_app/Screenshot_20181103-203245_Rocky Mountain Arsenal History.jpg";
 import img2 from "../img/android_app/Screenshot_20181103-203534_Rocky Mountain Arsenal History.jpg";
 import img3 from "../img/android_app/Screenshot_20181103-203554_Rocky Mountain Arsenal History.jpg";
 import img4 from "../img/android_app/Screenshot_20181103-204001_Rocky Mountain Arsenal History.jpg";
 import img5 from "../img/android_app/Screenshot_20181103-204113_Rocky Mountain Arsenal History.jpg";
+import { type MapColor, useMapContext } from "../mapstyleContext";
 
 const images = [img1, img2, img3, img4, img5];
 const title = "Rocky Mountain Arsenal Android App";
@@ -17,7 +19,36 @@ export const Route = createFileRoute("/rma-android")({
 	component: RmaAndroidComponent,
 });
 
+const mapColor: MapColor = {
+	background: "hsla(0, 0%, 100%, 1.00)",
+	park: "hsla(0, 0%, 100%, 1.00)",
+	water: "hsla(193, 20%, 81%, 1.00)",
+	roadLow: "hsla(0, 0%, 71%, 1.00)",
+	roadHigh: "hsla(0, 0%, 75%, 1.00)",
+	mapOverlayOpacity: 0.35,
+};
+
+const viewport = {
+	latitude: 39.822666,
+	longitude: -104.84492,
+	zoom: 17.99,
+	bearing: -28.3,
+	pitch: 60,
+	padding: { top: 0, bottom: 0, left: 0, right: 0 },
+};
+const flyToDuration = 4500;
+const easing = easePolyOut.exponent(1.5);
+
 function RmaAndroidComponent() {
+	const { flyToViewport, setMapColor, isMapLoaded } = useMapContext();
+
+	useEffect(() => {
+		if (isMapLoaded) {
+			flyToViewport(viewport, flyToDuration, easing);
+			setMapColor(mapColor);
+		}
+	}, [flyToViewport, setMapColor, isMapLoaded]);
+
 	return (
 		<div
 			style={{

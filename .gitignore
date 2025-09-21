@@ -148,3 +148,5 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+# Old Portfolio Files
+Old2019_App.js
