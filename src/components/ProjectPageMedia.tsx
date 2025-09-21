@@ -9,8 +9,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import styles from "../styles/ProjectPage.module.css";
 
 function ensureImageArrayLengthForLoop(images: any[]) {
-	// Ensure the returned array has at least 12 items by repeating
-	// the source images as many times as necessary.
+	// Ensure the returned array has at least 12 items by repeating the source images as many times as necessary.
 	if (images.length >= 12) return images;
 
 	const repeatCount = Math.ceil(12 / images.length);
