@@ -124,9 +124,7 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 			duration: number,
 			transitionEasing: (t: number) => number,
 		) => {
-			console.log("Flying to new viewport:", newViewport);
 			if (mapGLRef.current && typeof mapGLRef.current.flyTo === "function") {
-				console.log("mapGLRef.current exists", mapGLRef.current);
 				mapGLRef.current.flyTo({
 					center: [newViewport.longitude, newViewport.latitude], // Map to center array
 					zoom: newViewport.zoom,

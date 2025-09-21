@@ -48,7 +48,6 @@ export function ProjectMedia({ images, title }: ProjectMediaProps) {
 					className={styles.rmaSwiper}
 					thumbs={{ swiper: thumbsSwiper }}
 					loop={true}
-					onClick={(swiper) => console.log(swiper.clickedSlide)}
 					spaceBetween={-75}
 					onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
 					coverflowEffect={{
