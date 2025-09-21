@@ -56,6 +56,7 @@
 }
 
 .gridContent {
+	/* visibility: hidden; */
 	max-width: 1150px;
 	height: 100vh;
 	display: flex;

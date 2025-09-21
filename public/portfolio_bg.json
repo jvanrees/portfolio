@@ -1,0 +1,212 @@
+{
+  "16_rma_historic_pebble_background4": {
+    "height": 16,
+    "pixelRatio": 1,
+    "width": 16,
+    "x": 247,
+    "y": 332
+  },
+  "2x2_rma_bldg_background": {
+    "height": 2,
+    "pixelRatio": 1,
+    "width": 2,
+    "x": 311,
+    "y": 332
+  },
+  "amphitheater": {
+    "height": 40,
+    "pixelRatio": 1,
+    "width": 40,
+    "x": 119,
+    "y": 269
+  },
+  "bg_overlay2": {
+    "height": 12,
+    "pixelRatio": 1,
+    "width": 12,
+    "x": 295,
+    "y": 332
+  },
+  "fires": {
+    "height": 40,
+    "pixelRatio": 1,
+    "width": 40,
+    "x": 159,
+    "y": 269
+  },
+  "general_marker": {
+    "height": 40,
+    "pixelRatio": 1,
+    "width": 40,
+    "x": 199,
+    "y": 269
+  },
+  "info_plain": {
+    "height": 40,
+    "pixelRatio": 1,
+    "width": 40,
+    "x": 239,
+    "y": 269
+  },
+  "information": {
+    "height": 40,
+    "pixelRatio": 1,
+    "width": 40,
+    "x": 279,
+    "y": 269
+  },
+  "line_pattern": {
+    "height": 16,
+    "pixelRatio": 1,
+    "width": 16,
+    "x": 263,
+    "y": 332
+  },
+  "mountain%205": {
+    "height": 63,
+    "pixelRatio": 1,
+    "width": 119,
+    "x": 0,
+    "y": 269
+  },
+  "mountain2": {
+    "height": 136,
+    "pixelRatio": 1,
+    "width": 140,
+    "x": 250,
+    "y": 0
+  },
+  "mountain3": {
+    "height": 86,
+    "pixelRatio": 1,
+    "width": 182,
+    "x": 146,
+    "y": 147
+  },
+  "mountain4": {
+    "height": 75,
+    "pixelRatio": 1,
+    "width": 109,
+    "x": 328,
+    "y": 147
+  },
+  "mountain6": {
+    "height": 31,
+    "pixelRatio": 1,
+    "width": 63,
+    "x": 184,
+    "y": 332
+  },
+  "no_entry_line_test": {
+    "height": 16,
+    "pixelRatio": 1,
+    "width": 16,
+    "x": 279,
+    "y": 332
+  },
+  "parking": {
+    "height": 40,
+    "pixelRatio": 1,
+    "width": 40,
+    "x": 319,
+    "y": 269
+  },
+  "picnic_table": {
+    "height": 40,
+    "pixelRatio": 1,
+    "width": 40,
+    "x": 359,
+    "y": 269
+  },
+  "qing_bg": {
+    "height": 122,
+    "pixelRatio": 1,
+    "width": 146,
+    "x": 0,
+    "y": 147
+  },
+  "restroom": {
+    "height": 40,
+    "pixelRatio": 1,
+    "width": 40,
+    "x": 399,
+    "y": 269
+  },
+  "restroom_inksvg": {
+    "height": 40,
+    "pixelRatio": 1,
+    "width": 40,
+    "x": 439,
+    "y": 269
+  },
+  "restroom_plain": {
+    "height": 40,
+    "pixelRatio": 1,
+    "width": 40,
+    "x": 437,
+    "y": 147
+  },
+  "rma_bldg_background_4x4": {
+    "height": 4,
+    "pixelRatio": 1,
+    "width": 4,
+    "x": 307,
+    "y": 332
+  },
+  "rma_historic_pebble_background4": {
+    "height": 32,
+    "pixelRatio": 1,
+    "width": 32,
+    "x": 120,
+    "y": 332
+  },
+  "rma_historic_pebble_background4-2": {
+    "height": 32,
+    "pixelRatio": 1,
+    "width": 32,
+    "x": 152,
+    "y": 332
+  },
+  "trailhead": {
+    "height": 40,
+    "pixelRatio": 1,
+    "width": 40,
+    "x": 455,
+    "y": 0
+  },
+  "vector_mountains": {
+    "height": 147,
+    "pixelRatio": 1,
+    "width": 250,
+    "x": 0,
+    "y": 0
+  },
+  "vector_water_vector_water2": {
+    "height": 65,
+    "pixelRatio": 1,
+    "width": 65,
+    "x": 390,
+    "y": 0
+  },
+  "visitors_center": {
+    "height": 40,
+    "pixelRatio": 1,
+    "width": 40,
+    "x": 0,
+    "y": 332
+  },
+  "water_body": {
+    "height": 40,
+    "pixelRatio": 1,
+    "width": 40,
+    "x": 40,
+    "y": 332
+  },
+  "wildlife_view": {
+    "height": 40,
+    "pixelRatio": 1,
+    "width": 40,
+    "x": 80,
+    "y": 332
+  }
+}
