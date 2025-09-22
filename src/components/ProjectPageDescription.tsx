@@ -1,14 +1,26 @@
-import { Paper, Text } from "@mantine/core";
-import styles from "../styles/Grid.module.css";
+import { Box, Text } from "@mantine/core";
+import clsx from "clsx";
+import projectStyles from "../styles/ProjectPage.module.css";
 
 export interface ProjectMediaProps {
 	title: string;
 	paragraphs: string[];
+	darkMode: boolean;
 }
 
-export function ProjectPageDesc({ title, paragraphs }: ProjectMediaProps) {
+export function ProjectPageDesc({
+	title,
+	paragraphs,
+	darkMode,
+}: ProjectMediaProps) {
 	return (
-		<Paper p="md" className={styles.gridChild + styles.noShadow}>
+		<Box
+			p="md"
+			className={clsx(
+				projectStyles.noShadow,
+				darkMode && projectStyles.descriptionGridDark,
+			)}
+		>
 			<h1>{title}</h1>
 			{paragraphs.map((paragraph, index) => (
 				<Text key={index} size="md" mt="md">
@@ -16,6 +28,6 @@ export function ProjectPageDesc({ title, paragraphs }: ProjectMediaProps) {
 				</Text>
 			))}
 			<br />
-		</Paper>
+		</Box>
 	);
 }

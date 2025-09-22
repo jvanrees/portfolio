@@ -62,7 +62,12 @@ function NightmodeComponent() {
 				overflowY: "auto",
 			}}
 		>
-			<ProjectPage title={title} images={images} paragraphs={paragraphs} />
+			<ProjectPage
+				title={title}
+				images={images}
+				paragraphs={paragraphs}
+				darkMode
+			/>
 		</div>
 	);
 }

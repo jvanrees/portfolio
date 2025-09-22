@@ -92,17 +92,17 @@ function AboutComponent() {
 							Education
 						</Title>
 						<Title order={5} className={aboutClasses.aboutMeSubTitlesConnect}>
-							University of Northern Colorado
+							Colorado State University
 						</Title>
 						<Text className={aboutClasses.aboutMeSubTitlesConnect}>
-							<b>B.S. Geography</b>
+							<b>Bachelor of Science, Anthropology w/ minor in Geography</b>
 						</Text>
 						<br />
 						<Title order={5} className={aboutClasses.aboutMeSubTitlesConnect}>
-							Estes Park High School
+							University of Wisconsin-Madison
 						</Title>
 						<Text className={aboutClasses.aboutMeSubTitlesConnect}>
-							High School Diploma
+							Master of Science Cartography/GIS Development
 						</Text>
 					</div>
 					<div className={aboutClasses.aboutMeStatsContent}>
