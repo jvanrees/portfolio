@@ -9,11 +9,10 @@ import { ProjectMedia } from "./ProjectPageMedia";
 interface ProjectPageComponentProps
 	extends React.HTMLAttributes<HTMLDivElement> {
 	title: string;
-	images?: string[]; // optional - legacy image slider
+	images?: string[];
 	paragraphs: string[];
-	// optional media node: e.g., a map component to render instead of images
 	media?: React.ReactNode;
-	darkMode?: boolean; // optional - dark mode styling
+	darkMode?: boolean;
 }
 
 export default function ProjectPageComponent({
