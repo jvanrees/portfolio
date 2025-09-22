@@ -1,6 +1,6 @@
 import { createRootRoute, Outlet } from "@tanstack/react-router";
 import MapBackground from "../components/MapBackground";
-import { MapProvider } from "../mapstyleContext";
+import { MapProvider } from "../context/mapstyleContext";
 import classes from "../styles/Grid.module.css";
 
 export const Route = createRootRoute({

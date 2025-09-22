@@ -17,5 +17,5 @@
 		"noUnusedLocals": true,
 		"noUnusedParameters": true
 	},
-	"include": ["src", "src/config.ts"]
+	"include": ["src", "src/config/config.ts"]
 }

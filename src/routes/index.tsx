@@ -8,7 +8,7 @@ import {
 	defaultViewport,
 	type MapColor,
 	useMapContext,
-} from "../mapstyleContext";
+} from "../context/mapstyleContext";
 import classes from "../styles/Grid.module.css";
 export const Route = createFileRoute("/")({
 	component: RouteComponent,
