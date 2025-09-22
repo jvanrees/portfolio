@@ -222,7 +222,10 @@
     grid-column-end: span 2;
     grid-row-end: span 1;
   } */
-
+	.gridInner {
+		/* grid-auto-rows: minmax(9.375rem, auto); */
+		/* grid-template-columns: repeat(6, 1fr); */
+	}
 	.expandableCell {
 		grid-column-end: span 2;
 		grid-row-end: span 1;
@@ -234,15 +237,18 @@
 }
 
 @media only screen and (min-width: 1011px) and (max-width: 1599px) {
-	html,
+	/* html,
 	body,
 	#root,
 	.App {
 		font-size: 18.5px;
+	} */
+	.gridInner {
+		grid-auto-rows: minmax(9.5rem, auto);
+		grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
 	}
-
 	.gridContent {
-		max-width: 1350px !important;
+		max-width: 1200px !important;
 	}
 	.gridContainer {
 		max-height: 75vh;
@@ -250,13 +256,16 @@
 }
 
 @media only screen and (min-width: 1600px) {
-	html,
+	/* html,
 	body,
 	#root,
 	.App {
 		font-size: 20.5px;
+	} */
+	.gridInner {
+		grid-auto-rows: minmax(11rem, auto);
+		grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
 	}
-
 	.gridContent {
 		max-width: 1475px !important;
 	}
