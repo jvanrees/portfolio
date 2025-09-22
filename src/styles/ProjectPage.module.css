@@ -63,26 +63,6 @@
 	grid-template-rows: auto 1fr auto;
 }
 
-@media (max-width: 529px) {
-	.projectPageGridContainer {
-		grid-template-areas:
-			"image-grid"
-			"description-grid"
-			"bufferButton";
-		grid-template-columns: 1fr;
-		grid-template-rows: 1fr 1fr auto;
-	}
-
-	.bottomNav {
-		position: fixed;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		width: 100%;
-		text-align: left;
-	}
-}
-
 .imageGrid {
 	overflow: hidden;
 	grid-area: image-grid;
@@ -119,12 +99,6 @@
 		border-bottom-right-radius: 0;
 	}
 } */
-
-.bufferButton {
-	grid-area: bufferButton;
-	display: none;
-	padding: 0.5rem;
-}
 
 /* Thumbnail Navigation Styles */
 .thumbnailNavigation {
@@ -235,11 +209,7 @@
 	}
 
 	.thumbnailNavContainer {
-		bottom: 12px;
-		right: 12px;
-		/* keep anchored to lower-right on small screens */
-		max-width: 95%;
-		padding: 6px;
+		visibility: hidden;
 	}
 }
 
@@ -288,4 +258,34 @@
 .noShadow {
 	box-shadow: none;
 	background-color: transparent !important;
+}
+
+@media (max-width: 529px) {
+	.projectPageGridContainer {
+		grid-template-areas:
+			"image-grid"
+			"description-grid";
+		grid-template-columns: 1fr;
+		grid-template-rows: 2fr 1fr auto;
+	}
+
+	.bottomNav {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		width: 100%;
+		text-align: left;
+	}
+
+	.imageGrid {
+		/* margin-bottom: 1rem; */
+		margin: 1rem;
+	}
+
+	.descriptionGrid {
+		padding: 0;
+		height: fit-content;
+		margin: 1rem;
+	}
 }
