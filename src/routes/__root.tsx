@@ -1,7 +1,6 @@
-import { createRootRoute, Outlet, useLocation } from "@tanstack/react-router";
-import { useEffect } from "react";
+import { createRootRoute, Outlet } from "@tanstack/react-router";
 import MapBackground from "../components/MapBackground";
-import { MapProvider } from "../mapstyleContext";
+import { MapProvider } from "../context/mapstyleContext";
 import classes from "../styles/Grid.module.css";
 
 export const Route = createRootRoute({
@@ -9,14 +8,6 @@ export const Route = createRootRoute({
 });
 
 function RootComponent() {
-	const location = useLocation();
-	// const { updateForPage } = useMapContext();
-
-	useEffect(() => {
-		console.log("LocationObj:", location);
-		// updateForPage(location.pathname);
-	}, [location]);
-
 	return (
 		<MapProvider>
 			<MapBackground />

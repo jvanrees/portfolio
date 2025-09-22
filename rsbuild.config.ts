@@ -15,7 +15,9 @@ class CopyIndexTo404Plugin {
 
 			if (fs.existsSync(indexPath)) {
 				fs.copyFileSync(indexPath, four04Path);
-				console.log("✅ Copied index.html to 404.html");
+				console.log(
+					"Copied index.html to 404.html for pages deployment. 404 handled by router.",
+				);
 			}
 		});
 	}
