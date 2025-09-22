@@ -256,3 +256,26 @@
 	/* Change the arrow size */
 	--swiper-navigation-size: 30px;
 }
+
+/* Dark theme styles for night mode */
+.descriptionGridDark {
+	background-color: hsl(222, 16%, 20%);
+	color: hsl(228, 6%, 90%);
+}
+
+.descriptionGridDark .gridChild {
+	color: hsl(228, 6%, 90%);
+}
+
+.bottomNavDark {
+	background-color: hsl(222, 16%, 20%);
+}
+
+.backButtonDark {
+	color: hsl(40, 51%, 48%);
+}
+
+.noShadow {
+	box-shadow: none;
+	background-color: transparent !important;
+}
