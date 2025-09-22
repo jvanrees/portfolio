@@ -46,11 +46,7 @@ export default function ProjectPageComponent({
 					darkMode={darkMode}
 				/>
 			</div>
-			{isMobile && (
-				<div className={styles.bufferButton}>
-					<Button style={{ opacity: 0 }}>&nbsp;</Button>
-				</div>
-			)}
+
 			<div className={clsx(styles.bottomNav, darkMode && styles.bottomNavDark)}>
 				<Button
 					component={Link}

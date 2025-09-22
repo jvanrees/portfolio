@@ -1,8 +1,8 @@
 .imageCarouselContainer {
 	width: 100%;
 	height: 100%;
-	min-height: 650px;
-	max-height: 1000px;
+	min-height: 0;
+	max-height: 78vh;
 	overflow: hidden;
 	/* ensure absolutely-positioned children are positioned relative to this container */
 	position: relative;
@@ -50,9 +50,11 @@
 /* RMA Route Grid Layout (migrated from rma-android.tsx inline styles) */
 .projectPageGridContainer {
 	height: 100%;
+	max-height: 100%;
 	width: 100%;
 	display: grid;
 	z-index: 3;
+	overflow: hidden;
 	grid-template-areas:
 		"map-logo-row image-grid"
 		"description-grid image-grid"
@@ -66,10 +68,18 @@
 		grid-template-areas:
 			"image-grid"
 			"description-grid"
-			"bufferButton"
-			"bottom-nav";
+			"bufferButton";
 		grid-template-columns: 1fr;
-		grid-template-rows: 1fr 1fr auto auto;
+		grid-template-rows: 1fr 1fr auto;
+	}
+
+	.bottomNav {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		width: 100%;
+		text-align: left;
 	}
 }
 
@@ -101,25 +111,19 @@
 	border-bottom-right-radius: 4px;
 }
 
-@media (max-width: 529px) {
+/* @media (max-width: 529px) {
 	.bottomNav {
 		border-top-left-radius: 4px;
 		border-top-right-radius: 4px;
 		border-bottom-left-radius: 0;
 		border-bottom-right-radius: 0;
 	}
-}
+} */
 
 .bufferButton {
 	grid-area: bufferButton;
 	display: none;
 	padding: 0.5rem;
-}
-
-@media (max-width: 529px) {
-	.bufferButton {
-		display: block;
-	}
 }
 
 /* Thumbnail Navigation Styles */
@@ -273,6 +277,12 @@
 
 .backButtonDark {
 	color: hsl(40, 51%, 48%);
+}
+
+@media only screen and (min-width: 1011px) and (max-width: 1599px) {
+	.imageCarouselContainer {
+		max-height: 73vh;
+	}
 }
 
 .noShadow {
