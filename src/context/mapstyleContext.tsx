@@ -127,12 +127,11 @@ export const MapProvider: React.FC<{ children: ReactNode }> = ({
 		) => {
 			if (mapGLRef.current && typeof mapGLRef.current.flyTo === "function") {
 				mapGLRef.current.flyTo({
-					center: [newViewport.longitude, newViewport.latitude], // Map to center array
+					center: [newViewport.longitude, newViewport.latitude],
 					zoom: newViewport.zoom,
 					bearing: newViewport.bearing,
 					pitch: newViewport.pitch,
 					duration,
-					// curve: 2, // default curve
 					easing: transitionEasing,
 				});
 			} else {
