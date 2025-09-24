@@ -163,6 +163,7 @@
 
 .aboutMeCardContainer {
 	display: flex;
+	position: relative;
 	flex-direction: column;
 	height: 100%;
 	padding: none;
@@ -194,4 +195,10 @@
 .aboutMeCardContent {
 	flex: 1;
 	padding: 1rem;
+}
+
+.aboutMeCardButton {
+	position: absolute;
+	bottom: 0;
+	right: 0;
 }

@@ -18,6 +18,9 @@
 			"style": {
 				"useTemplate": "error"
 			},
+			"correctness": {
+				"useUniqueElementIds": "off" /* Disabled because of false positives with mapbox layer ids */
+			},
 			"recommended": true
 		}
 	},

@@ -1,8 +1,6 @@
-import { Icon } from "@iconify-icon/react";
-import { Button } from "@mantine/core";
-import { Link } from "@tanstack/react-router";
 import clsx from "clsx";
 import styles from "../styles/ProjectPage.module.css";
+import ProjectPageBottomNav from "./ProjectPageBottomNav";
 import { ProjectPageDesc } from "./ProjectPageDescription";
 import { ProjectMedia } from "./ProjectPageMedia";
 
@@ -47,17 +45,7 @@ export default function ProjectPageComponent({
 				/>
 			</div>
 
-			<div className={clsx(styles.bottomNav, darkMode && styles.bottomNavDark)}>
-				<Button
-					component={Link}
-					to="/"
-					leftSection={<Icon icon="mdi:chevron-left" />}
-					variant="transparent"
-					className={clsx(darkMode && styles.backButtonDark)}
-				>
-					Back
-				</Button>
-			</div>
+			<ProjectPageBottomNav darkMode={darkMode} />
 		</div>
 	);
 }
