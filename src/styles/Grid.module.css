@@ -237,6 +237,7 @@
 	}
 }
 
+
 @media only screen and (min-width: 846px) and (max-width: 1070px) {
 	.expandableCell {
 		grid-column-end: span 2;
@@ -252,6 +253,7 @@
 		font-size: 18.5px;
 	} */
 	.gridInner {
+
 		grid-auto-rows: minmax(9rem, auto);
 		grid-template-columns: repeat(auto-fit, minmax(10.4rem, 1fr));
 	}
@@ -272,7 +274,9 @@
 	} */
 	.gridInner {
 		grid-auto-rows: minmax(11rem, auto);
+
 		grid-template-columns: repeat(auto-fit, minmax(12.8rem, 1fr));
+
 	}
 	.gridContent {
 		max-width: 1475px !important;

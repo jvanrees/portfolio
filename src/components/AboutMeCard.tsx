@@ -55,6 +55,7 @@ function AboutMeCard({ children, className }: AboutMeCardProps) {
 							md: "0.9rem",
 							lg: "1.1rem",
 							xl: "1.25rem",
+
 						}}
 						mb="md"
 					>
