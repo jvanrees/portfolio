@@ -121,7 +121,7 @@ function QingDynastyComponent() {
 				title={title}
 				paragraphs={paragraphs}
 				media={
-					<ProjectPageMap mapStyle={qingStyle} initialViewState={initialView} />
+					<ProjectPageMap style={qingStyle} initialViewState={initialView} />
 				}
 			/>
 		</div>

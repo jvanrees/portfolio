@@ -1,4 +1,4 @@
-import { Box, Button, Group, Stack, Text, Title } from "@mantine/core";
+import { Box, Button, Stack, Text, Title } from "@mantine/core";
 import { Link } from "@tanstack/react-router";
 import type React from "react";
 import linkedinIcon from "../img/icon_linkedin.svg";
@@ -48,7 +48,16 @@ function AboutMeCard({ children, className }: AboutMeCardProps) {
 					<Title order={4} mb="sm">
 						Hello, I'm Jeff and I make maps on the internet.
 					</Title>
-					<Text size="sm" mb="md">
+					<Text
+						fz={{
+							base: "0.875rem",
+							sm: "0.875rem",
+							md: "0.9rem",
+							lg: "1.1rem",
+							xl: "1.2rem",
+						}}
+						mb="md"
+					>
 						I transform complex questions and data into meaningful and
 						digestible interactive visual experiences. Let's build the future of
 						spatial together.
@@ -56,11 +65,13 @@ function AboutMeCard({ children, className }: AboutMeCardProps) {
 					{children}
 				</div>
 
-				<Group justify="right">
-					<Link to="/about" viewTransition>
-						<Button variant="transparent">About Me</Button>
-					</Link>
-				</Group>
+				<Link
+					to="/about"
+					viewTransition
+					className={aboutStyles.aboutMeCardButton}
+				>
+					<Button variant="transparent">About Me</Button>
+				</Link>
 			</div>
 		</Box>
 	);
