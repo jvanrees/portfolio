@@ -20,17 +20,10 @@ export default function ProjectPageComponent({
 	media,
 	darkMode = false,
 }: ProjectPageComponentProps) {
-	const isMobile = typeof window !== "undefined" && window.innerWidth < 530;
 	return (
 		<div className={styles.projectPageGridContainer}>
 			<div className={styles.imageGrid}>
-				{media ? (
-					// render provided media node (map, video, etc.)
-					media
-				) : (
-					// fallback to legacy image slider
-					<ProjectMedia title={title} images={images || []} />
-				)}
+				{media ? media : <ProjectMedia title={title} images={images || []} />}
 			</div>
 			<div
 				className={clsx(
