@@ -62,7 +62,7 @@
 }
 
 .w1 {
-	font-size: 1.95rem;
+	font-size: 1.9rem;
 	width: calc(100% - 2rem);
 }
 
@@ -237,7 +237,6 @@
 	}
 }
 
-
 @media only screen and (min-width: 846px) and (max-width: 1070px) {
 	.expandableCell {
 		grid-column-end: span 2;
@@ -253,7 +252,6 @@
 		font-size: 18.5px;
 	} */
 	.gridInner {
-
 		grid-auto-rows: minmax(9rem, auto);
 		grid-template-columns: repeat(auto-fit, minmax(10.4rem, 1fr));
 	}
@@ -276,7 +274,6 @@
 		grid-auto-rows: minmax(11rem, auto);
 
 		grid-template-columns: repeat(auto-fit, minmax(12.8rem, 1fr));
-
 	}
 	.gridContent {
 		max-width: 1475px !important;

@@ -1,7 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { easeQuadInOut } from "d3-ease";
+import { useEffect } from "react";
 import ProjectPage from "../components/ProjectPage";
 import ProjectPageMap from "../components/ProjectPageMap";
 import config from "../config/config";
+import { type MapColor, useMapContext } from "../context/mapstyleContext";
 
 const MAPTILER_API_KEY = config.maptilerApiKey;
 const MAPBOX_API_KEY = config.mapboxApiKey;
@@ -11,6 +14,27 @@ const paragraphs = [
 	`Inspired by Qing Dynasty watercolor maps, I recreated their water and mountain aesthetics as my first web map using CartoCSS in Mapbox Studio Classic.`,
 	`The project taught me to tailor detail and imagery per zoom level. This was my first artistic map and I later reworked it. See the original Qing map here: https://theme.npm.edu.tw/exh105/GreenBorderlands/ch/page-2.html`,
 ];
+
+const mapColor: MapColor = {
+	background: "hsla(32, 51%, 72%, 1.00)",
+	park: "hsla(32, 51%, 72%, 0.88)",
+	water: "hsl(193, 20%, 81%)",
+	roadLow: "hsla(37, 25%, 63%, 1.00)",
+	roadHigh: "hsla(37, 25%, 63%, 1.00)",
+	mapOverlayOpacity: 0.1,
+};
+
+const viewport = {
+	latitude: 5.0,
+	longitude: 79.24,
+	zoom: 4.53,
+	bearing: 0,
+	pitch: 0,
+	padding: { top: 0, bottom: 0, left: 0, right: 0 },
+};
+
+const flyToDuration = 3000;
+const easing = easeQuadInOut;
 
 // Minimal inline Qing style (adapted from the preview HTML)
 const qingStyle: any = {
@@ -109,6 +133,15 @@ export const Route = createFileRoute("/qing-dynasty-map")({
 });
 
 function QingDynastyComponent() {
+	const { flyToViewport, setMapColor, isMapLoaded } = useMapContext();
+
+	useEffect(() => {
+		if (isMapLoaded) {
+			flyToViewport(viewport, flyToDuration, easing);
+			setMapColor(mapColor);
+		}
+	}, [flyToViewport, setMapColor, isMapLoaded]);
+
 	return (
 		<div
 			style={{

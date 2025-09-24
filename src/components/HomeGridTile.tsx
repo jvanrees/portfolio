@@ -21,7 +21,6 @@ function HomeGridTile({ imageSrc, title, link, className }: HomeGridTileProps) {
 			link?.includes("rma-android") || link?.includes("nightmode")
 		),
 	});
-	console.log(textClassName);
 	return (
 		<Link to={link} viewTransition>
 			<Paper
