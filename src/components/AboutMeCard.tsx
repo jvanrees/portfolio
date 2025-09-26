@@ -30,7 +30,7 @@ function AboutMeCard({ children, className }: AboutMeCardProps) {
 								variant="subtle"
 								size="sm"
 							>
-								<img src={mailIcon} alt="Email" style={{ height: '2em' }} />
+								<img src={mailIcon} alt="Email" style={{ height: "2.2em" }} />
 							</Button>
 							<Button
 								component="a"
@@ -38,7 +38,7 @@ function AboutMeCard({ children, className }: AboutMeCardProps) {
 								variant="subtle"
 								size="sm"
 							>
-								<img src={linkedinIcon} alt="LinkedIn"style={{ height: '2em' }} />
+								<img src={linkedinIcon} alt="LinkedIn" style={{ height: "2.2em" }} />
 							</Button>
 						</Stack>
 					</div>
