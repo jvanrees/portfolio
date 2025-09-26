@@ -28,7 +28,7 @@ export default function NotFoundComponent() {
 					className={`${aboutClasses.aboutMeOpenContent} ${gridClasses.subGridChild}`}
 					style={{ height: "100%" }}
 				>
-					<div className={aboutClasses.mapLogoRow}>
+					<div className={aboutClasses.mapLogoContainer}>
 						<Image w={"16rem"} src={logoRow} alt="Jeff Van Rees Map Logo." />
 					</div>
 					<div

@@ -1,281 +1,285 @@
 .gridTileWrapper {
-	position: relative;
-	display: inline-block;
-	width: 100%;
-	height: 100%;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
 }
 
 .gridTilePaper {
-	width: 100%;
-	height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .gridTileOverlay {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	opacity: 0;
-	transition:
-		opacity 0.2s ease-in-out,
-		filter 0.2s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out, filter 0.2s ease-in-out;
 }
 
 .gridTileText {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	text-shadow: 0 3px 3px hsl(210, 35%, 7%);
-	z-index: 201;
-	color: hsl(0, 0%, 100%);
-	font-size: 2.4rem;
-	display: table-cell;
-	vertical-align: middle;
-	text-align: center;
-	font-family: "Lato", Arial, sans-serif;
-	letter-spacing: 0.24em;
-	transition: opacity 0.3s ease-in-out;
-	opacity: 0;
-	width: calc(100% - 4rem);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-shadow: 0 3px 3px hsl(210, 35%, 7%);
+  z-index: 201;
+  color: hsl(0, 0%, 100%);
+  font-size: 2.4rem;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  font-family: "Lato", Arial, sans-serif;
+  letter-spacing: 0.24em;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+  width: calc(100% - 4rem);
 }
 
 .gridChild:hover .gridTileText {
-	opacity: 1;
+  opacity: 1;
 }
+
 .gridChild:hover .gridTileOverlay {
-	opacity: 1;
-	backdrop-filter: blur(1px);
+  opacity: 1;
+  backdrop-filter: blur(1px);
 }
 
 .gridContainer {
-	vertical-align: middle;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	max-height: 80vh;
-	height: 100%;
-	align-items: center;
-	margin: 1rem;
-	z-index: 3;
+  vertical-align: middle;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  z-index: 3;
 }
 
 .w1 {
-	font-size: 1.9rem;
-	width: calc(100% - 2rem);
+  font-size: 1.9rem;
+  width: calc(100% - 2rem);
 }
 
 .gridInner {
-	width: 100%;
-	height: 100%;
-	display: grid;
-	grid-gap: 1rem;
-	grid-auto-flow: dense;
-	grid-auto-rows: minmax(9.375rem, auto);
-	grid-template-columns: repeat(auto-fit, minmax(9.375rem, 1fr));
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-gap: 1rem;
+  grid-auto-flow: row dense;
+  grid-auto-rows: minmax(8.5rem, auto);
+  grid-template-columns: repeat(auto-fit, minmax(9.8rem, 1fr));
 }
 
 .gridContent {
-	/* visibility: hidden; */
-	max-width: 1150px;
-	height: 100vh;
-	display: flex;
-	flex-direction: column;
-	z-index: 2;
-	justify-content: center;
-	min-height: 100%;
-	position: relative;
-	margin: auto;
+  /* visibility: hidden; */
+  max-width: 1150px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  justify-content: center;
+  min-height: 100%;
+  position: relative;
+  margin: auto;
 }
 
 .gridProjectImage {
-	transition: all 0.4s ease-in-out;
-	text-align: center;
-	display: table;
-	overflow: hidden;
-	height: 101%;
-	width: 101%;
+  transition: all 0.4s ease-in-out;
+  text-align: center;
+  display: table;
+  overflow: hidden;
+  height: 101%;
+  width: 101%;
 }
 
 .gridChild {
-	font-size: 14px;
-	color: hsl(10, 10%, 10%);
-	min-width: 9.375rem;
-	transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-	box-shadow:
-		0 3px 1px -2px hsla(0, 0%, 0%, 0.2),
-		0 2px 2px 0 hsla(0, 0%, 0%, 0.14),
-		0 1px 5px 0 hsla(0, 0%, 0%, 0.12);
-	overflow: hidden;
-	position: relative;
-	height: 100%;
+  font-size: 14px;
+  color: hsl(10, 10%, 10%);
+  min-width: 9.375rem;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 3px 1px -2px hsla(0, 0%, 0%, 0.2),
+    0 2px 2px 0 hsla(0, 0%, 0%, 0.14), 0 1px 5px 0 hsla(0, 0%, 0%, 0.12);
+  overflow: hidden;
+  position: relative;
+  height: 100%;
 }
 
 .subGridChild {
-	font-size: 14px;
-	color: hsl(10, 10%, 10%);
-	transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-	box-shadow:
-		0 3px 1px -2px hsla(0, 0%, 0%, 0.2),
-		0 2px 2px 0 hsla(0, 0%, 0%, 0.14),
-		0 1px 5px 0 hsla(0, 0%, 0%, 0.12);
-	flex-grow: 1;
+  font-size: 14px;
+  color: hsl(10, 10%, 10%);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 3px 1px -2px hsla(0, 0%, 0%, 0.2),
+    0 2px 2px 0 hsla(0, 0%, 0%, 0.14), 0 1px 5px 0 hsla(0, 0%, 0%, 0.12);
+  flex-grow: 1;
 }
 
 .gridChild:hover {
-	box-shadow:
-		0 2px 4px -1px hsla(0, 0%, 0%, 0.2),
-		0 4px 5px 0 hsla(0, 0%, 0%, 0.14),
-		0 1px 10px 0 hsla(0, 0%, 0%, 0.12);
-	/* Removed transform: scale(1.05); to prevent tile growth */
-	transition: all 0.5s ease-out;
+  box-shadow: 0 2px 4px -1px hsla(0, 0%, 0%, 0.2),
+    0 4px 5px 0 hsla(0, 0%, 0%, 0.14), 0 1px 10px 0 hsla(0, 0%, 0%, 0.12);
+  transition: all 0.5s ease-out;
 }
 
 .gridChild:hover .newText {
-	display: inline-flex;
+  display: inline-flex;
 }
 
 .gridTileImage {
-	width: 100%;
-	height: 100%;
-	background-size: cover;
-	background-repeat: no-repeat;
-	transition: transform 0.5s ease;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: transform 0.5s ease;
 }
 
 .gridChild:hover .gridTileImage {
-	transform: scale(1.1);
-	/* Zoom in the image on hover */
+  transform: scale(1.1);
 }
 
 .spanSquareLarge {
-	grid-column-end: span 2;
-	grid-row-end: span 2;
+  grid-column-end: span 2;
+  grid-row-end: span 2;
 }
 
 .spanSquareSmall {
-	grid-column-end: span 1;
-	grid-row-end: span 1;
+  grid-column-end: span 1;
+  grid-row-end: span 1;
 }
 
 .spanRectVertical {
-	grid-column-end: span 1;
-	grid-row-end: span 2;
+  grid-column-end: span 1;
+  grid-row-end: span 2;
 }
 
 .spanRectHorizontal {
-	grid-column-end: span 2;
-	grid-row-end: span 1;
+  grid-column-end: span 2;
+  grid-row-end: span 1;
 }
 
 .spanCenterpiece {
-	grid-column-end: span 2;
-	grid-row-end: span 4;
-	background-position: 50%;
+  grid-column-end: span 2;
+  grid-row-end: span 4;
+  background-position: 50%;
 }
 
 .shadedReliefBox {
-	grid-column-end: span 1;
-	grid-row-end: span 2;
-	height: 100%;
-	width: 100%;
+  grid-column-end: span 1;
+  grid-row-end: span 2;
+  height: 100%;
+  width: 100%;
 }
 
 .titleBox {
-	overflow: hidden;
-	position: relative;
+  overflow: hidden;
+  position: relative;
 }
 
 .noShadow {
-	box-shadow: none;
+  box-shadow: none;
 }
 
-/* Media queries adapted from old_portfolio_index.css */
+@media only screen and (max-width: 535px) {
+  /* .expandableCell {
+    grid-column-end: span 2;
+    grid-row-end: span 1;
+  } */
 
-@media only screen and (max-width: 530px) {
-	.shadedReliefBox {
-		grid-column-end: span 2;
-		grid-row-end: span 1;
-		background-size: 100% auto;
-	}
-
-	.gridContainer {
-		text-align: center;
-	}
-
-	.gridContainer {
-		grid-template-areas: "map-logo-row" "image-grid" "description-grid";
-		grid-template-columns: 1fr;
-		grid-template-rows: auto 1fr 1fr auto;
-	}
-
-	.gridTileText {
-		max-width: 40vw;
-		max-height: 40vw;
-	}
+  .shadedReliefBox {
+    grid-column-end: span 2;
+    grid-row-end: span 1;
+    background-size: 100% auto;
+  }
 }
 
-@media only screen and (min-width: 531px) and (max-width: 690px) {
-	.rotateCell {
-		grid-column-end: span 1;
-		grid-row-end: span 2;
-	}
+@media only screen and (max-width: 599px) {
+  .rotateCell {
+    grid-column-end: span 1;
+    grid-row-end: span 2;
+  }
 
-	.googleMapsApiBox {
-		background-size: auto 100%;
-	}
+  .gridContainer {
+    text-align: center;
+  }
+
+  .gridContainer {
+    grid-template-areas: "map-logo-row" "image-grid" "description-grid";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr 1fr auto;
+  }
+
+  .gridTileText {
+    max-width: 40vw;
+    max-height: 40vw;
+  }
 }
 
-@media only screen and (max-width: 846px) {
-	.gridContent {
-		height: fit-content;
-	}
-	.gridContainer {
-		height: fit-content;
-		max-height: none;
-	}
+@media only screen and (min-width: 600px) and (max-width: 899px) {
+  .rotateCell {
+    grid-column-end: span 1;
+    grid-row-end: span 2;
+  }
 }
 
-@media only screen and (min-width: 846px) and (max-width: 1070px) {
-	.expandableCell {
-		grid-column-end: span 2;
-		grid-row-end: span 1;
-	}
+@media only screen and (max-width: 899px) {
+  .gridContent {
+    height: fit-content;
+  }
+
+  .gridContainer {
+    height: fit-content;
+    max-height: none;
+  }
 }
 
-@media only screen and (min-width: 1011px) and (max-width: 1599px) {
-	/* html,
-	body,
-	#root,
-	.App {
-		font-size: 18.5px;
-	} */
-	.gridInner {
-		grid-auto-rows: minmax(9rem, auto);
-		grid-template-columns: repeat(auto-fit, minmax(10.4rem, 1fr));
-	}
-	.gridContent {
-		max-width: 1200px !important;
-	}
-	.gridContainer {
-		max-height: 75vh;
-	}
+@media only screen and (min-width: 900px) and (max-width: 1070px) {
+  /* grid creates additional row @1070 because math.   */
+  .expandableCell {
+    grid-column-end: span 2;
+    grid-row-end: span 1;
+  }
 }
 
-@media only screen and (min-width: 1600px) {
-	/* html,
-	body,
-	#root,
-	.App {
-		font-size: 20.5px;
-	} */
-	.gridInner {
-		grid-auto-rows: minmax(11rem, auto);
+@media only screen and (min-width: 900px) and (max-width: 1199px) {
+  .gridInner {
+    grid-auto-rows: minmax(8.5rem, auto);
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  }
 
-		grid-template-columns: repeat(auto-fit, minmax(12.8rem, 1fr));
-	}
-	.gridContent {
-		max-width: 1475px !important;
-	}
+  .gridContainer {
+    max-height: 75vh;
+  }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1799px) {
+  .gridInner {
+    grid-auto-rows: minmax(9.5rem, auto);
+    grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+    grid-gap: 1.22rem;
+  }
+
+  .gridContent {
+    max-width: 1300px !important;
+  }
+
+  .gridContainer {
+    max-height: 75vh;
+  }
+}
+
+@media only screen and (min-width: 1800px) {
+  .gridInner {
+    grid-auto-rows: minmax(11rem, auto);
+    grid-template-columns: repeat(auto-fit, minmax(12.8rem, 1fr));
+    grid-gap: 1.35rem;
+  }
+
+  .gridContent {
+    max-width: 1475px !important;
+  }
+
+  .gridContainer {
+    max-height: 75vh;
+  }
 }

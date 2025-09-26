@@ -24,8 +24,8 @@ function AboutComponent() {
 				<div
 					className={`${aboutClasses.aboutMeOpenContent} ${gridClasses.subGridChild}`}
 				>
-					<div className={aboutClasses.mapLogoRow}>
-						<Image w={"16rem"} src={logoRow} alt="Jeff Van Rees Map Logo." />
+					<div className={aboutClasses.mapLogoContainer}>
+						<Image className={aboutClasses.mapLogoImage} src={logoRow} alt="Jeff Van Rees Map Logo." />
 					</div>
 					<div className={aboutClasses.aboutMeText}>
 						<div className={aboutClasses.headshotCnt}>

@@ -20,7 +20,6 @@ function AboutMeCard({ children, className }: AboutMeCardProps) {
 						<img
 							src={logo}
 							alt="Jeff Van Rees Map Logo"
-							className={aboutStyles.aboutMeCardLogo}
 						/>
 					</div>
 					<div className={aboutStyles.aboutMeCardButtons}>
@@ -31,7 +30,7 @@ function AboutMeCard({ children, className }: AboutMeCardProps) {
 								variant="subtle"
 								size="sm"
 							>
-								<img src={mailIcon} alt="Email" height={32} />
+								<img src={mailIcon} alt="Email" style={{ height: '2em' }} />
 							</Button>
 							<Button
 								component="a"
@@ -39,7 +38,7 @@ function AboutMeCard({ children, className }: AboutMeCardProps) {
 								variant="subtle"
 								size="sm"
 							>
-								<img src={linkedinIcon} alt="LinkedIn" height={32} />
+								<img src={linkedinIcon} alt="LinkedIn"style={{ height: '2em' }} />
 							</Button>
 						</Stack>
 					</div>

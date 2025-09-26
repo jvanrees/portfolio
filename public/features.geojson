@@ -220,8 +220,8 @@
 		{
 			"type": "Feature",
 			"properties": {
-				"name": "Restrooms",
-				"marker": "restrooms"
+				"name": "restroom",
+				"marker": "restroom"
 			},
 			"geometry": {
 				"type": "MultiPoint",

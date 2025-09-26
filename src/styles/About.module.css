@@ -108,11 +108,18 @@
 	max-width: 18.8rem;
 }
 
-.mapLogoRow {
+.mapLogoContainer {
 	text-align: center;
 	background-color: hsl(193, 95%, 68%);
 	padding: 1rem;
+	font-size: 12px;
+	width: 14rem;
 }
+
+/* .mapLogoImage {
+	height: 1em;
+	width: 1em;
+} */
 
 .buttonContainerBottom {
 	padding: 0.5rem 0.5rem 0.5rem 1rem;
@@ -131,7 +138,7 @@
 }
 
 @media only screen and (max-width: 530px) {
-	.mapLogoRow {
+	.mapLogoContainer {
 		text-align: center;
 	}
 
@@ -173,17 +180,16 @@
 	display: flex;
 	background-color: hsl(193, 95%, 68%);
 	padding: 1rem;
+	font-size: 16px
 }
 
 .aboutMeCardLogoContainer {
 	flex: 1;
 	display: flex;
 	justify-content: center;
+	height: 6em;
 }
 
-.aboutMeCardLogo {
-	height: 6rem;
-}
 
 .aboutMeCardButtons {
 	width: 80px;
@@ -202,3 +208,22 @@
 	bottom: 0;
 	right: 0;
 }
+
+@media only screen and (min-width: 1800px) {
+	.aboutMeCardHeader {
+		font-size: 21.5px;
+	}
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1799px) {
+	.aboutMeCardHeader {
+		font-size: 19.5px;
+	}
+}
+
+@media only screen and (max-width: 1199px) {
+	.aboutMeCardHeader {
+		font-size: 16px;
+	}
+}
+
