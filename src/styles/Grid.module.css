@@ -49,6 +49,7 @@
 }
 
 .gridContainer {
+  height: 100%;
   vertical-align: middle;
   display: flex;
   flex-direction: column;
