@@ -44,16 +44,16 @@ function AboutMeCard({ children, className }: AboutMeCardProps) {
 					</div>
 				</div>
 				<div className={aboutStyles.aboutMeCardContent}>
-					<Title order={3} mb="sm">
+					<Title order={4} mb="sm">
 						Hello, I'm Jeff and I make maps on the internet.
 					</Title>
 					<Text
 						fz={{
-							base: "0.875rem",
-							sm: "0.875rem",
-							md: "0.9rem",
-							lg: "1.1rem",
-							xl: "1.25rem",
+							base: "0.83rem",
+							sm: "0.83rem",
+							md: "0.875rem",
+							lg: "1rem",
+							xl: "1.1rem",
 
 						}}
 						mb="md"
