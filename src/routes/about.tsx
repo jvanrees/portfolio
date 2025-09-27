@@ -16,14 +16,14 @@ function AboutComponent() {
 
 	return (
 		<div
-			className={`${gridClasses.gridChild} ${aboutClasses.fullGridOverlay} ${aboutClasses.noShadow} ${aboutClasses.flexColumn}`}
+			className={clsx(gridClasses.gridChild, aboutClasses.fullGridOverlay, aboutClasses.noShadow, aboutClasses.flexColumn)}
 			style={{ viewTransitionName: "AboutMe", overflowY: "auto" }}
 		>
 			<div
-				className={`${aboutClasses.aboutMeOpen} ${gridClasses.subGridChild}`}
+				className={clsx(aboutClasses.aboutMeOpen, gridClasses.subGridChild)}
 			>
 				<div
-					className={`${aboutClasses.aboutMeOpenContent} ${gridClasses.subGridChild}`}
+					className={clsx(aboutClasses.aboutMeOpenContent, gridClasses.subGridChild)}
 				>
 					<div className={aboutClasses.mapLogoHeader}>
 						<div className={clsx(aboutClasses.mapLogoContainer)}>
@@ -87,7 +87,7 @@ function AboutComponent() {
 				</div>
 			</div>
 			<div
-				className={`${aboutClasses.aboutMeResume} ${gridClasses.subGridChild}`}
+				className={clsx(aboutClasses.aboutMeResume, gridClasses.subGridChild)}
 			>
 				<div className={aboutClasses.aboutMeStatsRow}>
 					<div className={aboutClasses.aboutMeStatsContent}>

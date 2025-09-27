@@ -1,5 +1,6 @@
 import { Button, Group, Image, Text, Title } from "@mantine/core";
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { clsx } from "clsx";
 import notFoundSvg from "../img/404.svg";
 import logoRow from "../img/logo_row.svg";
 import aboutClasses from "../styles/About.module.css";
@@ -14,7 +15,7 @@ export default function NotFoundComponent() {
 
 	return (
 		<div
-			className={`${gridClasses.gridChild} ${aboutClasses.fullGridOverlay} ${aboutClasses.noShadow} ${aboutClasses.flexColumn}`}
+			className={clsx(gridClasses.gridChild, aboutClasses.fullGridOverlay, aboutClasses.noShadow, aboutClasses.flexColumn)}
 			style={{
 				viewTransitionName: "NotFound",
 				overflowY: "auto",
@@ -22,10 +23,10 @@ export default function NotFoundComponent() {
 			}}
 		>
 			<div
-				className={`${aboutClasses.aboutMeOpen} ${gridClasses.subGridChild}`}
+				className={clsx(aboutClasses.aboutMeOpen, gridClasses.subGridChild)}
 			>
 				<div
-					className={`${aboutClasses.aboutMeOpenContent} ${gridClasses.subGridChild}`}
+					className={clsx(aboutClasses.aboutMeOpenContent, gridClasses.subGridChild)}
 					style={{ height: "100%" }}
 				>
 					<div className={aboutClasses.mapLogoContainer}>

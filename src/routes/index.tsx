@@ -1,13 +1,14 @@
 import { Paper, Text } from "@mantine/core";
 import { createFileRoute } from "@tanstack/react-router";
+import { clsx } from "clsx";
 import { easeSinInOut } from "d3-ease";
 import { useEffect } from "react";
 import { gridItems } from "../components/GridItems";
 import {
-	defaultMapColor,
-	defaultViewport,
-	type MapColor,
-	useMapContext,
+    defaultMapColor,
+    defaultViewport,
+    type MapColor,
+    useMapContext,
 } from "../context/mapstyleContext";
 import classes from "../styles/Grid.module.css";
 export const Route = createFileRoute("/")({
@@ -34,7 +35,7 @@ function RouteComponent() {
 			{gridItems.map((item) => (
 				<Paper
 					key={item.key}
-					className={`${item.className} ${classes.gridChild}`}
+					className={clsx(item.className, classes.gridChild)}
 					style={{ viewTransitionName: item.transitionName }}
 				>
 					<div style={{ width: "100%", height: "100%" }}>
