@@ -49,6 +49,7 @@
 }
 
 .gridContainer {
+  height: 100%;
   vertical-align: middle;
   display: flex;
   flex-direction: column;
@@ -181,11 +182,6 @@
 }
 
 @media only screen and (max-width: 535px) {
-  /* .expandableCell {
-    grid-column-end: span 2;
-    grid-row-end: span 1;
-  } */
-
   .shadedReliefBox {
     grid-column-end: span 2;
     grid-row-end: span 1;

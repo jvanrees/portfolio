@@ -2,7 +2,12 @@ import type { StyleSpecification } from "react-map-gl/maplibre";
 import type { MapColor } from "../context/mapstyleContext"; // Adjust path as needed
 
 const standardPaintTransition = {
-	duration: 2000,
+	duration: 1750,
+	delay: 250,
+};
+
+const nightPaintTransition = {
+	duration: 1000,
 	delay: 250,
 };
 
@@ -541,8 +546,8 @@ export const getMapStyle = ({
 			paint: {
 				"background-color": mapColor.background,
 				"background-opacity": isProjectPage ? 1 : 0,
-				"background-opacity-transition": standardPaintTransition,
-				"background-color-transition": standardPaintTransition,
+				"background-opacity-transition": nightPaintTransition,
+				"background-color-transition": nightPaintTransition,
 			},
 		},
 		{
@@ -557,8 +562,8 @@ export const getMapStyle = ({
 			paint: {
 				"fill-color": mapColor.park,
 				"fill-opacity": isProjectPage ? 1 : 0,
-				"fill-color-transition": standardPaintTransition,
-				"fill-opacity-transition": standardPaintTransition,
+				"fill-color-transition": nightPaintTransition,
+				"fill-opacity-transition": nightPaintTransition,
 			},
 		},
 		{
@@ -684,7 +689,7 @@ export const getMapStyle = ({
 				"fill-color": mapColor.water,
 				"fill-antialias": true,
 				"fill-opacity": isProjectPage ? 1 : 0,
-				"fill-color-transition": standardPaintTransition,
+				"fill-color-transition": nightPaintTransition,
 			},
 		},
 		{
@@ -717,8 +722,8 @@ export const getMapStyle = ({
 			paint: {
 				"line-color": mapColor.water,
 				"line-opacity": isProjectPage ? 1 : 0,
-				"line-color-transition": standardPaintTransition,
-				"line-opacity-transition": standardPaintTransition,
+				"line-color-transition": nightPaintTransition,
+				"line-opacity-transition": nightPaintTransition,
 			},
 		},
 		{
@@ -743,9 +748,9 @@ export const getMapStyle = ({
 					20,
 					10,
 				],
-				"line-color-transition": standardPaintTransition,
+				"line-color-transition": nightPaintTransition,
 				"line-opacity": isProjectPage ? 1 : 0,
-				"line-opacity-transition": standardPaintTransition,
+				"line-opacity-transition": nightPaintTransition,
 			},
 		},
 		{
@@ -776,8 +781,8 @@ export const getMapStyle = ({
 					20,
 				],
 				"line-opacity": isProjectPage ? 1 : 0,
-				"line-color-transition": standardPaintTransition,
-				"line-opacity-transition": standardPaintTransition,
+				"line-color-transition": nightPaintTransition,
+				"line-opacity-transition": nightPaintTransition,
 			},
 		},
 		{
@@ -809,8 +814,8 @@ export const getMapStyle = ({
 					23,
 				],
 				"line-opacity": isProjectPage ? 1 : 0,
-				"line-color-transition": standardPaintTransition,
-				"line-opacity-transition": standardPaintTransition,
+				"line-color-transition": nightPaintTransition,
+				"line-opacity-transition": nightPaintTransition,
 			},
 		},
 		{
@@ -841,8 +846,8 @@ export const getMapStyle = ({
 					20,
 				],
 				"line-opacity": isProjectPage ? 1 : 0,
-				"line-color-transition": standardPaintTransition,
-				"line-opacity-transition": standardPaintTransition,
+				"line-color-transition": nightPaintTransition,
+				"line-opacity-transition": nightPaintTransition,
 			},
 		},
 		{
@@ -865,8 +870,8 @@ export const getMapStyle = ({
 				"line-color": mapColor.roadLow,
 				"line-width": 2,
 				"line-opacity": isProjectPage ? 1 : 0,
-				"line-color-transition": standardPaintTransition,
-				"line-opacity-transition": standardPaintTransition,
+				"line-color-transition": nightPaintTransition,
+				"line-opacity-transition": nightPaintTransition,
 			},
 		},
 		{
@@ -904,8 +909,8 @@ export const getMapStyle = ({
 				],
 				"line-dasharray": [2, 0],
 				"line-opacity": isProjectPage ? 1 : 0,
-				"line-color-transition": standardPaintTransition,
-				"line-opacity-transition": standardPaintTransition,
+				"line-color-transition": nightPaintTransition,
+				"line-opacity-transition": nightPaintTransition,
 			},
 		},
 		{
@@ -950,7 +955,7 @@ export const getMapStyle = ({
 					30,
 				],
 				"line-opacity": isProjectPage ? 1 : 0,
-				"line-opacity-transition": standardPaintTransition,
+				"line-opacity-transition": nightPaintTransition,
 			},
 		},
 		{
@@ -981,8 +986,8 @@ export const getMapStyle = ({
 					1.3,
 				],
 				"line-opacity": isProjectPage ? 1 : 0,
-				"line-color-transition": standardPaintTransition,
-				"line-opacity-transition": standardPaintTransition,
+				"line-color-transition": nightPaintTransition,
+				"line-opacity-transition": nightPaintTransition,
 			},
 		},
 		{
@@ -1016,8 +1021,8 @@ export const getMapStyle = ({
 				],
 				"line-dasharray": [2, 0],
 				"line-opacity": isProjectPage ? 1 : 0,
-				"line-color-transition": standardPaintTransition,
-				"line-opacity-transition": standardPaintTransition,
+				"line-color-transition": nightPaintTransition,
+				"line-opacity-transition": nightPaintTransition,
 			},
 		},
 		{
@@ -1058,7 +1063,7 @@ export const getMapStyle = ({
 					30,
 				],
 				"line-opacity": isProjectPage ? 1 : 0,
-				"line-opacity-transition": standardPaintTransition,
+				"line-opacity-transition": nightPaintTransition,
 			},
 		},
 		{

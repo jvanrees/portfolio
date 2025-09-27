@@ -1,6 +1,7 @@
 import { Icon } from "@iconify-icon/react";
 import { Button, Group, Image, Text, Title } from "@mantine/core";
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { clsx } from "clsx";
 import headshot from "../img/headshot_b.jpg";
 import logoRow from "../img/logo_row.svg";
 import aboutClasses from "../styles/About.module.css";
@@ -24,8 +25,10 @@ function AboutComponent() {
 				<div
 					className={`${aboutClasses.aboutMeOpenContent} ${gridClasses.subGridChild}`}
 				>
-					<div className={aboutClasses.mapLogoContainer}>
-						<Image className={aboutClasses.mapLogoImage} src={logoRow} alt="Jeff Van Rees Map Logo." />
+					<div className={aboutClasses.mapLogoHeader}>
+						<div className={clsx(aboutClasses.mapLogoContainer)}>
+							<Image src={logoRow} alt="Jeff Van Rees Map Logo." />
+						</div>
 					</div>
 					<div className={aboutClasses.aboutMeText}>
 						<div className={aboutClasses.headshotCnt}>

@@ -30,7 +30,8 @@ function AboutMeCard({ children, className }: AboutMeCardProps) {
 								variant="subtle"
 								size="sm"
 							>
-								<img src={mailIcon} alt="Email" style={{ height: '2em' }} />
+
+								<img src={mailIcon} alt="Email" style={{ height: "2.2em" }} />
 							</Button>
 							<Button
 								component="a"
@@ -38,22 +39,22 @@ function AboutMeCard({ children, className }: AboutMeCardProps) {
 								variant="subtle"
 								size="sm"
 							>
-								<img src={linkedinIcon} alt="LinkedIn"style={{ height: '2em' }} />
+								<img src={linkedinIcon} alt="LinkedIn" style={{ height: "2.2em" }} />
 							</Button>
 						</Stack>
 					</div>
 				</div>
 				<div className={aboutStyles.aboutMeCardContent}>
-					<Title order={3} mb="sm">
+					<Title order={4} mb="sm">
 						Hello, I'm Jeff and I make maps on the internet.
 					</Title>
 					<Text
 						fz={{
-							base: "0.875rem",
-							sm: "0.875rem",
-							md: "0.9rem",
-							lg: "1.1rem",
-							xl: "1.25rem",
+							base: "0.83rem",
+							sm: "0.83rem",
+							md: "0.875rem",
+							lg: "1rem",
+							xl: "1.1rem",
 
 						}}
 						mb="md"
