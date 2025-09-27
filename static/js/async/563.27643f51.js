@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkjvr_portfolio=self.webpackChunkjvr_portfolio||[]).push([["563"],{8974:function(o,e,t){t.r(e),t.d(e,{component:()=>n});let n=t(3355).A}}]);
