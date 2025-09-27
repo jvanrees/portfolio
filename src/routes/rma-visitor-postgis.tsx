@@ -1,3 +1,4 @@
+import { Text } from "@mantine/core";
 import { createFileRoute } from "@tanstack/react-router";
 import { easeSinInOut } from "d3-ease";
 import { useEffect } from "react";
@@ -6,10 +7,16 @@ import ProjectPageIFrame from "../components/ProjectPageIFrame";
 import { type MapColor, useMapContext } from "../context/mapstyleContext";
 
 const title = "RMA Visitor PostGIS";
-const paragraphs = [
-	`This is an older project showcasing a visitor management system built with Node.js and PostGIS.`,
-	`It demonstrates integration of geospatial data with web applications, allowing users to interact with location-based information.`,
-];
+const paragraphs = (
+	<Text size="md">
+		This is an older project showcasing a visitor management system built with
+		Node.js and PostGIS.
+		<br />
+		<br />
+		It demonstrates integration of geospatial data with web applications,
+		allowing users to interact with location-based information.
+	</Text>
+);
 
 const mapColor: MapColor = {
 	background: "hsla(80, 11%, 95%, 1.00)",

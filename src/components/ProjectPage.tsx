@@ -8,7 +8,7 @@ interface ProjectPageComponentProps
 	extends React.HTMLAttributes<HTMLDivElement> {
 	title: string;
 	images?: string[];
-	paragraphs: string[];
+	paragraphs: React.ReactNode;
 	media?: React.ReactNode;
 	darkMode?: boolean;
 }

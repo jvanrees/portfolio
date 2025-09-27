@@ -1,3 +1,4 @@
+import { Text } from "@mantine/core";
 import { createFileRoute } from "@tanstack/react-router";
 import { easePolyOut } from "d3-ease";
 import { useEffect } from "react";
@@ -11,10 +12,21 @@ import img5 from "../img/android_app/Screenshot_20181103-204113_Rocky Mountain A
 
 const images = [img1, img2, img3, img4, img5];
 const title = "Rocky Mountain Arsenal Android App";
-const paragraphs = [
-	`The Rocky Mountain Arsenal National Wildlife Refuge is one of the nation’s largest urban wildlife preserves. The open space it provides, just 10 miles from downtown Denver, for wildlife and recreators is courtesy the location’s complex history as a manufacturing facility for weapons and chemicals. It is a story that includes both environmental damage and restoration, and reflects our increasing recognition of the value of wildlife and open space.`,
-	`The data, digitized scanned government documents, and the application itself were built from the ground up. I enjoy challenging myself and learning new technologies.`,
-];
+const paragraphs = (
+	<Text size="md">
+		The Rocky Mountain Arsenal National Wildlife Refuge is one of the nation's
+		largest urban wildlife preserves. The open space it provides, just 10 miles
+		from downtown Denver, for wildlife and recreators is courtesy the location's
+		complex history as a manufacturing facility for weapons and chemicals. It is
+		a story that includes both environmental damage and restoration, and
+		reflects our increasing recognition of the value of wildlife and open space.
+		<br />
+		<br />
+		The data, digitized scanned government documents, and the application itself
+		were built from the ground up. I enjoy challenging myself and learning new
+		technologies.
+	</Text>
+);
 export const Route = createFileRoute("/rma-android")({
 	component: RmaAndroidComponent,
 });

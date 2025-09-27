@@ -6,7 +6,7 @@ import {
 } from "@tanstack/react-router";
 import "./styles/App.css";
 
-import NotFoundComponent from "./routes/not-found";
+import NotFoundComponent from "./components/NotFound";
 import { routeTree } from "./routeTree.gen";
 
 // Ensures mantine radius is consistent across all components

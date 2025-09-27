@@ -1,3 +1,4 @@
+import { Anchor, Text } from "@mantine/core";
 import { createFileRoute } from "@tanstack/react-router";
 import { easeQuadInOut } from "d3-ease";
 import { useEffect } from "react";
@@ -10,10 +11,21 @@ const MAPTILER_API_KEY = config.maptilerApiKey;
 const MAPBOX_API_KEY = config.mapboxApiKey;
 
 const title = "Qing Dynasty";
-const paragraphs = [
-	`Inspired by Qing Dynasty watercolor maps, I recreated their water and mountain aesthetics as my first web map using CartoCSS in Mapbox Studio Classic.`,
-	`The project taught me to tailor detail and imagery per zoom level. This was my first artistic map and I later reworked it. See the original Qing map here: https://theme.npm.edu.tw/exh105/GreenBorderlands/ch/page-2.html`,
-];
+const paragraphs = (
+	<Text size="md">
+		Inspired by Qing Dynasty watercolor maps, I recreated their water and
+		mountain aesthetics as my first web map using CartoCSS in Mapbox Studio
+		Classic.
+		<br />
+		<br />
+		The project taught me to tailor detail and imagery per zoom level. This was
+		my first artistic map and I later reworked it. See the original Qing map{' '}
+		<Anchor href="https://theme.npm.edu.tw/exh105/GreenBorderlands/ch/page-2.html">
+			here
+		</Anchor>
+		.
+	</Text>
+);
 
 const mapColor: MapColor = {
 	background: "hsla(32, 51%, 72%, 1.00)",

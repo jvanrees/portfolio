@@ -1,3 +1,4 @@
+import { Text } from "@mantine/core";
 import { createFileRoute } from "@tanstack/react-router";
 import { easeCircleInOut } from "d3-ease";
 import { useEffect } from "react";
@@ -10,9 +11,15 @@ import img3 from "../img/google_maps/ihateeclipse.png";
 
 const images = [img1, img2, img3];
 const title = "Disaster Management Android & Web App";
-const paragraphs = [
-	`For GEOG 576 at Wisconsin we were tasked to create a disaster management application using the Google Maps API, java servlet, and a PostGIS database. Over the course of the semester this project evolved into a mobile application. Users can query the database, and post to it using interactive forms.`,
-];
+const paragraphs = (
+	<Text size="md">
+		For GEOG 576 at Wisconsin we were tasked to create a disaster management
+		application using the Google Maps API, java servlet, and a PostGIS database.
+		Over the course of the semester this project evolved into a mobile
+		application. Users can query the database, and post to it using interactive
+		forms.
+	</Text>
+);
 
 const mapColor: MapColor = {
 	background: "hsla(45, 13%, 94%, 1.00)",

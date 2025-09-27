@@ -1,3 +1,4 @@
+import { Text } from "@mantine/core";
 import { createFileRoute } from "@tanstack/react-router";
 import { easePolyOut } from "d3-ease";
 import { useEffect } from "react";
@@ -14,10 +15,17 @@ import img1 from "../img/night_mode/Screenshot_20181130-023817.png";
 const images = [img1, img2, img3, img4, img5, img6];
 const title = "New MapQuest Night Navigation Mode";
 
-const paragraphs = [
-	`MapQuest's new night map style balances aesthetics and function, creating a simplified, focused experience for safe night navigation.`,
-	`We refined the style through competitive analysis, ensuring harmony with the day map for brand consistency while reducing complexity to minimize distractions at night.`,
-];
+const paragraphs = (
+	<Text size="md">
+		MapQuest's new night map style balances aesthetics and function, creating a
+		simplified, focused experience for safe night navigation.
+		<br />
+		<br />
+		We refined the style through competitive analysis, ensuring harmony with the
+		day map for brand consistency while reducing complexity to minimize
+		distractions at night.
+	</Text>
+);
 
 const mapColor: MapColor = {
 	background: "hsla(210, 16%, 23%, 1.00)",
