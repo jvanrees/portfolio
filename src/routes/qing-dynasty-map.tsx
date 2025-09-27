@@ -36,7 +36,6 @@ const viewport = {
 const flyToDuration = 3000;
 const easing = easeQuadInOut;
 
-// Minimal inline Qing style (adapted from the preview HTML)
 const qingStyle: any = {
 	version: 8,
 	name: "Qing",
@@ -117,8 +116,14 @@ const qingStyle: any = {
 					["match", ["get", "scalerank"], [1, 2], true, false],
 					"vector_mountains",
 					["match", ["get", "scalerank"], [3, 4], true, false],
-					"vector_mountains",
-					"vector_mountains",
+					"mountain2",
+					["match", ["get", "scalerank"], [4, 5], true, false],
+					"mountain4",
+					["match", ["get", "scalerank"], [6], true, false],
+					"mountain%205",
+					["match", ["get", "scalerank"], [7], true, false],
+					"mountain4",
+					"mountain6",
 				],
 			},
 			paint: { "icon-opacity": 1 },
