@@ -4,8 +4,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { clsx } from "clsx";
 import headshot from "../img/headshot_b.jpg";
 import logoRow from "../img/logo_row.svg";
-import aboutClasses from "../styles/About.module.css";
-import gridClasses from "../styles/Grid.module.css";
+import aboutStyles from "../styles/About.module.css";
+import gridStyles from "../styles/Grid.module.css";
 
 export const Route = createFileRoute("/about")({
 	component: AboutComponent,
@@ -16,29 +16,29 @@ function AboutComponent() {
 
 	return (
 		<div
-			className={`${gridClasses.gridChild} ${aboutClasses.fullGridOverlay} ${aboutClasses.noShadow} ${aboutClasses.flexColumn}`}
+			className={clsx(gridStyles.gridChild, aboutStyles.fullGridOverlay, aboutStyles.noShadow, aboutStyles.flexColumn)}
 			style={{ viewTransitionName: "AboutMe", overflowY: "auto" }}
 		>
 			<div
-				className={`${aboutClasses.aboutMeOpen} ${gridClasses.subGridChild}`}
+				className={clsx(aboutStyles.aboutMeOpen, gridStyles.subGridChild)}
 			>
 				<div
-					className={`${aboutClasses.aboutMeOpenContent} ${gridClasses.subGridChild}`}
+					className={clsx(aboutStyles.aboutMeOpenContent, gridStyles.subGridChild)}
 				>
-					<div className={aboutClasses.mapLogoHeader}>
-						<div className={clsx(aboutClasses.mapLogoContainer)}>
+					<div className={aboutStyles.mapLogoHeader}>
+						<div className={clsx(aboutStyles.mapLogoContainer)}>
 							<Image src={logoRow} alt="Jeff Van Rees Map Logo." />
 						</div>
 					</div>
-					<div className={aboutClasses.aboutMeText}>
-						<div className={aboutClasses.headshotCnt}>
+					<div className={aboutStyles.aboutMeText}>
+						<div className={aboutStyles.headshotCnt}>
 							<Image
-								className={aboutClasses.headshot}
+								className={aboutStyles.headshot}
 								alt="Jeff's Headshot."
 								src={headshot}
 							/>
 						</div>
-						<Title order={3} className={aboutClasses.aboutMeSubTitles}>
+						<Title order={3} className={aboutStyles.aboutMeSubTitles}>
 							About
 						</Title>
 						<Text>
@@ -52,8 +52,8 @@ function AboutComponent() {
 							source tech. I'm particularly passionate about PostGIS and the
 							Mapbox stack.
 						</Text>
-						<div className={aboutClasses.contactTable}>
-							<Title order={3} className={aboutClasses.aboutMeSubTitles}>
+						<div className={aboutStyles.contactTable}>
+							<Title order={3} className={aboutStyles.aboutMeSubTitles}>
 								Connect
 							</Title>
 							<Group>
@@ -87,57 +87,57 @@ function AboutComponent() {
 				</div>
 			</div>
 			<div
-				className={`${aboutClasses.aboutMeResume} ${gridClasses.subGridChild}`}
+				className={clsx(aboutStyles.aboutMeResume, gridStyles.subGridChild)}
 			>
-				<div className={aboutClasses.aboutMeStatsRow}>
-					<div className={aboutClasses.aboutMeStatsContent}>
-						<Title order={4} className={aboutClasses.aboutMeSubTitles}>
+				<div className={aboutStyles.aboutMeStatsRow}>
+					<div className={aboutStyles.aboutMeStatsContent}>
+						<Title order={4} className={aboutStyles.aboutMeSubTitles}>
 							Education
 						</Title>
-						<Title order={5} className={aboutClasses.aboutMeSubTitlesConnect}>
+						<Title order={5} className={aboutStyles.aboutMeSubTitlesConnect}>
 							Colorado State University
 						</Title>
-						<Text className={aboutClasses.aboutMeSubTitlesConnect}>
+						<Text className={aboutStyles.aboutMeSubTitlesConnect}>
 							<b>Bachelor of Science, Anthropology w/ minor in Geography</b>
 						</Text>
 						<br />
-						<Title order={5} className={aboutClasses.aboutMeSubTitlesConnect}>
+						<Title order={5} className={aboutStyles.aboutMeSubTitlesConnect}>
 							University of Wisconsin-Madison
 						</Title>
-						<Text className={aboutClasses.aboutMeSubTitlesConnect}>
+						<Text className={aboutStyles.aboutMeSubTitlesConnect}>
 							Master of Science Cartography/GIS Development
 						</Text>
 					</div>
-					<div className={aboutClasses.aboutMeStatsContent}>
-						<Title order={4} className={aboutClasses.aboutMeSubTitles}>
+					<div className={aboutStyles.aboutMeStatsContent}>
+						<Title order={4} className={aboutStyles.aboutMeSubTitles}>
 							Experience
 						</Title>
-						<Title order={5} className={aboutClasses.aboutMeSubTitlesConnect}>
+						<Title order={5} className={aboutStyles.aboutMeSubTitlesConnect}>
 							Verizon Location Services (MapQuest)
 						</Title>
-						<Text className={aboutClasses.aboutMeSubTitlesConnect}>
+						<Text className={aboutStyles.aboutMeSubTitlesConnect}>
 							Cartographer
 						</Text>
 						<br />
-						<Title order={5} className={aboutClasses.aboutMeSubTitlesConnect}>
+						<Title order={5} className={aboutStyles.aboutMeSubTitlesConnect}>
 							Center for Environmental Management of Military Lands
 						</Title>
-						<Text className={aboutClasses.aboutMeSubTitlesConnect}>
+						<Text className={aboutStyles.aboutMeSubTitlesConnect}>
 							Data Technician
 						</Text>
 					</div>
-					<div className={aboutClasses.aboutMeStatsContent}>
-						<Title order={5} className={aboutClasses.aboutMeSubTitlesConnect}>
+					<div className={aboutStyles.aboutMeStatsContent}>
+						<Title order={5} className={aboutStyles.aboutMeSubTitlesConnect}>
 							Likes
 						</Title>
-						<Text className={aboutClasses.aboutMeSubTitlesConnect}>
+						<Text className={aboutStyles.aboutMeSubTitlesConnect}>
 							Bunnies, FOSS, Mapbox, Deck.GL, QGIS, PostGIS
 						</Text>
 						<br />
-						<Title order={5} className={aboutClasses.aboutMeSubTitlesConnect}>
+						<Title order={5} className={aboutStyles.aboutMeSubTitlesConnect}>
 							Dislikes
 						</Title>
-						<Text className={aboutClasses.aboutMeSubTitlesConnect}>
+						<Text className={aboutStyles.aboutMeSubTitlesConnect}>
 							Wasps, Shapefiles, Front Lawns, esri
 						</Text>
 					</div>
@@ -151,8 +151,8 @@ function AboutComponent() {
 			<div
 				className={
 					isMobile
-						? `${aboutClasses.footer} ${aboutClasses.buttonContainerShadow}`
-						: `${aboutClasses.buttonContainerBottom} ${aboutClasses.white} ${aboutClasses.buttonContainerShadow} ${aboutClasses.buttonDesktopBack}`
+						? `${aboutStyles.footer} ${aboutStyles.buttonContainerShadow}`
+						: `${aboutStyles.buttonContainerBottom} ${aboutStyles.white} ${aboutStyles.buttonContainerShadow} ${aboutStyles.buttonDesktopBack}`
 				}
 			>
 				<Group>

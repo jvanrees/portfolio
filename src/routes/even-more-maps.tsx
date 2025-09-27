@@ -8,7 +8,7 @@ import { EvenMoreMapsItems } from "../components/EvenMoreMapsItems";
 import ProjectPageBottomNav from "../components/ProjectPageBottomNav";
 import ProjectPageMap from "../components/ProjectPageMap";
 import { type MapColor, useMapContext } from "../context/mapstyleContext";
-import styles from "../styles/ProjectPage.module.css";
+import projectPageStyles from "../styles/ProjectPage.module.css";
 
 export const Route = createFileRoute("/even-more-maps")({
 	component: EvenMoreComponent,
@@ -61,8 +61,8 @@ function EvenMoreComponent() {
 				overflowY: "auto",
 			}}
 		>
-			<div className={styles.projectPageGridContainer}>
-				<div className={styles.imageGrid}>
+			<div className={projectPageStyles.projectPageGridContainer}>
+				<div className={projectPageStyles.imageGrid}>
 					{activeItem && (
 						<ProjectPageMap
 							style={activeItem.map.style as "light" | "dark" | "streets"}
@@ -86,7 +86,7 @@ function EvenMoreComponent() {
 						</ProjectPageMap>
 					)}
 				</div>
-				<div className={clsx(styles.descriptionGrid)}>
+				<div className={clsx(projectPageStyles.descriptionGrid)}>
 					<div style={{ padding: "1rem" }}>
 						<h2>Even More Maps</h2>
 						<Accordion value={activeKey} onChange={handleActiveChange}>

@@ -1,125 +1,129 @@
 .aboutMeGridCont {
-  grid-auto-rows: auto;
+	grid-auto-rows: auto;
 }
 
 .fullGridOverlay {
-  font-size: 14px;
-  border-radius: 4px;
-  min-width: 9.375rem;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  grid-row-end: span 4;
-  position: relative;
+	font-size: 14px;
+	border-radius: 4px;
+	min-width: 9.375rem;
+	transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+	grid-row-end: span 4;
+	position: relative;
 }
 
 .aboutMeOpen {
-  background-color: #ffffff;
-  white-space: pre-line;
-  overflow: hidden;
+	background-color: #ffffff;
+	white-space: pre-line;
+	overflow: hidden;
 }
 
 .aboutMeOpenContent {
-  background-color: #ffffff;
-  white-space: pre-line;
-  font-size: 0.8rem;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+	background-color: #ffffff;
+	white-space: pre-line;
+	font-size: 0.8rem;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
 }
 
 .aboutMeText {
-  padding: 1rem;
-  height: 100%;
+	padding: 1rem;
+	height: 100%;
 }
 
 .aboutMeResume {
-  background-color: #a8e0f0;
-  font-size: 1rem;
-  display: flex;
-  flex-grow: 1;
+	background-color: #a8e0f0;
+	font-size: 1rem;
+	display: flex;
+	flex-grow: 1;
 }
 
 .aboutMeSpacer {
-  flex-grow: 1;
+	flex-grow: 1;
 }
 
 .buttonContainerShadow {
-  box-shadow: 0 -0.2px 1px 1px rgba(0, 0, 0, 0.1),
-    0 -0.5px 0px 0 rgba(0, 0, 0, 0.05), 0 -1px 1px 0 rgba(0, 0, 0, 0.01);
+	box-shadow:
+		0 -0.2px 1px 1px rgba(0, 0, 0, 0.1),
+		0 -0.5px 0px 0 rgba(0, 0, 0, 0.05),
+		0 -1px 1px 0 rgba(0, 0, 0, 0.01);
 }
 
 .noShadow {
-  box-shadow: none;
+	box-shadow: none;
 }
 
 .flexColumn {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 .noShadow:hover {
-  box-shadow: none;
+	box-shadow: none;
 }
 
 .headshot {
-  border-radius: 50%;
-  max-width: 15rem;
-  max-height: 15rem;
-  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+	border-radius: 50%;
+	max-width: 15rem;
+	max-height: 15rem;
+	box-shadow:
+		0 3px 1px -2px rgba(0, 0, 0, 0.2),
+		0 2px 2px 0 rgba(0, 0, 0, 0.14),
+		0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
 
 .headshotCnt {
-  float: right;
-  padding: 1rem;
-  text-align: right;
-  vertical-align: middle;
-  display: flex;
+	float: right;
+	padding: 1rem;
+	text-align: right;
+	vertical-align: middle;
+	display: flex;
 }
 
 .contactTable {
-  display: block;
-  margin-top: 1rem;
+	display: block;
+	margin-top: 1rem;
 }
 
 .contactTableCellLinks {
-  margin: 0.5rem;
+	margin: 0.5rem;
 }
 
 .aboutMeSubTitles {
-  margin-block-start: 0;
-  margin-block-end: 0.5rem;
+	margin-block-start: 0;
+	margin-block-end: 0.5rem;
 }
 
 .aboutMeStatsRow {
-  display: grid;
-  grid-gap: 1rem;
-  width: calc(100%);
-  margin: 1rem;
-  grid-template-columns: repeat(3, 1fr);
+	display: grid;
+	grid-gap: 1rem;
+	width: calc(100%);
+	margin: 1rem;
+	grid-template-columns: repeat(auto-fit, minmax(9.8rem, 1fr));
 }
 
 .aboutMeSubTitlesConnect {
-  margin-block-start: 0;
-  margin-block-end: 0;
+	margin-block-start: 0;
+	margin-block-end: 0;
 }
 
 .aboutMeStatsContent {
-  border-radius: 4px;
-  padding: 1rem;
-  background-color: hsl(180, 100%, 100%);
+	border-radius: 4px;
+	padding: 1rem;
+	background-color: hsl(180, 100%, 100%);
 }
 
 .mapLogoContainer {
-  text-align: center;
-  background-color: hsl(193, 95%, 68%);
-  padding: 1rem;
-  font-size: 12px;
-  width: 14rem;
+	text-align: center;
+	background-color: hsl(193, 95%, 68%);
+	padding: 1rem;
+	font-size: 12px;
+	width: 14rem;
 }
 
 .mapLogoHeader {
-  width: 100%;
-  background-color: hsl(193, 95%, 68%);
+	width: 100%;
+	background-color: hsl(193, 95%, 68%);
 }
 
 /* .mapLogoImage {
@@ -128,109 +132,90 @@
 } */
 
 .buttonContainerBottom {
-  padding: 0.5rem 0.5rem 0.5rem 1rem;
-  text-decoration: none;
-  border-bottom-right-radius: 4px;
-  border-bottom-left-radius: 4px;
+	padding: 0.5rem 0.5rem 0.5rem 1rem;
+	text-decoration: none;
+	border-bottom-right-radius: 4px;
+	border-bottom-left-radius: 4px;
 }
 
 .buttonDesktopBack {
-  border-top-right-radius: 0px !important;
-  border-top-left-radius: 0px !important;
+	border-top-right-radius: 0px !important;
+	border-top-left-radius: 0px !important;
 }
 
 .white {
-  background-color: hsl(0, 0%, 100%);
+	background-color: hsl(0, 0%, 100%);
 }
 
 @media only screen and (max-width: 530px) {
-  .mapLogoContainer {
-    text-align: center;
-  }
+	.mapLogoContainer {
+		text-align: center;
+	}
 
-  .aboutMeResume {
-    overflow: hidden;
-    border-bottom-right-radius: 4px;
-    border-bottom-left-radius: 4px;
-  }
+	.aboutMeResume {
+		overflow: hidden;
+		border-bottom-right-radius: 4px;
+		border-bottom-left-radius: 4px;
+	}
 
-  .footer {
-    position: fixed;
-    bottom: 0;
-    width: calc(100% - 3.5rem);
-    background-color: hsl(0, 0%, 100%);
-    padding: 0.5rem 0.5rem 0.5rem 1rem;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-  }
+	.footer {
+		position: fixed;
+		bottom: 0;
+		width: calc(100% - 3.5rem);
+		background-color: hsl(0, 0%, 100%);
+		padding: 0.5rem 0.5rem 0.5rem 1rem;
+		border-top-left-radius: 4px;
+		border-top-right-radius: 4px;
+	}
 
-  .headshot {
-    max-width: 40vw;
-    max-height: 40vw;
-  }
+	.headshot {
+		max-width: 40vw;
+		max-height: 40vw;
+	}
 }
 
 .aboutMeCard {
-  height: 100%;
+	height: 100%;
 }
 
 .aboutMeCardContainer {
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  height: 100%;
-  padding: none;
+	display: flex;
+	position: relative;
+	flex-direction: column;
+	height: 100%;
+	padding: none;
 }
 
 .aboutMeCardHeader {
-
-  display: flex;
-  background-color: hsl(193, 95%, 68%);
-  padding: 1rem;
-  font-size: 16px;
+	display: flex;
+	background-color: hsl(193, 95%, 68%);
+	padding: 1rem;
+	font-size: 16px;
 }
 
 .aboutMeCardLogoContainer {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  height: 6em;
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	height: 6em;
 }
 
 .aboutMeCardButtons {
-  width: 80px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+	width: 80px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
 .aboutMeCardContent {
-  flex: 1;
-  padding: 1rem;
+	flex: 1;
+	padding: 1rem;
 }
 
 .aboutMeCardButton {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
-
-@media only screen and (min-width: 1800px) {
-  .aboutMeCardHeader {
-    font-size: 21.5px;
-  }
-}
-
-@media only screen and (min-width: 1200px) and (max-width: 1799px) {
-  .aboutMeCardHeader {
-    font-size: 19.5px;
-  }
-}
-
-@media only screen and (max-width: 1199px) {
-  .aboutMeCardHeader {
-    font-size: 16px;
-  }
+	position: absolute;
+	bottom: 0;
+	right: 0;
 }
 
 @media only screen and (min-width: 1800px) {
@@ -251,3 +236,20 @@
 	}
 }
 
+@media only screen and (min-width: 1800px) {
+	.aboutMeCardHeader {
+		font-size: 21.5px;
+	}
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1799px) {
+	.aboutMeCardHeader {
+		font-size: 19.5px;
+	}
+}
+
+@media only screen and (max-width: 1199px) {
+	.aboutMeCardHeader {
+		font-size: 16px;
+	}
+}

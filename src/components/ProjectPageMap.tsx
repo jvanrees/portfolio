@@ -6,8 +6,8 @@ import MapGL, {
 	NavigationControl,
 	type ViewState,
 } from "react-map-gl/maplibre";
-import config from "../config/config";
-import styles from "../styles/ProjectPageMap.module.css";
+import projectPageMapStyles from "../styles/ProjectPageMap.module.css";
+import config from "../util/config";
 
 interface ProjectPageMapProps {
 	style: "light" | "dark" | "streets" | StyleSpecification;
@@ -60,7 +60,7 @@ export default function ProjectPageMap({
 	}
 
 	return (
-		<div className={styles.container}>
+		<div className={projectPageMapStyles.container}>
 			<MapGL
 				ref={projectMapRef}
 				initialViewState={initialViewState}

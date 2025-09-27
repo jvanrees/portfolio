@@ -1,5 +1,6 @@
 import { Box, Button, Stack, Text, Title } from "@mantine/core";
 import { Link } from "@tanstack/react-router";
+import { clsx } from "clsx";
 import type React from "react";
 import linkedinIcon from "../img/icon_linkedin.svg";
 import mailIcon from "../img/icon_mail.svg";
@@ -13,7 +14,7 @@ interface AboutMeCardProps extends React.HTMLAttributes<HTMLDivElement> {
 
 function AboutMeCard({ children, className }: AboutMeCardProps) {
 	return (
-		<Box className={`${aboutStyles.aboutMeCard} ${className ?? ""}`}>
+		<Box className={clsx(aboutStyles.aboutMeCard, className)}>
 			<div className={aboutStyles.aboutMeCardContainer}>
 				<div className={aboutStyles.aboutMeCardHeader}>
 					<div className={aboutStyles.aboutMeCardLogoContainer}>

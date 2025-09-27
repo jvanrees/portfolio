@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Layer, Source } from "react-map-gl/maplibre";
-import config from "../config/config";
+import config from "../util/config";
 import ProjectPageMap from "./ProjectPageMap";
 
 interface InteractiveMediaProps {

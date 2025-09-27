@@ -1,7 +1,7 @@
 import { Button, Paper, Text } from "@mantine/core";
 import { Link } from "@tanstack/react-router";
 import { forwardRef } from "react";
-import styles from "../styles/Grid.module.css";
+import gridStyles from "../styles/Grid.module.css";
 
 export const MantineButtonLink = (props: any) => {
 	return <Button component={Link} {...props} />;
@@ -26,7 +26,7 @@ const DescriptionCard = forwardRef<
 >((props, ref) => {
 	const { title, content } = props;
 	return (
-		<Paper ref={ref} shadow="sm" p="lg" withBorder className={styles.gridChild}>
+		<Paper ref={ref} shadow="sm" p="lg" withBorder className={gridStyles.gridChild}>
 			<h1>{title}</h1>
 			<Text size="md">{content}</Text>
 			<HomeButton />

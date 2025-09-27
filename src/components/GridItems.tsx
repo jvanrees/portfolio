@@ -1,3 +1,4 @@
+import { clsx } from "clsx";
 import googleMapsImage from "../img/google_maps_android.png";
 import leafletMap from "../img/leaflet_map.png";
 import QingDynasty from "../img/ming_cartocss.png";
@@ -5,21 +6,21 @@ import nightModeImage from "../img/new_night_mode.png";
 import rmaAndroidImage from "../img/rma_history_android.png";
 import rmaVisitorImage from "../img/rma_node_express.png";
 import shadedReliefImage from "../img/shaded_relief.png";
-import styles from "../styles/Grid.module.css";
+import gridStyles from "../styles/Grid.module.css";
 import AboutMeCard from "./AboutMeCard";
 import HomeGridTile from "./HomeGridTile";
 
 export const gridItems = [
 	{
 		key: "aboutMe",
-		className: `${styles.spanSquareLarge} ${styles.titleBox} ${styles.noShadow}`,
+		className: clsx(gridStyles.spanSquareLarge, gridStyles.titleBox, gridStyles.noShadow),
 		transitionName: "AboutMe",
 		title: "About Me",
 		content: <AboutMeCard />,
 	},
 	{
 		key: "rmaAndroid",
-		className: styles.spanCenterpiece,
+		className: gridStyles.spanCenterpiece,
 		transitionName: "RmaAndroid",
 		title: "Arsenal Android App",
 		content: (
@@ -32,7 +33,7 @@ export const gridItems = [
 	},
 	{
 		key: "googleMapsApi",
-		className: `${styles.spanRectHorizontal} ${styles.rotateCell}`,
+		className: clsx(gridStyles.spanRectHorizontal, gridStyles.rotateCell),
 		transitionName: "GoogleMaps",
 		title: "Google Maps API",
 		content: (
@@ -45,7 +46,7 @@ export const gridItems = [
 	},
 	{
 		key: "rmaVisitor",
-		className: styles.spanSquareSmall,
+		className: gridStyles.spanSquareSmall,
 		transitionName: "RmaVisitor",
 		title: "PostGIS WebApp",
 		content: (
@@ -58,7 +59,7 @@ export const gridItems = [
 	},
 	{
 		key: "qingMap",
-		className: styles.spanRectVertical,
+		className: gridStyles.spanRectVertical,
 		transitionName: "CartoCSS",
 		title: "Qing Dynasty",
 		content: (
@@ -71,7 +72,7 @@ export const gridItems = [
 	},
 	{
 		key: "nightMode",
-		className: styles.spanSquareLarge,
+		className: gridStyles.spanSquareLarge,
 		transitionName: "NightMode",
 		title: "MapQuest Night Mode",
 		content: (
@@ -84,7 +85,7 @@ export const gridItems = [
 	},
 	{
 		key: "shadedRelief",
-		className: styles.shadedReliefBox,
+		className: gridStyles.shadedReliefBox,
 		transitionName: "ShadedRelief",
 		title: "Shaded Relief",
 		content: (
@@ -97,7 +98,7 @@ export const gridItems = [
 	},
 	{
 		key: "evenMoreMaps",
-		className: styles.expandableCell,
+		className: gridStyles.expandableCell,
 		transitionName: "EvenMoreMaps",
 		title: "More...",
 		content: (

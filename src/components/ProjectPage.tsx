@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import styles from "../styles/ProjectPage.module.css";
+import projectPageStyles from "../styles/ProjectPage.module.css";
 import ProjectPageBottomNav from "./ProjectPageBottomNav";
 import { ProjectPageDesc } from "./ProjectPageDescription";
 import { ProjectMedia } from "./ProjectPageMedia";
@@ -21,14 +21,14 @@ export default function ProjectPageComponent({
 	darkMode = false,
 }: ProjectPageComponentProps) {
 	return (
-		<div className={styles.projectPageGridContainer}>
-			<div className={styles.imageGrid}>
+		<div className={projectPageStyles.projectPageGridContainer}>
+			<div className={projectPageStyles.imageGrid}>
 				{media ? media : <ProjectMedia title={title} images={images || []} />}
 			</div>
 			<div
 				className={clsx(
-					styles.descriptionGrid,
-					darkMode && styles.descriptionGridDark,
+					projectPageStyles.descriptionGrid,
+					darkMode && projectPageStyles.descriptionGridDark,
 				)}
 			>
 				<ProjectPageDesc

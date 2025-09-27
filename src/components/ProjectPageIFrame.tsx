@@ -1,4 +1,4 @@
-import styles from "../styles/ProjectPageIFrame.module.css";
+import projectPageIFrameStyles from "../styles/ProjectPageIFrame.module.css";
 
 interface ProjectPageIFrameProps {
 	src: string;
@@ -10,11 +10,11 @@ export default function ProjectPageIFrame({
 	title = "Embedded Application",
 }: ProjectPageIFrameProps) {
 	return (
-		<div className={styles.container}>
+		<div className={projectPageIFrameStyles.container}>
 			<iframe
 				src={src}
 				title={title}
-				className={styles.iframe}
+				className={projectPageIFrameStyles.iframe}
 				frameBorder="0"
 				allowFullScreen
 			/>

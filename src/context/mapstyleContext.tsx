@@ -15,8 +15,8 @@ import type {
 	StyleSpecification,
 	ViewState,
 } from "react-map-gl/maplibre";
-import config from "../config/config";
-import { getMapStyle } from "../config/MapBackgroundStyle";
+import config from "../util/config";
+import { getMapStyle } from "../util/MapBackgroundStyle";
 
 export interface MapColor {
 	background: string;
