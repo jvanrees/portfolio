@@ -30,6 +30,7 @@ function AboutMeCard({ children, className }: AboutMeCardProps) {
 								variant="subtle"
 								size="sm"
 							>
+
 								<img src={mailIcon} alt="Email" style={{ height: "2.2em" }} />
 							</Button>
 							<Button

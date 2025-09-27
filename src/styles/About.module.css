@@ -183,6 +183,7 @@
 }
 
 .aboutMeCardHeader {
+
   display: flex;
   background-color: hsl(193, 95%, 68%);
   padding: 1rem;
@@ -231,3 +232,22 @@
     font-size: 16px;
   }
 }
+
+@media only screen and (min-width: 1800px) {
+	.aboutMeCardHeader {
+		font-size: 21.5px;
+	}
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1799px) {
+	.aboutMeCardHeader {
+		font-size: 19.5px;
+	}
+}
+
+@media only screen and (max-width: 1199px) {
+	.aboutMeCardHeader {
+		font-size: 16px;
+	}
+}
+
