@@ -6,7 +6,7 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import { EffectCoverflow, Thumbs } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import styles from "../styles/ProjectPage.module.css";
+import projectPageStyles from "../styles/ProjectPage.module.css";
 
 function ensureImageArrayLengthForLoop(images: any[]) {
 	// Ensure the returned array has at least 12 items by repeating the source images as many times as necessary.
@@ -31,8 +31,8 @@ export function ProjectMedia({ images, title }: ProjectMediaProps) {
 	const [activeIndex, setActiveIndex] = useState(0);
 
 	return (
-		<div className={styles.imageCarouselContainer}>
-			<div className={styles.mainCardsContainer}>
+		<div className={projectPageStyles.imageCarouselContainer}>
+			<div className={projectPageStyles.mainCardsContainer}>
 				<Swiper
 					effect={"coverflow"}
 					slideToClickedSlide={true}
@@ -44,7 +44,7 @@ export function ProjectMedia({ images, title }: ProjectMediaProps) {
 					modules={[EffectCoverflow, Thumbs]}
 					centeredSlides={true}
 					slidesPerView={3}
-					className={styles.rmaSwiper}
+					className={projectPageStyles.rmaSwiper}
 					thumbs={{ swiper: thumbsSwiper }}
 					loop={true}
 					spaceBetween={-75}
@@ -60,11 +60,11 @@ export function ProjectMedia({ images, title }: ProjectMediaProps) {
 					{imagesExtended.map((img, index) => {
 						return (
 							<SwiperSlide key={index}>
-								<div className={styles.slideContainer}>
+								<div className={projectPageStyles.slideContainer}>
 									<img
 										src={img}
 										alt={`${title} Screen ${index + 1}`}
-										className={styles.slideImage}
+										className={projectPageStyles.slideImage}
 										style={{
 											border:
 												activeIndex % imagesExtended.length === index
@@ -94,7 +94,7 @@ export function ProjectMedia({ images, title }: ProjectMediaProps) {
 			</div>
 
 			{/* Thumbnail Navigation */}
-			<Paper className={styles.thumbnailNavContainer}>
+			<Paper className={projectPageStyles.thumbnailNavContainer}>
 				<Swiper
 					onSwiper={setThumbsSwiper}
 					spaceBetween={4}
@@ -119,7 +119,7 @@ export function ProjectMedia({ images, title }: ProjectMediaProps) {
 					{images.map((img, index) => (
 						<SwiperSlide key={index}>
 							<div
-								className={styles.thumbnailImage}
+								className={projectPageStyles.thumbnailImage}
 								style={{
 									border:
 										activeIndex % images.length === index
@@ -139,7 +139,7 @@ export function ProjectMedia({ images, title }: ProjectMediaProps) {
 								<img
 									src={img}
 									alt={`Thumbnail ${index + 1}`}
-									className={styles.thumbnailImg}
+									className={projectPageStyles.thumbnailImg}
 								/>
 							</div>
 						</SwiperSlide>

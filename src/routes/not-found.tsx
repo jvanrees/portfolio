@@ -3,8 +3,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { clsx } from "clsx";
 import notFoundSvg from "../img/404.svg";
 import logoRow from "../img/logo_row.svg";
-import aboutClasses from "../styles/About.module.css";
-import gridClasses from "../styles/Grid.module.css";
+import aboutStyles from "../styles/About.module.css";
+import gridStyles from "../styles/Grid.module.css";
 
 export const Route = createFileRoute("/not-found")({
 	component: NotFoundComponent,
@@ -15,7 +15,7 @@ export default function NotFoundComponent() {
 
 	return (
 		<div
-			className={clsx(gridClasses.gridChild, aboutClasses.fullGridOverlay, aboutClasses.noShadow, aboutClasses.flexColumn)}
+			className={clsx(gridStyles.gridChild, aboutStyles.fullGridOverlay, aboutStyles.noShadow, aboutStyles.flexColumn)}
 			style={{
 				viewTransitionName: "NotFound",
 				overflowY: "auto",
@@ -23,17 +23,17 @@ export default function NotFoundComponent() {
 			}}
 		>
 			<div
-				className={clsx(aboutClasses.aboutMeOpen, gridClasses.subGridChild)}
+				className={clsx(aboutStyles.aboutMeOpen, gridStyles.subGridChild)}
 			>
 				<div
-					className={clsx(aboutClasses.aboutMeOpenContent, gridClasses.subGridChild)}
+					className={clsx(aboutStyles.aboutMeOpenContent, gridStyles.subGridChild)}
 					style={{ height: "100%" }}
 				>
-					<div className={aboutClasses.mapLogoContainer}>
+					<div className={aboutStyles.mapLogoContainer}>
 						<Image w={"16rem"} src={logoRow} alt="Jeff Van Rees Map Logo." />
 					</div>
 					<div
-						className={aboutClasses.aboutMeText}
+						className={aboutStyles.aboutMeText}
 						style={{
 							height: "100%",
 							display: "flex",
@@ -51,7 +51,7 @@ export default function NotFoundComponent() {
 							style={{ marginBottom: "1rem" }}
 						/>
 
-						<Title order={1} className={aboutClasses.aboutMeSubTitles}>
+						<Title order={1} className={aboutStyles.aboutMeSubTitles}>
 							404 Destination Not Found
 						</Title>
 						<Text>You've gone off the map. Recalculating route...</Text>
@@ -62,8 +62,8 @@ export default function NotFoundComponent() {
 			<div
 				className={
 					isMobile
-						? `${aboutClasses.footer} ${aboutClasses.buttonContainerShadow}`
-						: `${aboutClasses.buttonContainerBottom} ${aboutClasses.white} ${aboutClasses.buttonContainerShadow} ${aboutClasses.buttonDesktopBack}`
+						? clsx(aboutStyles.footer, aboutStyles.buttonContainerShadow)
+						: clsx(aboutStyles.buttonContainerBottom, aboutStyles.white, aboutStyles.buttonContainerShadow, aboutStyles.buttonDesktopBack)
 				}
 			>
 				<Group>

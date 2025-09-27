@@ -2,7 +2,7 @@ import clsx from "clsx";
 import "maplibre-gl/dist/maplibre-gl.css";
 import MapGL from "react-map-gl/maplibre";
 import { useMapContext } from "../context/mapstyleContext";
-import styles from "../styles/MapBackground.module.css";
+import mapBackgroundStyles from "../styles/MapBackground.module.css";
 
 const MapBackground = () => {
 	const {
@@ -14,14 +14,14 @@ const MapBackground = () => {
 		currentPath,
 	} = useMapContext();
 
-	const overlayClassName = clsx(styles.mapOverlay, {
-		[styles.overlayNightmode]: currentPath === "/nightmode",
-		[styles.overlayRmaAndroid]: currentPath === "/rma-android",
-		[styles.overlayQingDynastyMap]: currentPath === "/qing-dynasty-map",
+	const overlayClassName = clsx(mapBackgroundStyles.mapOverlay, {
+		[mapBackgroundStyles.overlayNightmode]: currentPath === "/nightmode",
+		[mapBackgroundStyles.overlayRmaAndroid]: currentPath === "/rma-android",
+		[mapBackgroundStyles.overlayQingDynastyMap]: currentPath === "/qing-dynasty-map",
 	});
 
 	return (
-		<div className={styles.backgroundMap}>
+		<div className={mapBackgroundStyles.backgroundMap}>
 			<MapGL
 				ref={mapGlRef}
 				initialViewState={viewport}

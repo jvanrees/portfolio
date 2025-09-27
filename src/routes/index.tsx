@@ -5,12 +5,12 @@ import { easeSinInOut } from "d3-ease";
 import { useEffect } from "react";
 import { gridItems } from "../components/GridItems";
 import {
-    defaultMapColor,
-    defaultViewport,
-    type MapColor,
-    useMapContext,
+	defaultMapColor,
+	defaultViewport,
+	type MapColor,
+	useMapContext,
 } from "../context/mapstyleContext";
-import classes from "../styles/Grid.module.css";
+import gridStyles from "../styles/Grid.module.css";
 export const Route = createFileRoute("/")({
 	component: RouteComponent,
 });
@@ -31,18 +31,18 @@ function RouteComponent() {
 	}, [flyToViewport, setMapColor]);
 
 	return (
-		<div className={classes.gridInner}>
+		<div className={gridStyles.gridInner}>
 			{gridItems.map((item) => (
 				<Paper
 					key={item.key}
-					className={clsx(item.className, classes.gridChild)}
+					className={clsx(item.className, gridStyles.gridChild)}
 					style={{ viewTransitionName: item.transitionName }}
 				>
 					<div style={{ width: "100%", height: "100%" }}>
 						{item.content ? (
 							<>{item.content}</>
 						) : (
-							<Text className={classes.gridTileText}>
+							<Text className={gridStyles.gridTileText}>
 								Jeff, you forgot to add content to {item.title}.
 							</Text>
 						)}

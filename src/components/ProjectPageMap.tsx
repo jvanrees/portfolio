@@ -2,12 +2,12 @@ import type { StyleSpecification } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { type ReactNode, useEffect, useRef } from "react";
 import MapGL, {
-	type MapRef,
-	NavigationControl,
-	type ViewState,
+    type MapRef,
+    NavigationControl,
+    type ViewState,
 } from "react-map-gl/maplibre";
 import config from "../config/config";
-import styles from "../styles/ProjectPageMap.module.css";
+import projectPageMapStyles from "../styles/ProjectPageMap.module.css";
 
 interface ProjectPageMapProps {
 	style: "light" | "dark" | "streets" | StyleSpecification;
@@ -60,7 +60,7 @@ export default function ProjectPageMap({
 	}
 
 	return (
-		<div className={styles.container}>
+		<div className={projectPageMapStyles.container}>
 			<MapGL
 				ref={projectMapRef}
 				initialViewState={initialViewState}
