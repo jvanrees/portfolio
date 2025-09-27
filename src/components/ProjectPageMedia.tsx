@@ -1,10 +1,8 @@
-import { Paper } from "@mantine/core";
 import { useState } from "react";
 import "swiper/css";
 import "swiper/css/effect-cards";
 import "swiper/css/navigation";
-import "swiper/css/thumbs";
-import { EffectCoverflow, Thumbs } from "swiper/modules";
+import { EffectCoverflow } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import projectPageStyles from "../styles/ProjectPage.module.css";
 
@@ -27,7 +25,6 @@ export interface ProjectMediaProps {
 
 export function ProjectMedia({ images, title }: ProjectMediaProps) {
 	const imagesExtended = ensureImageArrayLengthForLoop(images);
-	const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
 	const [activeIndex, setActiveIndex] = useState(0);
 
 	return (
@@ -39,13 +36,12 @@ export function ProjectMedia({ images, title }: ProjectMediaProps) {
 					autoHeight={false}
 					grabCursor={true}
 					autoplay={{
-						delay: 5000,
+						delay: 3000,
 					}}
-					modules={[EffectCoverflow, Thumbs]}
+					modules={[EffectCoverflow]}
 					centeredSlides={true}
 					slidesPerView={3}
 					className={projectPageStyles.rmaSwiper}
-					thumbs={{ swiper: thumbsSwiper }}
 					loop={true}
 					spaceBetween={-75}
 					onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
@@ -92,60 +88,6 @@ export function ProjectMedia({ images, title }: ProjectMediaProps) {
 					})}
 				</Swiper>
 			</div>
-
-			{/* Thumbnail Navigation */}
-			<Paper className={projectPageStyles.thumbnailNavContainer}>
-				<Swiper
-					onSwiper={setThumbsSwiper}
-					spaceBetween={4}
-					slidesPerView={5}
-					modules={[Thumbs]}
-					watchSlidesProgress={true}
-					breakpoints={{
-						320: {
-							slidesPerView: 3,
-							spaceBetween: 5,
-						},
-						480: {
-							slidesPerView: 4,
-							spaceBetween: 6,
-						},
-						900: {
-							slidesPerView: 5,
-							spaceBetween: 6,
-						},
-					}}
-				>
-					{images.map((img, index) => (
-						<SwiperSlide key={index}>
-							<div
-								className={projectPageStyles.thumbnailImage}
-								style={{
-									border:
-										activeIndex % images.length === index
-											? "2px solid hsl(193, 95%, 68%)"
-											: "2px solid transparent",
-									boxShadow:
-										activeIndex % images.length === index
-											? "0 2px 6px  hsla(193, 45%, 27%, 0.3)"
-											: "0 1px 4px hsla(193, 45%, 27%, 0.1)",
-									opacity: activeIndex % images.length === index ? 1 : 0.7,
-									transform:
-										activeIndex % images.length === index
-											? "scale(1.05)"
-											: "scale(1)",
-								}}
-							>
-								<img
-									src={img}
-									alt={`Thumbnail ${index + 1}`}
-									className={projectPageStyles.thumbnailImg}
-								/>
-							</div>
-						</SwiperSlide>
-					))}
-				</Swiper>
-			</Paper>
 		</div>
 	);
 }

@@ -105,6 +105,7 @@ function AboutComponent() {
 							<b>Bachelor of Science, Anthropology w/ minor in Geography</b>
 						</Text>
 						<br />
+						<br />
 						<Title order={5} className={aboutStyles.aboutMeSubTitlesConnect}>
 							University of Wisconsin-Madison
 						</Title>
@@ -123,6 +124,7 @@ function AboutComponent() {
 							Cartographer
 						</Text>
 						<br />
+						<br />
 						<Title order={5} className={aboutStyles.aboutMeSubTitlesConnect}>
 							Center for Environmental Management of Military Lands
 						</Title>
@@ -137,6 +139,7 @@ function AboutComponent() {
 						<Text className={aboutStyles.aboutMeSubTitlesConnect}>
 							Bunnies, FOSS, Mapbox, Deck.GL, QGIS, PostGIS
 						</Text>
+						<br />
 						<br />
 						<Title order={5} className={aboutStyles.aboutMeSubTitlesConnect}>
 							Dislikes

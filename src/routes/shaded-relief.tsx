@@ -1,3 +1,4 @@
+import { Text } from "@mantine/core";
 import { createFileRoute } from "@tanstack/react-router";
 import { easeSinInOut } from "d3-ease";
 import { useEffect } from "react";
@@ -11,10 +12,17 @@ import img1 from "../img/shaded_relief/shaded_relief_cropped.png";
 
 const images = [img1, img2, img3, img4];
 const title = "Shaded Relief";
-const paragraphs = [
-	`Cartography is a blend of art and information communication. The classic shaded relief, pioneered by Eduard Imhof, is an exemplary example of this.`,
-	`Here, I used GIS tools, Photoshop, and Illustrator to create my take on a classic. The end result was a map for a hypothetical bike race that would tour our beautiful state.`,
-];
+const paragraphs = (
+	<Text size="md">
+		Cartography is a blend of art and information communication. The classic
+		shaded relief, pioneered by Eduard Imhof, is an exemplary example of this.
+		<br />
+		<br />
+		Here, I used GIS tools, Photoshop, and Illustrator to create my take on a
+		classic. The end result was a map for a hypothetical bike race that would
+		tour our beautiful state.
+	</Text>
+);
 
 const mapColor: MapColor = {
 	background: "hsla(118, 34%, 46%, 1.00)",

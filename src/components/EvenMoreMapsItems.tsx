@@ -49,6 +49,7 @@ export const EvenMoreMapsItems: EvenMoreMapItemInterface[] = [
 				, shows one dot per person by race in the Washington DC combined
 				statistical area (CSA).
 				<br />
+				<br />
 				I've loaded ACS 5yr Census data into a Postgres/PostGIS database
 				allowing for the rapid creation of maps across the United States. Dots
 				were created within census block groups. Then the data was converted to
