@@ -16,14 +16,20 @@ function AboutComponent() {
 
 	return (
 		<div
-			className={clsx(gridStyles.gridChild, aboutStyles.fullGridOverlay, aboutStyles.noShadow, aboutStyles.flexColumn)}
+			className={clsx(
+				gridStyles.gridChild,
+				aboutStyles.fullGridOverlay,
+				aboutStyles.noShadow,
+				aboutStyles.flexColumn,
+			)}
 			style={{ viewTransitionName: "AboutMe", overflowY: "auto" }}
 		>
-			<div
-				className={clsx(aboutStyles.aboutMeOpen, gridStyles.subGridChild)}
-			>
+			<div className={clsx(aboutStyles.aboutMeOpen, gridStyles.subGridChild)}>
 				<div
-					className={clsx(aboutStyles.aboutMeOpenContent, gridStyles.subGridChild)}
+					className={clsx(
+						aboutStyles.aboutMeOpenContent,
+						gridStyles.subGridChild,
+					)}
 				>
 					<div className={aboutStyles.mapLogoHeader}>
 						<div className={clsx(aboutStyles.mapLogoContainer)}>
@@ -86,9 +92,7 @@ function AboutComponent() {
 					</div>
 				</div>
 			</div>
-			<div
-				className={clsx(aboutStyles.aboutMeResume, gridStyles.subGridChild)}
-			>
+			<div className={clsx(aboutStyles.aboutMeResume, gridStyles.subGridChild)}>
 				<div className={aboutStyles.aboutMeStatsRow}>
 					<div className={aboutStyles.aboutMeStatsContent}>
 						<Title order={4} className={aboutStyles.aboutMeSubTitles}>
@@ -143,11 +147,6 @@ function AboutComponent() {
 					</div>
 				</div>
 			</div>
-			{isMobile && (
-				<div style={{ visibility: "visible", padding: "0.5rem" }}>
-					<Button>&nbsp;</Button>
-				</div>
-			)}
 			<div
 				className={
 					isMobile

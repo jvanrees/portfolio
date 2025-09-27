@@ -15,18 +15,24 @@ export default function NotFoundComponent() {
 
 	return (
 		<div
-			className={clsx(gridStyles.gridChild, aboutStyles.fullGridOverlay, aboutStyles.noShadow, aboutStyles.flexColumn)}
+			className={clsx(
+				gridStyles.gridChild,
+				aboutStyles.fullGridOverlay,
+				aboutStyles.noShadow,
+				aboutStyles.flexColumn,
+			)}
 			style={{
 				viewTransitionName: "NotFound",
 				overflowY: "auto",
 				width: "100%",
 			}}
 		>
-			<div
-				className={clsx(aboutStyles.aboutMeOpen, gridStyles.subGridChild)}
-			>
+			<div className={clsx(aboutStyles.aboutMeOpen, gridStyles.subGridChild)}>
 				<div
-					className={clsx(aboutStyles.aboutMeOpenContent, gridStyles.subGridChild)}
+					className={clsx(
+						aboutStyles.aboutMeOpenContent,
+						gridStyles.subGridChild,
+					)}
 					style={{ height: "100%" }}
 				>
 					<div className={aboutStyles.mapLogoContainer}>
@@ -63,7 +69,12 @@ export default function NotFoundComponent() {
 				className={
 					isMobile
 						? clsx(aboutStyles.footer, aboutStyles.buttonContainerShadow)
-						: clsx(aboutStyles.buttonContainerBottom, aboutStyles.white, aboutStyles.buttonContainerShadow, aboutStyles.buttonDesktopBack)
+						: clsx(
+								aboutStyles.buttonContainerBottom,
+								aboutStyles.white,
+								aboutStyles.buttonContainerShadow,
+								aboutStyles.buttonDesktopBack,
+							)
 				}
 			>
 				<Group>
