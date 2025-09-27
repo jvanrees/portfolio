@@ -1,7 +1,7 @@
 import { Text } from "@mantine/core";
 import type { LayerSpecification } from "maplibre-gl";
 import type { ViewState } from "react-map-gl/maplibre";
-import config from "../config/config";
+import config from "../util/config";
 
 const MAPBOX_TOKEN = config.mapboxApiKey;
 

@@ -3,8 +3,8 @@ import { easeQuadInOut } from "d3-ease";
 import { useEffect } from "react";
 import ProjectPage from "../components/ProjectPage";
 import ProjectPageMap from "../components/ProjectPageMap";
-import config from "../config/config";
 import { type MapColor, useMapContext } from "../context/mapstyleContext";
+import config from "../util/config";
 
 const MAPTILER_API_KEY = config.maptilerApiKey;
 const MAPBOX_API_KEY = config.mapboxApiKey;
@@ -131,7 +131,14 @@ const qingStyle: any = {
 	],
 };
 
-const initialView = { longitude: 90, latitude: 20.0, zoom: 3.5 };
+const initialView = {
+	longitude: 90,
+	latitude: 20.0,
+	zoom: 3.5,
+	bearing: 0,
+	pitch: 0,
+	padding: { top: 0, bottom: 0, left: 0, right: 0 },
+};
 
 export const Route = createFileRoute("/qing-dynasty-map")({
 	component: QingDynastyComponent,
