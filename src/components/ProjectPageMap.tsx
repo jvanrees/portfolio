@@ -6,7 +6,6 @@ import MapGL, {
 	NavigationControl,
 	type ViewState,
 } from "react-map-gl/maplibre";
-import projectPageMapStyles from "../styles/ProjectPageMap.module.css";
 import config from "../util/config";
 
 interface ProjectPageMapProps {
@@ -60,17 +59,15 @@ export default function ProjectPageMap({
 	}
 
 	return (
-		<div className={projectPageMapStyles.container}>
-			<MapGL
-				ref={projectMapRef}
-				initialViewState={initialViewState}
-				mapStyle={finalMapStyle}
-				minZoom={minZoom}
-				style={{ width: "100%", height: "100%" }}
-			>
-				<NavigationControl position="top-left" />
-				{children}
-			</MapGL>
-		</div>
+		<MapGL
+			ref={projectMapRef}
+			initialViewState={initialViewState}
+			mapStyle={finalMapStyle}
+			minZoom={minZoom}
+			style={{ width: "100%", height: "100%" }}
+		>
+			<NavigationControl position="top-left" />
+			{children}
+		</MapGL>
 	);
 }
