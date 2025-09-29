@@ -51,7 +51,7 @@ function AboutComponent() {
 							Hello, I'm Jeff and I make maps on the internet. I transform
 							complex questions and data into meaningful and digestible
 							interactive visual experiences. Let's build the future of spatial
-							together. I live in Fort Collins, CO with my wife and two young
+							together. I live in Fort Collins, CO with my wife and three young
 							sons. Growing up in Estes Park, CO the walls of my room were
 							covered in maps and I carry that love of maps with me today. Over
 							the course of my studies and career I have gravitated toward open
