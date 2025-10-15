@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>RMA Map</title>
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.8.0/dist/maplibre-gl.css"/>
+
+  <style>
+    html, body { margin: 0; padding: 0; height: 100%; }
+    #map { position: absolute; inset: 0; height: 100%; width: 100%; }
+  </style>
+
+  <script>
+    // ========= Bridge helpers =========
+    function postToRN(payload) {
+      try {
+        if (window.ReactNativeWebView) {
+          window.ReactNativeWebView.postMessage(JSON.stringify(payload));
+        } else {
+          // Bridge message sent
+        }
+      } catch (e) { console.error('Bridge error:', e); }
+    }
+    function postError(msg) {
+      console.error(msg);
+      postToRN({ type: 'mapError', error: String(msg) });
+    }
+
+    // Global error handler (last-resort)
+    window.onerror = function (msg, url, lineNo, columnNo, error) {
+      postError('JS Error: ' + msg + ' at ' + lineNo + ':' + columnNo);
+      return false;
+    };
+
+    // ========= Load MapLibre GL with error logging =========
+    function loadMapLibreGL() {
+      return new Promise((resolve, reject) => {
+        if (typeof maplibregl !== 'undefined') {
+          resolve();
+          return;
+        }
+
+        const script = document.createElement('script');
+        script.src = 'https://unpkg.com/maplibre-gl@5.8.0/dist/maplibre-gl.js';
+
+        // Add timeout for slow networks
+        const timeout = setTimeout(() => {
+          script.remove();
+          const timeoutMsg = '[MapLibre] Script load timeout after 30 seconds';
+          console.error(timeoutMsg);
+          postError(timeoutMsg);
+          reject(new Error(timeoutMsg));
+        }, 30000);
+
+        script.onload = function() {
+          clearTimeout(timeout);
+          resolve();
+        };
+        script.onerror = function(event) {
+          clearTimeout(timeout);
+          const errorMsg = '[MapLibre] Failed to load script from ' + script.src;
+          console.error(errorMsg, event);
+          postError(errorMsg + ' - Event: ' + JSON.stringify({
+            type: event.type,
+            target: event.target ? event.target.src : 'unknown'
+          }));
+          reject(new Error(errorMsg));
+        };
+
+        document.head.appendChild(script);
+      });
+    }
+
+    // ========= WebGL capability check =========
+    function webglSupported() {
+      try {
+        const c = document.createElement('canvas');
+        return !!(c.getContext('webgl') || c.getContext('experimental-webgl'));
+      } catch { return false; }
+    }
+
+    // ========= App state (filled by RN) =========
+    let apiKey = '';
+    let presentStyle = null;
+    let satelliteStyle = null;
+    let historic1993Style = null;
+    let historicSatelliteStyle = null;
+    let presentFeaturesGeojson = null;
+    let presentFeaturesLayers = null;
+    let historicBuildingsLayers = null;
+    let selectedLayers = null;
+    let RMA_BOUNDS = null;
+    let RMA_FIT_BOUNDS_OPTIONS = null;
+
+    // Tracks layer visibility controlled by RN actions
+    let currentLayerStates = { historicBuildings: false, presentFeatures: true };
+    let map;              // maplibregl.Map
+    let mapReady = false; // handshake with RN
+    const pending = [];   // queue messages received before mapReady
+
+    // ========= Core handlers wired EARLY (avoid race with RN) =========
+    function handleMessage(event) {
+      try {
+        const data = JSON.parse(event.data);
+        if (data && data.type === 'initialize') {
+          // Set all RN-provided globals
+          apiKey                 = data.apiKey || '';
+          presentStyle           = data.presentStyle;
+          satelliteStyle         = data.satelliteStyle;
+          historic1993Style      = data.historic1993Style;
+          historicSatelliteStyle = data.historicSatelliteStyle;
+          presentFeaturesGeojson = data.presentFeaturesGeojson;
+          presentFeaturesLayers  = data.presentFeaturesLayers;
+          historicBuildingsLayers= data.historicBuildingsLayers;
+          selectedLayers         = data.selectedLayers;
+          RMA_BOUNDS             = data.bounds;
+          RMA_FIT_BOUNDS_OPTIONS = data.fitBoundsOptions;
+
+          if (data.layerStates) {
+            currentLayerStates = { ...currentLayerStates, ...data.layerStates };
+          }
+          // Begin guarded init with script loading
+          loadMapLibreGL().then(() => {
+            safeInit(0);
+          }).catch((error) => {
+            postError('Failed to load MapLibre GL: ' + error.message);
+          });
+          return;
+        }
+
+        // For any other action: queue until mapReady, then apply
+        if (!mapReady) { pending.push(data); return; }
+        applyAction(data);
+      } catch (e) {
+        postError('Error parsing message: ' + e.toString());
+      }
+    }
+    // Attach both listeners up-front to avoid missing the first init
+    document.addEventListener('message', handleMessage, false);
+    window.addEventListener('message', handleMessage, false);
+
+    // Bridge ping ASAP so RN knows it can send initialize
+    (function pingBridge() {
+      postToRN({ type: 'debug', message: 'WebView bridge is working' });
+    })();
+
+    // ========= Style rebuild with dynamic layers =========
+    function rebuildStyleWithLayers(baseStyleIndex) {
+      const BASE_STYLES = [presentStyle, satelliteStyle, historic1993Style, historicSatelliteStyle];
+      const base = BASE_STYLES[baseStyleIndex] || BASE_STYLES[0];
+      const style = JSON.parse(JSON.stringify(base));
+
+      const isPresentBasemap = baseStyleIndex < 2;
+      const shouldShowPresentFeatures = isPresentBasemap && currentLayerStates.presentFeatures;
+
+      if (!style.sources) style.sources = {};
+
+      // Historic buildings vector (Mapbox tileset requires access token)
+      style.sources['historic-buildings'] = {
+        type: 'vector',
+        url: 'https://api.mapbox.com/v4/jvanrees.dm8bkhvt.json?secure&access_token=' + apiKey
+      };
+
+      // Present features geojson (from RN)
+      style.sources['present-features'] = {
+        type: 'geojson',
+        data: presentFeaturesGeojson
+      };
+
+      // Selected features (empty FC initially; RN will populate)
+      style.sources['selected-present-feature'] = {
+        type: 'geojson',
+        data: { type: 'FeatureCollection', features: [] }
+      };
+      style.sources['selected-historic-building'] = {
+        type: 'geojson',
+        data: { type: 'FeatureCollection', features: [] }
+      };
+
+      if (!style.layers) style.layers = [];
+
+      // Layer visibility mutations
+      const processedHistoricBuildingsLayers = (historicBuildingsLayers || []).map(layer => ({
+        ...layer,
+        layout: { ...(layer.layout || {}), visibility: currentLayerStates.historicBuildings ? 'visible' : 'none' }
+      }));
+
+      const processedPresentFeaturesLayers = (presentFeaturesLayers || []).map(layer => ({
+        ...layer,
+        layout: { ...(layer.layout || {}), visibility: shouldShowPresentFeatures ? 'visible' : 'none' }
+      }));
+
+      const processedSelectedLayers = selectedLayers || [];
+
+      style.layers.push(
+        ...processedHistoricBuildingsLayers,
+        ...processedPresentFeaturesLayers,
+        ...processedSelectedLayers
+      );
+
+      return style;
+    }
+
+    // ========= Safe init (waits for MapLibre) =========
+    function safeInit(tries = 0) {
+      if (!webglSupported()) {
+        postError('webglUnsupported');
+        return;
+      }
+      if (typeof maplibregl === 'undefined') {
+        if (tries < 5) return setTimeout(() => safeInit(tries + 1), 100); // Brief wait just in case
+        postError('MapLibre GL JS not available after loading');
+        return;
+      }
+      initMap();
+    }
+
+    // ========= Apply RN actions (after mapReady) =========
+    const lastOverrides = new Map(); // layerId -> 'visible' | 'none'
+    function applyAction(data) {
+      if (!data || !map) return;
+      switch (data.type) {
+        case 'zoomIn':
+          try { map.zoomIn(); } catch {}
+          break;
+        case 'zoomOut':
+          try { map.zoomOut(); } catch {}
+          break;
+        case 'flyTo':
+          if (data.center && typeof data.zoom === 'number') {
+            try { map.flyTo({ center: data.center, zoom: data.zoom }); } catch {}
+          }
+          break;
+        case 'setPitch':
+          if (typeof data.pitch === 'number') {
+            try { map.easeTo({ pitch: data.pitch, duration: 100 }); } catch (e) { postError('Failed to set pitch: ' + e.toString()); }
+          }
+          break;
+        case 'getPitch':
+          try {
+            const p = Math.round(map.getPitch());
+            postToRN({ type: 'pitchChanged', pitch: p });
+          } catch (e) { postError('Failed to get pitch: ' + e.toString()); }
+          break;
+        case 'setStyleByIndex': {
+          const idx = (data.index|0);
+          try {
+            // Update current layer states if provided in the message
+            if (data.layerStates) {
+              currentLayerStates = { ...currentLayerStates, ...data.layerStates };
+            }
+            map.setStyle(rebuildStyleWithLayers(idx));
+            // Replay any runtime visibility overrides after style reloads
+            map.once('style.load', () => {
+              lastOverrides.forEach((vis, id) => { try { map.setLayoutProperty(id, 'visibility', vis); } catch {} });
+            });
+          } catch (e) { postError('Failed to set basemap: ' + e.toString()); }
+          break;
+        }
+        case 'toggleLayerVisibility': {
+          const vis = data.visible ? 'visible' : 'none';
+          lastOverrides.set(data.layerId, vis);
+          try { map.setLayoutProperty(data.layerId, 'visibility', vis); } catch (e) {
+            console.warn('Could not toggle layer', data.layerId, e);
+          }
+          break;
+        }
+        case 'updateSelectedFeature': {
+          try {
+            const empty = { type: 'FeatureCollection', features: [] };
+            const hist = map.getSource('selected-historic-building');
+            const pres = map.getSource('selected-present-feature');
+
+            if (data.featureType === 'building' && data.geojson) {
+              const fc = data.geojson.type === 'Feature'
+                ? { type: 'FeatureCollection', features: [data.geojson] }
+                : data.geojson;
+              if (hist) hist.setData(fc);
+              if (pres) pres.setData(empty);
+            } else if (data.featureType === 'amenity' && data.geojson) {
+              const fc = data.geojson.type === 'Feature'
+                ? { type: 'FeatureCollection', features: [data.geojson] }
+                : data.geojson;
+              if (pres) pres.setData(fc);
+              if (hist) hist.setData(empty);
+            } else {
+              if (hist) hist.setData(empty);
+              if (pres) pres.setData(empty);
+            }
+          } catch (e) { console.error('Failed to update selected feature:', e); }
+          break;
+        }
+        default:
+          // ignore
+          break;
+      }
+    }
+
+    // ========= Main map init =========
+    function initMap() {
+      try {
+        map = new maplibregl.Map({
+          container: 'map',
+          style: rebuildStyleWithLayers(0),
+          attributionControl: true
+        });
+
+        map.on('load', function () {
+          try {
+            mapReady = true;
+            // Fit bounds if provided
+            if (RMA_BOUNDS && RMA_FIT_BOUNDS_OPTIONS) {
+              map.fitBounds(RMA_BOUNDS, RMA_FIT_BOUNDS_OPTIONS);
+            }
+            // Flush any RN actions that arrived early
+            if (pending.length) {
+              const copy = pending.splice(0);
+              copy.forEach(applyAction);
+            }
+            postToRN({ type: 'mapReady', bounds: RMA_BOUNDS });
+          } catch (e) {
+            postError('Error in load handler: ' + e.toString());
+          }
+        });
+
+        map.on('error', function (e) {
+          postToRN({ type: 'mapError', error: 'Map error: ' + JSON.stringify(e) });
+        });
+
+        // Click: present features
+        map.on('click', 'present-features-icon', function (e) {
+          const features = map.queryRenderedFeatures(e.point, { layers: ['present-features-icon'] });
+          if (features.length > 0) {
+            const f = features[0];
+            postToRN({
+              type: 'featureClicked',
+              feature: { type: 'Feature', geometry: f.geometry, properties: f.properties }
+            });
+          }
+        });
+
+        // Click: historic buildings
+        const buildingLayers = ['historic-buildings-fill', 'historic_buildings_3d_color_add', 'historic_buildings_3d_add'];
+        buildingLayers.forEach(function (layer) {
+          map.on('click', layer, function (e) {
+            const features = map.queryRenderedFeatures(e.point, { layers: [layer] });
+            if (features.length > 0) {
+              const f = features[0];
+              postToRN({
+                type: 'featureClicked',
+                feature: { type: 'Feature', geometry: f.geometry, properties: f.properties }
+              });
+            }
+          });
+        });
+
+        // General map click (clears selection if none hit)
+        map.on('click', function (e) {
+          const allInteractive = ['present-features-icon', 'historic-buildings-fill', 'historic_buildings_3d_color_add', 'historic_buildings_3d_add'];
+          const features = map.queryRenderedFeatures(e.point, { layers: allInteractive });
+          if (features.length === 0) postToRN({ type: 'mapClicked' });
+        });
+
+        // Cursor hints
+        map.on('mouseenter', 'present-features-icon', () => (map.getCanvas().style.cursor = 'pointer'));
+        map.on('mouseleave', 'present-features-icon', () => (map.getCanvas().style.cursor = ''));
+        buildingLayers.forEach(layer => {
+          map.on('mouseenter', layer, () => (map.getCanvas().style.cursor = 'pointer'));
+          map.on('mouseleave', layer, () => (map.getCanvas().style.cursor = ''));
+        });
+
+      } catch (e) {
+        postError('Failed to initialize map: ' + e.toString());
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <div id="map"></div>
+</body>
+</html>

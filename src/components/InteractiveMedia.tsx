@@ -11,8 +11,6 @@ const urlMap: Record<string, string> = {
 	"2": "https://api.mapbox.com/styles/v1/jvanrees/cjqrfjufv88ds2spcxadhcbbp.html?fresh=true&title=true&access_token=pk.eyJ1IjoianZhbnJlZXMiLCJhIjoiY2lzZGRvcmRhMDA0dTJ5cnRrbGRld3l0dCJ9.tYSjHXsUNgl5T6C_mOVyxQ#9.65/39.7447/-104.9111/-37.6/60",
 };
 
-const MAPBOX_TOKEN = config.mapboxApiKey;
-
 export function InteractiveMedia({ activeKey }: InteractiveMediaProps) {
 	const [currentUrl, setCurrentUrl] = useState(urlMap["2"]);
 
@@ -31,6 +29,9 @@ export function InteractiveMedia({ activeKey }: InteractiveMediaProps) {
 					longitude: -76.96417543059914,
 					latitude: 38.90679867244859,
 					zoom: 8.868734873694233,
+					bearing: 0,
+					pitch: 0,
+					padding: { top: 0, bottom: 0, left: 0, right: 0 },
 				}}
 			>
 				<Source

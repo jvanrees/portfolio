@@ -10,6 +10,7 @@ interface ProjectPageComponentProps
 	images?: string[];
 	paragraphs: React.ReactNode;
 	media?: React.ReactNode;
+	controls?: React.ReactNode;
 	darkMode?: boolean;
 }
 
@@ -18,6 +19,7 @@ export default function ProjectPageComponent({
 	images,
 	paragraphs,
 	media,
+	controls,
 	darkMode = false,
 }: ProjectPageComponentProps) {
 	return (
@@ -35,6 +37,7 @@ export default function ProjectPageComponent({
 					title={title}
 					paragraphs={paragraphs}
 					darkMode={darkMode}
+					controls={controls}
 				/>
 			</div>
 
