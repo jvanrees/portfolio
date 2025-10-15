@@ -6,12 +6,14 @@ export interface ProjectMediaProps {
 	title: string;
 	paragraphs: React.ReactNode;
 	darkMode: boolean;
+	controls?: React.ReactNode;
 }
 
 export function ProjectPageDesc({
 	title,
 	paragraphs,
 	darkMode,
+	controls,
 }: ProjectMediaProps) {
 	return (
 		<Box
@@ -23,6 +25,9 @@ export function ProjectPageDesc({
 		>
 			<h1>{title}</h1>
 			{paragraphs}
+			{controls && (
+				<div className={projectStyles.mediaToggleContainer}>{controls}</div>
+			)}
 			<br />
 			<br />
 		</Box>

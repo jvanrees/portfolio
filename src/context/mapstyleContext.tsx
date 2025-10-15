@@ -73,11 +73,6 @@ const MapContext = createContext<MapContextType>({
 	setIsMapLoaded: () => {},
 });
 
-const standardPaintTransition = {
-	duration: 2000,
-	delay: 250,
-};
-
 export const MapProvider: React.FC<{ children: ReactNode }> = ({
 	children,
 }) => {
