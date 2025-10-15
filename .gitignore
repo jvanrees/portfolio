@@ -150,3 +150,7 @@ dist
 
 # Old Portfolio Files
 Old2019_App.js
+
+# Allow expo build node_modules folder.
+!public/rma-react-native-web/assets/node_modules/
+!public/rma-react-native-web/assets/node_modules/**
