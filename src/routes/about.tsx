@@ -145,7 +145,7 @@ function AboutComponent() {
 							Dislikes
 						</Title>
 						<Text className={aboutStyles.aboutMeSubTitlesConnect}>
-							Wasps, Shapefiles, Front Lawns, esri
+							Wasps, Shapefiles, Front Lawns
 						</Text>
 					</div>
 				</div>
