@@ -53,6 +53,9 @@ importers:
       recast:
         specifier: ^0.23.11
         version: 0.23.11
+      rsbuild-plugin-google-analytics:
+        specifier: ^1.0.4
+        version: 1.0.4(@rsbuild/core@1.5.12)
       swiper:
         specifier: ^11.2.10
         version: 11.2.10
@@ -1873,6 +1876,14 @@ packages:
     resolution: {integrity: sha512-I25/2QgoROE1vYV+NQ1En9T9UFB9Cmfm2CJ83zZOlaDpvz29wGQSZXWKw7MiNXau7wYgB/T9fVIdIuEQ+KbiiA==}
     engines: {node: '>=18.0.0', npm: '>=8.0.0'}
     hasBin: true
+
+  rsbuild-plugin-google-analytics@1.0.4:
+    resolution: {integrity: sha512-K7KkgIUJWtoBpcCLBDLnBXezvQWdue5LCDO4NDvSDe/TEFxOlKb8wG6dDtp/A+CwbnZRVeNOZ9cB6vNg/y/Suw==}
+    peerDependencies:
+      '@rsbuild/core': 1.x
+    peerDependenciesMeta:
+      '@rsbuild/core':
+        optional: true
 
   run-parallel@1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
@@ -3979,6 +3990,10 @@ snapshots:
       '@rollup/rollup-win32-x64-gnu': 4.52.2
       '@rollup/rollup-win32-x64-msvc': 4.52.2
       fsevents: 2.3.3
+
+  rsbuild-plugin-google-analytics@1.0.4(@rsbuild/core@1.5.12):
+    optionalDependencies:
+      '@rsbuild/core': 1.5.12
 
   run-parallel@1.2.0:
     dependencies:

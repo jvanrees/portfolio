@@ -2,6 +2,7 @@ import { defineConfig } from "@rsbuild/core";
 import { pluginCssMinimizer } from "@rsbuild/plugin-css-minimizer";
 import { pluginReact } from "@rsbuild/plugin-react";
 import { TanStackRouterRspack } from "@tanstack/router-plugin/rspack";
+import { pluginGoogleAnalytics } from "rsbuild-plugin-google-analytics";
 
 // Custom plugin to copy index.html to 404.html after build
 class CopyIndexTo404Plugin {
@@ -24,7 +25,11 @@ class CopyIndexTo404Plugin {
 }
 
 export default defineConfig({
-	plugins: [pluginReact(), pluginCssMinimizer()],
+	plugins: [
+		pluginReact(),
+		pluginCssMinimizer(),
+		pluginGoogleAnalytics({ id: "G-12ZE4LG3XL" }),
+	],
 	html: {
 		title: "Jeff Van Rees",
 		favicon: "./favicon.ico",
